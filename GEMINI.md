@@ -21,7 +21,11 @@ This document serves as the single source of truth for the **BaaoDash** (and fut
 ```
 d:/Antigravity/BaaoLocalDelivery/
 ├── GEMINI.md                               # This authoritative project manual & rules
-├── BaaoDash_MVP_Prototype.html            # Primary Interactive 5-Phone Simulator & Production PWA
+├── BaaoDash_MVP_Prototype.html            # Primary Interactive 5-Phone Simulator & Multi-Device Harness
+├── BaaoDash_PWA.html                      # Production Progressive Web App (PWA) for all browsers & devices
+├── app.html                               # Standalone PWA Alias & Vercel Root Route
+├── manifest.webmanifest                   # W3C PWA Manifest with icons, theme colors & shortcuts
+├── sw.js                                  # Service Worker (offline cache, push events, background sync)
 ├── BaaoDash_Onboarding_Demo.html           # Multi-Persona Onboarding Mobile UI Demo (Customer, Merchant, Rider)
 ├── BaaoDash_Brand_Identity.html            # Comprehensive Brand Identity & 20 Master Mockups Portal
 ├── BaaoDash_Brand_Identity_Manual.md       # Authoritative Brand Guidelines & Regional Architecture Manual
@@ -44,7 +48,8 @@ d:/Antigravity/BaaoLocalDelivery/
     ├── test_multi_phone_lifecycle.js       # 5-phone simultaneous real-time state propagation test
     ├── test_autofit.js                     # Viewport scaling & responsive auto-fit test
     ├── test_onboarding_audit.js            # Multi-persona onboarding verification & audit test
-    └── test_brand_identity.js              # Comprehensive brand identity, 20 mockups & SVG audit test
+    ├── test_brand_identity.js              # Comprehensive brand identity, 20 mockups & SVG audit test
+    └── test_pwa_audit.js                   # Standalone PWA manifest, service worker & cross-device audit
 ```
 
 ---
@@ -181,11 +186,14 @@ node tests/test_onboarding_audit.js
 
 # 8. Verify comprehensive brand identity, 20 mockups & SVG vector assets
 node tests/test_brand_identity.js
+
+# 9. Verify standalone PWA manifest, service worker & cross-device responsive UI
+node tests/test_pwa_audit.js
 ```
 
 To run the full suite in a single command:
 ```powershell
-node tests/test_production_audit.js; node tests/test_ui.js; node tests/test_ljk_logic.js; node tests/test_directory.js; node tests/test_multi_phone_lifecycle.js; node tests/test_autofit.js; node tests/test_onboarding_audit.js; node tests/test_brand_identity.js
+node tests/test_production_audit.js; node tests/test_ui.js; node tests/test_ljk_logic.js; node tests/test_directory.js; node tests/test_multi_phone_lifecycle.js; node tests/test_autofit.js; node tests/test_onboarding_audit.js; node tests/test_brand_identity.js; node tests/test_pwa_audit.js
 ```
 
 ### Local Dev Server
@@ -193,4 +201,5 @@ Serve the app locally using Python or any static HTTP server:
 ```bash
 python -m http.server 8085
 # Navigate to: http://localhost:8085/BaaoDash_MVP_Prototype.html
+# Standalone PWA: http://localhost:8085/BaaoDash_PWA.html
 ```

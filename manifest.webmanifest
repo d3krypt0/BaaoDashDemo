@@ -1,0 +1,48 @@
+{
+  "name": "BaaoDash — Local Delivery & Errands",
+  "short_name": "BaaoDash",
+  "description": "Hyperlocal on-demand delivery & micro-logistics platform for Baao and Rinconada, Camarines Sur",
+  "start_url": "./BaaoDash_PWA.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0B1F3A",
+  "theme_color": "#155EEF",
+  "lang": "en-PH",
+  "categories": ["food", "shopping", "logistics", "utilities"],
+  "icons": [
+    {
+      "src": "assets/brand/logo-symbol.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/brand/logo-symbol.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Order Food & Goods",
+      "url": "./BaaoDash_PWA.html?role=customer",
+      "description": "Browse local Baao stores and cafes"
+    },
+    {
+      "name": "Book Padala Courier",
+      "url": "./BaaoDash_PWA.html?role=customer&tab=padala",
+      "description": "Send packages and documents point-to-point"
+    },
+    {
+      "name": "Kitchen Display Console",
+      "url": "./BaaoDash_PWA.html?role=merchant",
+      "description": "Merchant kitchen order management"
+    },
+    {
+      "name": "Rider Delivery Hub",
+      "url": "./BaaoDash_PWA.html?role=rider",
+      "description": "Courier dispatch and float wallet"
+    }
+  ]
+}
