@@ -40,13 +40,13 @@ for (const res of resolutions) {
   // Simple calculator from implementation
   const availableWidth = Math.max(320, mockWindow.innerWidth - 64);
   const availableHeight = Math.max(300, mockWindow.innerHeight - 46 - 65 - 50);
-  const unscaledW = 1580;
+  const unscaledW = 1980;
   const unscaledH = 860;
 
   const scaleW = availableWidth / unscaledW;
   const scaleH = availableHeight / unscaledH;
   let fitScale = Math.min(scaleW, scaleH);
-  fitScale = Math.max(0.45, Math.min(1.0, fitScale));
+  fitScale = Math.max(0.38, Math.min(1.0, fitScale));
   fitScale = parseFloat(fitScale.toFixed(2));
 
   const scaledW = Math.round(unscaledW * fitScale);

@@ -206,7 +206,7 @@
     .quad-scaler {
       transform-origin: top left;
       transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      width: 1580px;
+      width: 1980px;
     }
 
     .quad-phones-grid {
@@ -214,7 +214,7 @@
       gap: 1.25rem;
       justify-content: flex-start;
       align-items: flex-start;
-      width: 1580px;
+      width: 1980px;
       padding: 0.25rem 0.5rem 1.5rem 0.5rem;
     }
 
@@ -242,7 +242,8 @@
       transition: all 0.2s ease;
     }
 
-    .phone-persona-badge.badge-customer { border-left: 4px solid #2563eb; }
+    .phone-persona-badge.badge-customer { border-left: 4px solid #0891b2; }
+    .phone-persona-badge.badge-customer2 { border-left: 4px solid #6366f1; }
     .phone-persona-badge.badge-merchant { border-left: 4px solid #b45309; }
     .phone-persona-badge.badge-rider    { border-left: 4px solid #059669; }
     .phone-persona-badge.badge-admin    { border-left: 4px solid #7c3aed; }
@@ -1234,6 +1235,13 @@
     }
     .btn-customer:active { background: #0e7490; }
 
+    .btn-customer2 {
+      background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+    }
+    .btn-customer2:active { background: #4f46e5; }
+
     .btn-rider {
       background: linear-gradient(135deg, #059669 0%, #047857 100%);
       color: #ffffff;
@@ -1737,33 +1745,41 @@
   <!-- DESKTOP TESTING TOOLBAR (Invisible on Mobile Screen) -->
   <div class="desktop-toolbar">
     <div class="desktop-toolbar-brand">
-      ⚡ BaaoDash <span class="tag">Operations Simulator</span>
+      ⚡ BaaoDash <span class="tag">5-Phone Network Simulator</span>
     </div>
     <div class="desktop-toolbar-actions">
-      <button class="harness-btn" onclick="fastDemoOrder()" style="background:#16a34a; border-color:#22c55e; color:#ffffff; font-weight:800;" title="Place an immediate test order to see all 4 phones react simultaneously">
-        ⚡ Place Demo Order
-      </button>
+      <div style="display:flex; align-items:center; gap:0.35rem;">
+        <button class="harness-btn" onclick="fastSimultaneousOrders()" style="background:#16a34a; border-color:#22c55e; color:#ffffff; font-weight:800;" title="Place orders on BOTH Customer A and Customer B simultaneously">
+          ⚡ Simultaneous (Both)
+        </button>
+        <button class="harness-btn" onclick="fastDemoOrderCustomer1()" style="background:#0891b2; border-color:#06b6d4; color:#ffffff; font-weight:700;" title="Place test order for Customer A (Maria)">
+          ⚡ Cust A (Maria)
+        </button>
+        <button class="harness-btn" onclick="fastDemoOrderCustomer2()" style="background:#6366f1; border-color:#818cf8; color:#ffffff; font-weight:700;" title="Place test order for Customer B (Juan)">
+          ⚡ Cust B (Juan)
+        </button>
+      </div>
       <div style="display:flex; align-items:center; gap:0.25rem; background:rgba(15,23,42,0.6); padding:0.2rem 0.4rem; border-radius:10px; border:1px solid #334155;">
         <span style="font-size:0.72rem; color:#94a3b8; font-weight:700; margin-right:0.2rem;">Zoom:</span>
-        <button class="harness-btn active" onclick="setQuadZoom('auto')" id="btn-zoom-auto" style="padding:0.25rem 0.5rem; font-size:0.75rem;" title="Automatically fit all 4 phones to your screen">⚡ Auto-Fit</button>
+        <button class="harness-btn active" onclick="setQuadZoom('auto')" id="btn-zoom-auto" style="padding:0.25rem 0.5rem; font-size:0.75rem;" title="Automatically fit all 5 phones to your screen">⚡ Auto-Fit</button>
+        <button class="harness-btn" onclick="setQuadZoom(0.65)" id="btn-zoom-65" style="padding:0.25rem 0.5rem; font-size:0.75rem;">65%</button>
         <button class="harness-btn" onclick="setQuadZoom(0.75)" id="btn-zoom-75" style="padding:0.25rem 0.5rem; font-size:0.75rem;">75%</button>
-        <button class="harness-btn" onclick="setQuadZoom(0.85)" id="btn-zoom-85" style="padding:0.25rem 0.5rem; font-size:0.75rem;">85%</button>
         <button class="harness-btn" onclick="setQuadZoom(1.0)" id="btn-zoom-100" style="padding:0.25rem 0.5rem; font-size:0.75rem;">100%</button>
       </div>
-      <button class="harness-btn" onclick="resetPrototypeState()" title="Reset All 4 Devices">
-        ↺ Reset All 4 Devices
+      <button class="harness-btn" onclick="resetPrototypeState()" title="Reset All 5 Devices">
+        ↺ Reset All 5 Devices
       </button>
     </div>
   </div>
 
-  <!-- 4-PHONE MULTI-DEVICE WRAPPER -->
+  <!-- 5-PHONE MULTI-DEVICE WRAPPER -->
   <div class="device-shell-wrapper">
 
     <!-- Dashboard Title Banner -->
     <div class="phones-dashboard-header">
       <h2>⚡ BaaoDash Multi-Persona Simulation Hub</h2>
       <p>
-        Real-time order & delivery flow across 4 simultaneous live phone interfaces. Watch state changes, notifications, and payouts propagate instantly across Customer, Merchant, Rider, and Central Dispatch.
+        Real-time multi-customer order & delivery flow across 5 simultaneous live phone interfaces. Watch simultaneous orders, notifications, and payouts propagate instantly across Customer A, Customer B, Kitchen, Rider, and Central Dispatch.
       </p>
     </div>
 
@@ -1773,13 +1789,13 @@
         <div class="quad-phones-grid" id="quad-phones-grid">
 
       <!-- ========================================================================= -->
-      <!-- PHONE 1: CUSTOMER APP -->
+      <!-- PHONE 1: CUSTOMER APP A (MARIA) -->
       <!-- ========================================================================= -->
       <div class="phone-column" id="col-customer">
         <div class="phone-persona-badge badge-customer">
           <div>
-            <div class="persona-badge-title">📱 1. Customer App</div>
-            <div class="persona-badge-sub">Directory, Store Menus & Tracking</div>
+            <div class="persona-badge-title">📱 1. Customer A (Maria)</div>
+            <div class="persona-badge-sub">Poblacion • Order & Live Tracker</div>
           </div>
           <span class="persona-sync-pill"><span class="sync-dot"></span> Live Sync</span>
         </div>
@@ -2248,12 +2264,488 @@
   </div>
 
   <!-- ========================================================================= -->
-  <!-- PHONE 2: MERCHANT KITCHEN -->
+  <!-- PHONE 2: CUSTOMER APP B (JUAN) -->
+  <!-- ========================================================================= -->
+  <div class="phone-column" id="col-customer2">
+    <div class="phone-persona-badge badge-customer2">
+      <div>
+        <div class="persona-badge-title">📱 2. Customer B (Juan)</div>
+        <div class="persona-badge-sub">San Nicolas • Simultaneous Order</div>
+      </div>
+      <span class="persona-sync-pill"><span class="sync-dot"></span> Live Sync</span>
+    </div>
+
+    <div class="device-shell phone-customer2" id="phone-shell-customer2">
+
+      <!-- Dynamic Island Notch -->
+      <div class="phone-island">
+        <div class="island-cam"></div>
+        <div class="island-sensor"></div>
+      </div>
+
+      <!-- Phone Top Status Bar -->
+      <div class="phone-status-bar">
+        <span class="status-time">9:41</span>
+        <div class="status-icons">
+          <span>5G</span>
+          <span>📶</span>
+          <span>🔋 100%</span>
+        </div>
+      </div>
+
+      <!-- STICKY TOP APP HEADER -->
+      <header class="app-header">
+        <div class="app-brand" onclick="handleCustomerBrandClickC2()">
+          ⚡ BaaoDash
+        </div>
+        <div class="app-location-pill" onclick="handleCustomerBrandClickC2()">
+          <span>📍 San Nicolas, Baao</span>
+        </div>
+      </header>
+
+      <!-- SCROLLABLE CONTENT BODY -->
+      <main class="mobile-content" id="cust2-mobile-content">
+
+        <div id="view-customer2" class="view-pane active">
+
+          <!-- Mode A: Food Marketplace -->
+          <div id="cust2-food-section">
+
+            <!-- SUB-VIEW 1: PARTNER MERCHANTS HOMEPAGE -->
+            <div id="cust2-merchants-home">
+
+              <!-- Interactive Search Bar -->
+              <div class="home-search-bar">
+                <span class="home-search-icon">🔍</span>
+                <input type="text" id="home-merchant-search-c2" class="home-search-input" placeholder="Search cafes, ice, food in Baao..." oninput="filterMerchantsSearchC2(this.value)">
+              </div>
+
+              <!-- Category Filter Chips -->
+              <div class="home-cat-scroll" id="home-category-chips-c2">
+                <button type="button" class="home-cat-chip active" onclick="filterMerchantsCategoryC2('all')">
+                  🏢 All Stores (<span id="home-count-all-c2">3</span>)
+                </button>
+                <button type="button" class="home-cat-chip" onclick="filterMerchantsCategoryC2('cafe')">
+                  ☕ Cafes (<span id="home-count-cafe-c2">2</span>)
+                </button>
+                <button type="button" class="home-cat-chip" onclick="filterMerchantsCategoryC2('ice')">
+                  🧊 Ice Depot (<span id="home-count-ice-c2">1</span>)
+                </button>
+              </div>
+
+              <!-- Feed Header -->
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+                <h3 style="font-size:0.95rem; font-weight:800; color:var(--text-main); margin:0;">
+                  Partner Merchants in Baao
+                </h3>
+                <span style="font-size:0.72rem; color:var(--text-muted); font-weight:600;" id="merchants-feed-count-c2">3 stores open</span>
+              </div>
+
+              <!-- Scalable Vertical Merchants Feed -->
+              <div id="merchants-list-container-c2">
+                <!-- Dynamically populated by renderMerchantsDirectoryC2() -->
+              </div>
+
+            </div>
+
+            <!-- SUB-VIEW 2: DEDICATED MERCHANT STORE & MENU -->
+            <div id="cust2-merchant-detail" style="display: none;">
+
+              <!-- Navigation Back Bar -->
+              <div class="store-back-bar">
+                <button type="button" class="store-back-btn" onclick="backToMerchantsHomeC2()">
+                  <span>←</span> All Stores
+                </button>
+                <span id="detail-store-status-pill-c2" class="status-pill pill-completed">Verified</span>
+              </div>
+
+              <!-- Quick Switcher Bar for Direct Store Toggling -->
+              <div class="chip-scroll-container" style="margin-bottom: 0.85rem;">
+                <button id="cafe-btn-extraction-c2" class="cafe-chip" onclick="switchCustomerCafeC2('extraction')">
+                  ☕ Extraction Point
+                </button>
+                <button id="cafe-btn-butfirst-c2" class="cafe-chip active active-butfirst" onclick="switchCustomerCafeC2('butfirst')">
+                  🧋 But First Coffee
+                </button>
+                <button id="cafe-btn-ljk-c2" class="cafe-chip" onclick="switchCustomerCafeC2('ljk')">
+                  🧊 LJK Consumer Goods
+                </button>
+              </div>
+
+              <!-- Active Store Identity Card -->
+              <div class="mobile-card" id="cafe-banner-card-c2" style="border-left: 4px solid #0f766e; padding: 1.05rem; margin-bottom: 1.05rem; background: linear-gradient(180deg, #ffffff 0%, #fafaf9 100%);">
+                <div style="display:flex; align-items:flex-start; gap:0.85rem;">
+                  <div id="cust2-cafe-avatar" style="width: 52px; height: 52px; border-radius: 14px; background: #f0fdfa; border: 1.5px solid #ccfbf1; display: flex; align-items: center; justify-content: center; font-size: 1.65rem; flex-shrink: 0; box-shadow: 0 2px 6px rgba(15,118,110,0.08);">
+                    🧋
+                  </div>
+                  <div style="flex: 1; min-width: 0;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; gap: 0.4rem; margin-bottom: 0.2rem;">
+                      <h3 id="cust2-cafe-title" style="font-size: 1.02rem; font-weight: 800; color: #0f766e; letter-spacing: -0.02em; margin: 0; display: flex; align-items: center; gap: 0.35rem;">
+                        But First Coffee
+                        <span title="Verified Baao Partner" style="font-size: 0.85rem; color: #2563eb;">☑️</span>
+                      </h3>
+                      <span id="cust2-cafe-badge" class="status-pill pill-completed" style="font-size: 0.68rem; padding: 0.18rem 0.5rem;">Open</span>
+                    </div>
+                    <p id="cust2-cafe-tagline" style="font-size: 0.77rem; color: var(--text-body); font-weight: 500; margin: 0 0 0.5rem 0; line-height: 1.35;">
+                      Affordable Daily Specialty Brews & Warm Pastries
+                    </p>
+                    <div id="cust2-cafe-badges-row" style="display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center;">
+                      <span id="cust2-cafe-rating" style="font-size: 0.7rem; font-weight: 700; color: #854d0e; background: #fef9c3; border: 1px solid #fef08a; padding: 0.15rem 0.45rem; border-radius: 6px; display: inline-flex; align-items: center; gap: 0.2rem;">
+                        ⭐ 4.8 (210)
+                      </span>
+                      <span id="cust2-cafe-prep" style="font-size: 0.7rem; font-weight: 700; color: #0f766e; background: #ccfbf1; border: 1px solid #99f6e4; padding: 0.15rem 0.45rem; border-radius: 6px;">
+                        ⏱️ 10–15 mins
+                      </span>
+                      <span id="cust2-cafe-location" style="font-size: 0.7rem; font-weight: 700; color: var(--text-muted); background: #f1f5f9; padding: 0.15rem 0.45rem; border-radius: 6px;">
+                        📍 San Nicolas, Baao
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Food & Drink Catalog List -->
+              <div id="menu-catalog-grid-c2">
+                <!-- Rendered dynamically -->
+              </div>
+
+              <!-- Mobile Catalog Footer Card -->
+              <div class="mobile-card" id="cust2-menu-footer-card" style="margin-top: 1.25rem; text-align: center; border: 1px dashed var(--border-strong); background: var(--surface-card); padding: 1.35rem 1.15rem;">
+                <div id="footer-cart-empty-prompt-c2">
+                  <div style="font-size: 2.1rem; margin-bottom: 0.4rem;">☕</div>
+                  <h4 style="font-size: 1rem; font-weight: 800; color: var(--text-main); letter-spacing: -0.015em;">Order Food or Ice in Baao</h4>
+                  <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.3rem; line-height: 1.45;">
+                    Tap <strong>+ Add</strong> on any menu item above.<br>Your floating cart bar will slide up instantly below!
+                  </p>
+                  <div style="margin-top: 0.85rem; display: inline-flex; align-items: center; gap: 0.4rem; background: #f0fdf4; border: 1px solid #bbf7d0; padding: 0.35rem 0.75rem; border-radius: 99px; font-size: 0.72rem; font-weight: 700; color: #166534;">
+                    <span>⚡ Direct Store Pricing • Fast Local Delivery</span>
+                  </div>
+                </div>
+                <div id="footer-cart-active-prompt-c2" style="display: none;">
+                  <div style="display:inline-flex; align-items:center; gap:0.35rem; font-size: 0.72rem; font-weight: 800; color: #6366f1; text-transform: uppercase; background:#e0e7ff; border:1px solid #c7d2fe; padding:0.22rem 0.65rem; border-radius:999px; margin-bottom:0.45rem;">
+                    <span>🛒 Items in Your Cart</span>
+                  </div>
+                  <div id="footer-cart-summary-text-c2" style="font-size: 1.15rem; font-weight: 900; color: var(--text-main); margin-bottom: 0.75rem; letter-spacing: -0.02em;">
+                    1 item • ₱85.00
+                  </div>
+                  <button class="btn btn-customer2 btn-block" onclick="openCheckoutSheetC2()" style="padding: 0.8rem; font-size: 0.94rem;">
+                    Review Order & Checkout →
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Mode B: Padala Courier Form -->
+          <div id="cust2-padala-section" style="display: none;">
+            <div class="mobile-card" style="border-left: 4px solid #6366f1;">
+              <div class="mobile-card-header">
+                <div>
+                  <div class="mobile-card-title" style="color: #4f46e5;">📦 Padala Express Courier</div>
+                  <div class="mobile-card-sub">Point-to-point doorstep package dispatch in Baao</div>
+                </div>
+              </div>
+
+              <form onsubmit="event.preventDefault(); placePadalaOrderC2();">
+                <div class="form-group">
+                  <label class="form-label">Pickup Barangay</label>
+                  <select id="padala-pickup-brgy-c2" class="form-select" onchange="updatePadalaFareC2()">
+                    <option value="San Nicolas">San Nicolas (Nearby Zone) — ₱70 Base</option>
+                    <option value="Poblacion">Poblacion (Town Center) — ₱50 Base</option>
+                    <option value="San Vicente">San Vicente (Nearby Zone) — ₱70 Base</option>
+                    <option value="Agdangan">Agdangan (Rural Mid-Distance) — ₱70 Base</option>
+                    <option value="Antipolo">Antipolo (Outer Zone) — ₱100 Base</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Pickup Landmark & Sender Name</label>
+                  <input id="padala-pickup-landmark-c2" class="form-input" placeholder="e.g. Tapat ng Kapilya, look for Juan" value="San Nicolas, tapat ng kapilya (Look for Juan)">
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Dropoff Barangay</label>
+                  <select id="padala-dropoff-brgy-c2" class="form-select" onchange="updatePadalaFareC2()">
+                    <option value="Poblacion">Poblacion (Town Center) — ₱50 Standard</option>
+                    <option value="San Vicente">San Vicente (Nearby Zone) — ₱70 Standard</option>
+                    <option value="San Nicolas">San Nicolas (Nearby Zone) — ₱70 Standard</option>
+                    <option value="Agdangan">Agdangan (Rural Mid-Distance) — ₱70 Standard</option>
+                    <option value="Antipolo">Antipolo (Outer Zone Perimeter) — ₱100 Extended</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Dropoff Landmark & Receiver Name</label>
+                  <input id="padala-dropoff-landmark-c2" class="form-input" placeholder="e.g. Purok 1, near elementary school" value="Poblacion, tapat ng munisipyo (Nanay Carmen)">
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Item / Package Description</label>
+                  <input id="padala-item-desc-c2" class="form-input" placeholder="e.g. Homemade baked rolls, documents" value="Fresh pastry box & school documents">
+                </div>
+
+                <!-- Live Dynamic Fare Calculation Tile -->
+                <div style="background: #f8fafc; border: 1.5px solid var(--border); border-radius: 14px; padding: 0.95rem; margin-bottom: 1rem;">
+                  <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <div>
+                      <div style="font-size:0.7rem; font-weight:800; color:var(--text-muted); text-transform:uppercase;">Estimated Courier Fare:</div>
+                      <div style="font-size:0.75rem; color:#4f46e5; font-weight:700;" id="padala-vehicle-label-c2">Motorcycle Courier</div>
+                    </div>
+                    <div id="padala-fare-display-c2" style="font-size:1.45rem; font-weight:900; color:#4f46e5;">₱70.00</div>
+                  </div>
+                </div>
+
+                <button type="submit" id="btn-book-padala-c2" class="btn btn-customer2 btn-block" style="padding: 0.85rem;">
+                  Book Padala Courier (COD) →
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Mode C: Order Tracker (5-Stage Reactive Stepper) -->
+          <div id="cust2-orders-section" style="display: none;">
+            <div class="mobile-card" style="border-left: 4px solid #6366f1;">
+              <div class="mobile-card-header" style="margin-bottom: 0.75rem;">
+                <div>
+                  <div class="mobile-card-title" style="color: #4f46e5;">📍 Live Delivery Tracker</div>
+                  <div class="mobile-card-sub">Real-time status updates from store prep to doorstep dropoff</div>
+                </div>
+                <span id="cust2-order-status-badge" class="status-pill pill-pending">NO ACTIVE ORDER</span>
+              </div>
+
+              <!-- Empty State Box -->
+              <div id="cust2-empty-order" style="text-align: center; padding: 2.5rem 1rem; color: var(--text-muted);">
+                <div style="font-size: 2.6rem; margin-bottom: 0.5rem;">📦</div>
+                <p style="font-size: 0.92rem; font-weight: 700; color: var(--text-main);">No live deliveries right now</p>
+                <p style="font-size: 0.78rem; margin-top: 0.35rem; line-height: 1.45;">
+                  Order food or ice from partner merchants or book a Padala courier to track real-time delivery status here.
+                </p>
+                <button class="btn btn-sm btn-customer2" style="margin-top: 1rem;" onclick="switchCustomerTabC2('food')">
+                  🛍️ Browse Partner Stores
+                </button>
+              </div>
+
+              <!-- Active Order Box -->
+              <div id="cust2-active-order-box" style="display: none;">
+                <!-- Reactive Stepper -->
+                <div class="stepper-container">
+                  <div id="stepper-bar-c2" class="stepper-progress" style="width: 10%;"></div>
+                  <div class="step-node active" id="step2-1">
+                    <div class="step-circle">1</div>
+                    <div class="step-label">Placed</div>
+                  </div>
+                  <div class="step-node" id="step2-2">
+                    <div class="step-circle">2</div>
+                    <div class="step-label">Kitchen</div>
+                  </div>
+                  <div class="step-node" id="step2-3">
+                    <div class="step-circle">3</div>
+                    <div class="step-label">Rider</div>
+                  </div>
+                  <div class="step-node" id="step2-4">
+                    <div class="step-circle">4</div>
+                    <div class="step-label">On Way</div>
+                  </div>
+                  <div class="step-node" id="step2-5">
+                    <div class="step-circle">5</div>
+                    <div class="step-label">Arrived</div>
+                  </div>
+                </div>
+
+                <!-- Order Detail Tile -->
+                <div style="background: #f8fafc; border: 1px solid var(--border); padding: 1.15rem; border-radius: 16px; margin-top: 1.25rem;">
+                  <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.35rem;">
+                    <div id="cust2-tracker-desc" style="font-weight: 800; font-size: 1.05rem; color: var(--text-main); letter-spacing: -0.015em;">
+                      But First Coffee Order (#BD-202)
+                    </div>
+                    <span id="cust2-tracker-badge" class="status-pill pill-transit" style="font-size:0.68rem;">Live</span>
+                  </div>
+                  <p id="cust2-tracker-items" style="font-size: 0.85rem; color: var(--text-body); font-weight: 500; margin: 0.35rem 0 0.6rem 0; line-height: 1.4;">
+                    1x Vietnamese Cold Brew
+                  </p>
+                  <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.95rem; background: #ffffff; padding: 0.55rem 0.75rem; border-radius: 10px; border: 1px solid var(--border);">
+                    📍 Dropoff: <strong id="cust2-tracker-dropoff" style="color: var(--text-main);">San Nicolas, Baao</strong>
+                  </div>
+
+                  <!-- Driver Card -->
+                  <div style="background:#ffffff; border:1px solid var(--border); border-radius:14px; padding:0.85rem 1rem; display:flex; justify-content:space-between; align-items:center; box-shadow: 0 1px 3px rgba(15,23,42,0.03);">
+                    <div style="display: flex; align-items: center; gap: 0.65rem;">
+                      <div style="width: 40px; height: 40px; border-radius: 10px; background: #ecfdf5; border: 1px solid #a7f3d0; display: flex; align-items: center; justify-content: center; font-size: 1.3rem;">
+                        🛵
+                      </div>
+                      <div>
+                        <div style="font-size:0.68rem; font-weight:800; color:var(--text-muted); text-transform:uppercase; letter-spacing: 0.04em;">Assigned Courier</div>
+                        <div id="cust2-tracker-rider" style="font-weight:800; font-size:0.95rem; color:#059669; letter-spacing: -0.01em;">Searching for rider...</div>
+                        <div style="font-size:0.75rem; color:var(--text-muted);">Motorcycle #EA-4921</div>
+                      </div>
+                    </div>
+                    <div style="text-align: right;">
+                      <div style="font-size: 0.68rem; font-weight:800; color: var(--text-muted); text-transform:uppercase;">COD Total:</div>
+                      <div id="cust2-tracker-total" style="font-weight: 900; font-size: 1.15rem; color: #b45309; letter-spacing: -0.02em;">₱135.00</div>
+                    </div>
+                  </div>
+
+                  <div style="display:flex; gap:0.5rem; margin-top:0.85rem;">
+                    <button class="btn btn-sm btn-secondary btn-block" onclick="showToast('Connecting to Kuya Jun via SMS call...', '📞')">
+                      📞 Call Rider
+                    </button>
+                    <button class="btn btn-sm btn-secondary btn-block" onclick="showToast('Opening SMS chat with rider...', '💬')">
+                      💬 Message
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </main>
+
+      <!-- FLOATING STICKY CART BAR (CUSTOMER 2) -->
+      <div id="floating-cart-c2" class="floating-cart-bar" onclick="openCheckoutSheetC2()" title="Open Order Checkout Drawer">
+        <div class="cart-summary-left">
+          <div class="cart-badge-circle" id="floating-cart-qty-c2">0</div>
+          <div>
+            <div class="cart-amount-text" id="floating-cart-val-c2">₱0.00</div>
+            <div style="font-size:0.72rem; opacity:0.85;" id="floating-cart-store-c2">But First Coffee</div>
+          </div>
+        </div>
+        <div class="cart-action-text">
+          <span>Checkout</span>
+          <span style="font-size:1.1rem;">→</span>
+        </div>
+      </div>
+
+      <!-- MOBILE BOTTOM NAVIGATION BAR (CUSTOMER 2) -->
+      <nav class="mobile-bottom-nav">
+        <button id="nav2-btn-food" class="nav-tab-item active" onclick="handleCustomerNavFoodC2()">
+          <span class="nav-icon">🏪</span>
+          <span class="nav-label">Stores</span>
+        </button>
+
+        <button id="nav2-btn-padala" class="nav-tab-item" onclick="switchCustomerTabC2('padala')">
+          <span class="nav-icon">📦</span>
+          <span class="nav-label">Padala</span>
+        </button>
+
+        <button id="nav2-btn-orders" class="nav-tab-item" onclick="switchCustomerTabC2('orders')">
+          <span class="nav-icon">📍</span>
+          <span class="nav-label">Tracker</span>
+          <span id="nav2-active-dot" class="nav-active-dot" style="display: none;"></span>
+        </button>
+      </nav>
+
+      <!-- CHECKOUT BOTTOM SHEET (CUSTOMER 2) -->
+      <div class="sheet-overlay" id="checkout-sheet-modal-c2" onclick="handleCheckoutSheetOverlayC2(event)">
+        <div class="bottom-sheet" style="max-height: 90vh;">
+          <div class="sheet-handle"></div>
+          <div class="sheet-title">
+            <span>🛒 Review Order & Checkout</span>
+            <span style="font-size: 1.2rem; cursor: pointer; color:var(--text-muted);" onclick="closeCheckoutSheetC2()">✕</span>
+          </div>
+
+          <!-- Store Origin Tag -->
+          <div style="display:flex; align-items:center; justify-content:space-between; background:var(--surface-hover); border:1px solid var(--border); border-radius:12px; padding:0.55rem 0.85rem; margin-bottom:0.85rem;">
+            <div style="display:flex; align-items:center; gap:0.4rem;">
+              <span id="checkout-store-icon-c2" style="font-size:1.15rem;">🧋</span>
+              <div>
+                <strong id="checkout-store-name-c2" style="font-size:0.88rem; color:var(--text-main); display:block;">But First Coffee</strong>
+                <span style="font-size:0.72rem; color:var(--text-muted);">Baao Verified Partner • Fast Delivery</span>
+              </div>
+            </div>
+            <span class="status-pill pill-completed" style="font-size:0.68rem;">Open</span>
+          </div>
+
+          <!-- Cart Items Container -->
+          <div style="margin-bottom: 0.85rem;">
+            <div style="font-size:0.75rem; font-weight:800; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.4rem;">
+              Cart Items (<span id="cart-item-count-c2">0 items</span>)
+            </div>
+            <div id="checkout-items-list-c2">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- Add More Items Button -->
+          <button class="btn btn-sm btn-secondary btn-block" style="margin-bottom: 1rem; border-style: dashed; font-weight:700;" onclick="closeCheckoutSheetC2()">
+            + Add More Items from Menu
+          </button>
+
+          <!-- 3-Tier Hyperlocal Addressing -->
+          <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 16px; padding: 1.05rem; margin-bottom: 1.1rem;">
+            <div style="font-size: 0.86rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.75rem; display:flex; align-items:center; gap:0.4rem;">
+              <span>📍 Delivery Destination (Baao 3-Tier Address)</span>
+            </div>
+
+            <div class="form-group" style="margin-bottom:0.75rem;">
+              <label class="form-label" style="font-size:0.75rem; font-weight:700;">Tier 1: Barangay (Determines Fare Zone)</label>
+              <select id="cust2-food-barangay" class="form-select" onchange="updateFoodDeliveryFareC2()">
+                <option value="San Nicolas" selected>San Nicolas (Nearby Zone) — ₱70 Standard Fare</option>
+                <option value="Poblacion">Poblacion (Town Center) — ₱50 Base Fare</option>
+                <option value="San Vicente">San Vicente (Nearby Zone) — ₱70 Standard Fare</option>
+                <option value="San Juan">San Juan (Nearby Zone) — ₱70 Standard Fare</option>
+                <option value="Agdangan">Agdangan (Rural Mid-Distance) — ₱70 Standard Fare</option>
+                <option value="Sagrada">Sagrada (Rural Mid-Distance) — ₱70 Standard Fare</option>
+                <option value="Antipolo">Antipolo (Outer Zone Perimeter) — ₱100 Extended Fare</option>
+              </select>
+            </div>
+
+            <div class="form-group" style="margin-bottom:0.75rem;">
+              <label class="form-label" style="font-size:0.75rem; font-weight:700;">Tier 2: Purok / Sitio / Street</label>
+              <input id="cust2-food-purok" class="form-input" placeholder="e.g. Purok 2" value="Purok 2 - Riverside">
+            </div>
+
+            <div class="form-group" style="margin-bottom:0;">
+              <label class="form-label" style="font-size:0.75rem; font-weight:700;">Tier 3: Landmark / Gate Color & Receiver</label>
+              <textarea id="cust2-food-landmark" class="form-textarea" rows="2" placeholder="Describe landmark, gate color...">Tapat ng kapilya, may dilaw na gate. Hanapin si Juan.</textarea>
+            </div>
+          </div>
+
+          <!-- Payment Method -->
+          <div class="form-group" style="margin-bottom: 1.1rem;">
+            <label class="form-label" style="font-size:0.75rem; font-weight:700;">💳 Payment Method</label>
+            <select id="cust2-food-payment" class="form-select">
+              <option value="COD">Cash on Delivery (COD) — Exact Cash Preferred</option>
+              <option value="DIRECT_GCASH">Direct Merchant GCash (QR on Delivery)</option>
+            </select>
+          </div>
+
+          <!-- Bill Breakdown -->
+          <div style="background: #ffffff; border: 1.5px solid var(--border); padding: 0.95rem 1.1rem; border-radius: 14px; margin-bottom: 1.15rem; box-shadow: 0 1px 3px rgba(15,23,42,0.03);">
+            <div style="display:flex; justify-content:space-between; margin-bottom: 0.4rem; font-size: 0.85rem;">
+              <span style="color:var(--text-muted); font-weight:500;">Menu Items Subtotal:</span>
+              <span id="cust2-food-subtotal" style="font-weight:700; color:var(--text-main);">₱0.00</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; margin-bottom: 0.5rem; font-size: 0.85rem;">
+              <span style="color:var(--text-muted); font-weight:500;">Motorcycle Delivery Fee:</span>
+              <span id="cust2-food-delivery-fee" style="font-weight:700; color:#0284c7;">₱70.00</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; padding-top: 0.6rem; border-top: 1px dashed var(--border); font-size: 1.15rem; font-weight:900;">
+              <span style="color:var(--text-main);">Total COD to Pay:</span>
+              <span id="cust2-food-total" style="color:#b45309; letter-spacing:-0.02em;">₱70.00</span>
+            </div>
+          </div>
+
+          <!-- Submit Order CTA -->
+          <button id="btn-submit-cafe-order-c2" class="btn btn-customer2 btn-block" style="padding: 0.92rem; font-size: 0.98rem; font-weight: 800;" onclick="placeMerchantOrderC2()">
+            Place Cafe Order (<span id="cart-sheet-cta-total-c2">₱0.00</span>) →
+          </button>
+        </div>
+      </div>
+
+      <div class="phone-home-indicator"></div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- PHONE 3: MERCHANT KITCHEN -->
   <!-- ========================================================================= -->
   <div class="phone-column" id="col-merchant">
     <div class="phone-persona-badge badge-merchant">
       <div>
-        <div class="persona-badge-title">🏪 2. Merchant Kitchen</div>
+        <div class="persona-badge-title">🏪 3. Merchant Kitchen</div>
         <div class="persona-badge-sub">Live Incoming, Cooking & 86 Stock</div>
       </div>
       <span class="persona-sync-pill"><span class="sync-dot"></span> Kitchen Live</span>
@@ -2360,12 +2852,12 @@
   </div>
 
   <!-- ========================================================================= -->
-  <!-- PHONE 3: RIDER APP -->
+  <!-- PHONE 4: RIDER APP -->
   <!-- ========================================================================= -->
   <div class="phone-column" id="col-rider">
     <div class="phone-persona-badge badge-rider">
       <div>
-        <div class="persona-badge-title">🛵 3. Rider App</div>
+        <div class="persona-badge-title">🛵 4. Rider App</div>
         <div class="persona-badge-sub">Kuya Jun • Dispatch & COD</div>
       </div>
       <span class="persona-sync-pill"><span class="sync-dot"></span> GPS Online</span>
@@ -2490,12 +2982,12 @@
   </div>
 
   <!-- ========================================================================= -->
-  <!-- PHONE 4: ADMIN / DISPATCHER TOWER -->
+  <!-- PHONE 5: ADMIN / DISPATCHER TOWER -->
   <!-- ========================================================================= -->
   <div class="phone-column" id="col-admin">
     <div class="phone-persona-badge badge-admin">
       <div>
-        <div class="persona-badge-title">🖥️ 4. Dispatcher Tower</div>
+        <div class="persona-badge-title">🖥️ 5. Dispatcher Tower</div>
         <div class="persona-badge-sub">Telemetry, Margin & Operations</div>
       </div>
       <span class="persona-sync-pill"><span class="sync-dot"></span> Hub Active</span>
@@ -2798,6 +3290,14 @@
 
     let cart = {}; // { 'ep1': 2 }
 
+    // Customer 2 (Juan - San Nicolas) State Variables
+    let selectedCustomer2Cafe = 'butfirst';
+    let customer2FoodSubView = 'home'; // 'home' | 'store'
+    let customer2CategoryFilter = 'all';
+    let customer2SearchQuery = '';
+    let cart2 = {};
+    let currentLjkKg2 = 10;
+
     let state = {
       role: 'customer',
       orders: [],
@@ -2947,10 +3447,13 @@
       loadState();
       renderMerchantsDirectory();
       renderMenu();
+      renderMerchantsDirectoryC2();
+      renderMenuC2();
       renderStockToggles();
       renderOrders();
       updateBadges();
       updateFoodDeliveryFare();
+      updateFoodDeliveryFareC2();
       setQuadZoom('auto');
     });
 
@@ -2962,9 +3465,9 @@
       setTimeout(() => toast.classList.remove('show'), 3500);
     }
 
-    // Quad-Phone Zoom & Responsive Auto-Fit Controller
-    let currentQuadMode = 'auto'; // 'auto' | 0.75 | 0.85 | 1.0
-    let currentQuadZoom = 0.85;
+    // 5-Phone Zoom & Responsive Auto-Fit Controller (1980px Canvas)
+    let currentQuadMode = 'auto'; // 'auto' | 0.65 | 0.75 | 1.0
+    let currentQuadZoom = 0.72;
 
     function calculateAutoFitScale() {
       const topToolbar = document.querySelector('.desktop-toolbar');
@@ -2975,7 +3478,7 @@
       const availableWidth = Math.max(320, window.innerWidth - 64);
       const availableHeight = Math.max(300, window.innerHeight - toolbarH - headerH - 50);
 
-      const unscaledW = 1580;
+      const unscaledW = 1980;
       const unscaledH = 860;
 
       const scaleW = availableWidth / unscaledW;
@@ -2983,8 +3486,8 @@
 
       // Fit both width and height within viewport frame with comfortable breathing room
       let fitScale = Math.min(scaleW, scaleH);
-      // Clamp between 0.45 and 1.0
-      fitScale = Math.max(0.45, Math.min(1.0, fitScale));
+      // Clamp between 0.38 and 1.0
+      fitScale = Math.max(0.38, Math.min(1.0, fitScale));
       return parseFloat(fitScale.toFixed(2));
     }
 
@@ -3002,7 +3505,7 @@
       const scaler = document.getElementById('quad-scaler');
       const stage = document.getElementById('quad-stage');
 
-      const unscaledW = 1580;
+      const unscaledW = 1980;
       const unscaledH = 860;
 
       if (scaler && stage) {
@@ -3012,7 +3515,7 @@
       }
 
       // Update button active state
-      ['auto', '75', '85', '100'].forEach(m => {
+      ['auto', '65', '75', '100'].forEach(m => {
         const btn = document.getElementById(`btn-zoom-${m}`);
         if (btn) {
           if (currentQuadMode === 'auto') {
@@ -3042,66 +3545,98 @@
       }
     }
 
-    // Fast 1-Click Demo Order Simulation Trigger
-    function fastDemoOrder() {
-      const demoScenarios = [
-        {
-          merchantKey: 'extraction',
-          items: '1x Spanish Latte (Iced), 1x Toasted Pastry Box (4pcs)',
-          subtotal: 215.00
-        },
-        {
-          merchantKey: 'butfirst',
-          items: '1x Signature Spanish Latte, 1x Warm Belgian Butter Waffle',
-          subtotal: 170.00
-        },
-        {
-          merchantKey: 'ljk',
-          items: '20kg Ice Cubes (@₱9.00/kg - Wholesale)',
-          subtotal: 180.00
-        }
-      ];
-
-      const scenario = demoScenarios[Math.floor(Math.random() * demoScenarios.length)];
-      const merchant = MERCHANTS[scenario.merchantKey];
+    // Fast 1-Click Demo Orders for Testing Simultaneous Bookings
+    function fastDemoOrderCustomer1() {
+      const merchant = MERCHANTS.extraction;
       const orderId = 'BD-' + Math.floor(1000 + Math.random() * 9000);
-
       const deliveryFee = 50.00;
       const driverPayout = 38.00;
       const platformMargin = 12.00;
 
       const newOrder = {
         id: orderId,
+        customerId: 'cust1',
+        customerName: 'Maria',
         type: 'MERCHANT_FOOD',
         status: 'ORDER_PLACED',
         merchantId: merchant.id,
         merchantName: merchant.name,
-        items: scenario.items,
-        subtotal: scenario.subtotal,
+        items: '1x Spanish Latte (Iced), 1x Toasted Pastry Box (4pcs)',
+        subtotal: 215.00,
         deliveryFee: deliveryFee,
         driverPayout: driverPayout,
         platformMargin: platformMargin,
-        totalAmount: scenario.subtotal + deliveryFee,
+        totalAmount: 215.00 + deliveryFee,
         paymentMethod: 'Cash on Delivery (COD)',
-        dropoff: 'Poblacion, Zone 3 (Near Baao Church)',
+        dropoff: 'Poblacion, Zone 3 (Tapat ng simbahan)',
         pickup: merchant.pickupLocation,
         assignedRider: null,
-        prepTimer: (merchant.id === 'ljk') ? 5 : 15,
+        prepTimer: 15,
         createdAt: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       };
 
       state.orders.unshift(newOrder);
       saveState();
-
       playChime(659.25, 880);
-      showToast(`Demo Order ${orderId} placed for ${merchant.name}! All 4 phones updated!`, '⚡');
-
-      // Visual pulse on Phone 2 (Merchant) and Phone 4 (Admin)
+      showToast(`Order ${orderId} placed for Customer A (Maria)!`, '☕');
+      pulsePhone('app-shell');
       pulsePhone('phone-shell-merchant');
       pulsePhone('phone-shell-admin');
-
       switchCustomerTab('orders');
       renderOrders();
+    }
+
+    function fastDemoOrderCustomer2() {
+      const merchant = MERCHANTS.ljk;
+      const orderId = 'BD-' + Math.floor(1000 + Math.random() * 9000);
+      const deliveryFee = 70.00; // San Nicolas standard fare
+      const driverPayout = 55.00;
+      const platformMargin = 15.00;
+      const subtotal = 90.00; // 10kg @ ₱9.00/kg wholesale
+
+      const newOrder = {
+        id: orderId,
+        customerId: 'cust2',
+        customerName: 'Juan',
+        type: 'MERCHANT_FOOD',
+        status: 'ORDER_PLACED',
+        merchantId: merchant.id,
+        merchantName: merchant.name,
+        items: '10kg Ice Cubes (@₱9.00/kg - Wholesale)',
+        subtotal: subtotal,
+        deliveryFee: deliveryFee,
+        driverPayout: driverPayout,
+        platformMargin: platformMargin,
+        totalAmount: subtotal + deliveryFee,
+        paymentMethod: 'Cash on Delivery (COD)',
+        dropoff: 'San Nicolas, Purok 2 (Riverside, yellow gate)',
+        pickup: merchant.pickupLocation,
+        assignedRider: null,
+        prepTimer: 5,
+        createdAt: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      };
+
+      state.orders.unshift(newOrder);
+      saveState();
+      playChime(587.33, 783.99);
+      showToast(`Order ${orderId} placed for Customer B (Juan)!`, '🧊');
+      pulsePhone('phone-shell-customer2');
+      pulsePhone('phone-shell-merchant');
+      pulsePhone('phone-shell-admin');
+      switchCustomerTabC2('orders');
+      renderOrders();
+    }
+
+    function fastSimultaneousOrders() {
+      fastDemoOrderCustomer1();
+      setTimeout(() => {
+        fastDemoOrderCustomer2();
+        showToast('⚡ Both Customer A & Customer B booked simultaneously!', '🚀');
+      }, 350);
+    }
+
+    function fastDemoOrder() {
+      fastSimultaneousOrders();
     }
 
     // Desktop Frame Toggle (Cycles Quad Zoom)
@@ -3888,6 +4423,740 @@
     }
 
     // =========================================================================
+    // 4B. CUSTOMER B (JUAN - SAN NICOLAS) WORKFLOW
+    // =========================================================================
+    function updateLjkCalcC2(val) {
+      let kg = parseInt(val, 10);
+      if (isNaN(kg) || kg < 1) kg = 1;
+      currentLjkKg2 = kg;
+      const rate = kg >= 5 ? 9.00 : 10.00;
+      const total = kg * rate;
+      const tierBadge = document.getElementById('ljk-tier-badge-c2');
+      const rateDisplay = document.getElementById('ljk-rate-display-c2');
+      const amountDisplay = document.getElementById('ljk-amount-display-c2');
+      const addIceBtn = document.getElementById('btn-add-ljk-ice-c2');
+
+      if (tierBadge) {
+        tierBadge.className = `status-pill ${kg >= 5 ? 'pill-completed' : 'pill-transit'}`;
+        tierBadge.innerText = kg >= 5 ? 'Wholesale (≥5kg @ ₱9/kg)' : 'Retail (<5kg @ ₱10/kg)';
+      }
+      if (rateDisplay) rateDisplay.innerText = `₱${rate.toFixed(2)}`;
+      if (amountDisplay) amountDisplay.innerText = `₱${total.toFixed(2)}`;
+      if (addIceBtn) addIceBtn.innerText = `+ Add ${kg}kg Ice Cubes (₱${total.toFixed(2)})`;
+    }
+
+    function setLjkKgPresetC2(kg) {
+      const input = document.getElementById('ljk-custom-kg-c2');
+      if (input) input.value = kg;
+      updateLjkCalcC2(kg);
+    }
+
+    function addLjkKgToCartC2(itemId) {
+      const item = findMenuItem(itemId);
+      if (!item) return;
+
+      const existingIds = Object.keys(cart2);
+      if (existingIds.length > 0) {
+        const firstExisting = findMenuItem(existingIds[0]);
+        if (firstExisting && firstExisting.merchantKey !== item.merchantKey) {
+          if (!confirm(`Your cart has items from ${firstExisting.merchantName}. Clear cart to order from ${item.merchantName}?`)) {
+            return;
+          }
+          cart2 = {};
+        }
+      }
+
+      cart2[itemId] = currentLjkKg2;
+      playChime(659.25, 880);
+
+      const floatingBar = document.getElementById('floating-cart-c2');
+      if (floatingBar) {
+        floatingBar.classList.remove('bump');
+        void floatingBar.offsetWidth;
+        floatingBar.classList.add('bump');
+      }
+
+      const rate = currentLjkKg2 >= 5 ? 9.00 : 10.00;
+      showToast(`Added ${currentLjkKg2}kg ${item.name} (₱${(currentLjkKg2 * rate).toFixed(2)}) to Cust B cart`, '🧊');
+      renderMenuC2();
+      if (document.getElementById('checkout-sheet-modal-c2').classList.contains('active')) {
+        renderCheckoutCartItemsC2();
+      }
+      updateCartSummaryC2();
+    }
+
+    function renderMerchantsDirectoryC2() {
+      const container = document.getElementById('merchants-list-container-c2');
+      if (!container) return;
+
+      const countAllEl = document.getElementById('home-count-all-c2');
+      const countCafeEl = document.getElementById('home-count-cafe-c2');
+      const countIceEl = document.getElementById('home-count-ice-c2');
+      const feedCountEl = document.getElementById('merchants-feed-count-c2');
+
+      const merchantKeys = Object.keys(MERCHANTS);
+      const totalCount = merchantKeys.length;
+      const cafeCount = merchantKeys.filter(k => MERCHANTS[k].category === 'cafe').length;
+      const iceCount = merchantKeys.filter(k => MERCHANTS[k].category === 'ice').length;
+
+      if (countAllEl) countAllEl.innerText = totalCount;
+      if (countCafeEl) countCafeEl.innerText = cafeCount;
+      if (countIceEl) countIceEl.innerText = iceCount;
+
+      const filteredKeys = merchantKeys.filter(key => {
+        const m = MERCHANTS[key];
+        if (customer2CategoryFilter !== 'all' && m.category !== customer2CategoryFilter) {
+          return false;
+        }
+        if (customer2SearchQuery.trim()) {
+          const q = customer2SearchQuery.toLowerCase().trim();
+          const nameMatch = m.name.toLowerCase().includes(q);
+          const taglineMatch = (m.tagline || '').toLowerCase().includes(q);
+          const locMatch = (m.location || '').toLowerCase().includes(q);
+          const tagMatch = (m.cuisineTags || []).some(t => t.toLowerCase().includes(q));
+          const menuMatch = (m.menu || []).some(item => item.name.toLowerCase().includes(q) || (item.desc || '').toLowerCase().includes(q));
+          if (!nameMatch && !taglineMatch && !locMatch && !tagMatch && !menuMatch) {
+            return false;
+          }
+        }
+        return true;
+      });
+
+      if (feedCountEl) {
+        feedCountEl.innerText = `${filteredKeys.length} store${filteredKeys.length === 1 ? '' : 's'} available`;
+      }
+
+      if (filteredKeys.length === 0) {
+        container.innerHTML = `
+          <div style="text-align:center; padding:2rem 1rem; background:var(--surface-card); border-radius:18px; border:1px dashed var(--border-strong);">
+            <div style="font-size:2.2rem; margin-bottom:0.4rem;">🔍</div>
+            <div style="font-size:0.92rem; font-weight:800; color:var(--text-main);">No partner merchants found</div>
+            <p style="font-size:0.78rem; color:var(--text-muted); margin-top:0.25rem;">
+              Try searching for another keyword or switch category filter to "All Stores".
+            </p>
+            <button class="btn btn-sm btn-secondary" onclick="filterMerchantsCategoryC2('all'); document.getElementById('home-merchant-search-c2').value=''; filterMerchantsSearchC2('');" style="margin-top:0.75rem;">
+              Clear Filters
+            </button>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filteredKeys.map(key => {
+        const m = MERCHANTS[key];
+        const tagsHtml = (m.cuisineTags || []).slice(0, 3).map(tag => `<span>${tag}</span>`).join(' • ');
+        const ratingParts = (m.rating || '⭐ 4.9 (100)').split(' ');
+        const ratingScore = ratingParts.slice(0, 2).join(' ');
+
+        return `
+          <div class="merchant-card" onclick="openMerchantStoreC2('${key}')" id="merchant-card-c2-${key}">
+            <div class="merchant-card-cover" style="background: ${m.coverGradient};">
+              <div class="merchant-avatar-badge" style="border-color:${m.accentColor};">
+                ${m.avatarIcon || '🏪'}
+              </div>
+              <div class="merchant-card-timing">
+                <span>⏱️</span> ${(m.prepTime || '').replace('⏱️ ', '')}
+              </div>
+            </div>
+            <div class="merchant-card-content">
+              <div class="merchant-card-header">
+                <h4 class="merchant-card-name">${m.name}</h4>
+                <span class="merchant-card-rating">${ratingScore}</span>
+              </div>
+              <p class="merchant-card-desc">${m.tagline}</p>
+              <div class="merchant-card-meta">
+                <span>📍 ${(m.location || '').split(',')[0]}</span>
+                <span>•</span>
+                <span>${m.distance || '0.8 km'}</span>
+                <span>•</span>
+                <span style="color:#16a34a; font-weight:700;">${m.deliveryFeeText || '₱50 delivery'}</span>
+              </div>
+              <div class="merchant-card-meta" style="margin-top:0.3rem; font-size:0.71rem; color:var(--text-muted);">
+                ${tagsHtml}
+              </div>
+              <div class="merchant-deal-pill">
+                <span>⚡</span>
+                <span>${m.dealText || 'Direct store pricing • Fast local delivery'}</span>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function filterMerchantsCategoryC2(category) {
+      customer2CategoryFilter = category;
+      const chipContainer = document.getElementById('home-category-chips-c2');
+      if (chipContainer && chipContainer.querySelectorAll) {
+        const chips = chipContainer.querySelectorAll('.home-cat-chip');
+        chips.forEach(btn => btn.classList.remove('active'));
+        if (category === 'all' && chips[0]) chips[0].classList.add('active');
+        else if (category === 'cafe' && chips[1]) chips[1].classList.add('active');
+        else if (category === 'ice' && chips[2]) chips[2].classList.add('active');
+      }
+      renderMerchantsDirectoryC2();
+    }
+
+    function filterMerchantsSearchC2(query) {
+      customer2SearchQuery = query || '';
+      renderMerchantsDirectoryC2();
+    }
+
+    function openMerchantStoreC2(merchantKey) {
+      if (!MERCHANTS[merchantKey]) return;
+      selectedCustomer2Cafe = merchantKey;
+      customer2FoodSubView = 'store';
+
+      const homeSec = document.getElementById('cust2-merchants-home');
+      const detailSec = document.getElementById('cust2-merchant-detail');
+      if (homeSec) homeSec.style.display = 'none';
+      if (detailSec) detailSec.style.display = 'block';
+
+      renderMenuC2();
+      playChime(659.25, 880);
+
+      const mobileContent = document.getElementById('cust2-mobile-content');
+      if (mobileContent) mobileContent.scrollTop = 0;
+    }
+
+    function backToMerchantsHomeC2() {
+      customer2FoodSubView = 'home';
+      const homeSec = document.getElementById('cust2-merchants-home');
+      const detailSec = document.getElementById('cust2-merchant-detail');
+      if (detailSec) detailSec.style.display = 'none';
+      if (homeSec) homeSec.style.display = 'block';
+
+      renderMerchantsDirectoryC2();
+
+      const mobileContent = document.getElementById('cust2-mobile-content');
+      if (mobileContent) mobileContent.scrollTop = 0;
+    }
+
+    function handleCustomerNavFoodC2() {
+      switchCustomerTabC2('food');
+      if (customer2FoodSubView === 'store') {
+        backToMerchantsHomeC2();
+      }
+    }
+
+    function handleCustomerBrandClickC2() {
+      switchCustomerTabC2('food');
+      if (customer2FoodSubView === 'store') {
+        backToMerchantsHomeC2();
+      }
+    }
+
+    function switchCustomerCafeC2(cafeKey) {
+      if (MERCHANTS[cafeKey]) {
+        selectedCustomer2Cafe = cafeKey;
+        renderMenuC2();
+        const icon = MERCHANTS[cafeKey].avatarIcon || '☕';
+        showToast(`Customer B viewing ${MERCHANTS[cafeKey].name}`, icon);
+      }
+    }
+
+    function renderMenuC2() {
+      const merchant = MERCHANTS[selectedCustomer2Cafe] || MERCHANTS.butfirst;
+      const grid = document.getElementById('menu-catalog-grid-c2');
+      if (!grid) return;
+
+      const titleEl = document.getElementById('cust2-cafe-title');
+      const taglineEl = document.getElementById('cust2-cafe-tagline');
+      const avatarEl = document.getElementById('cust2-cafe-avatar');
+      const ratingEl = document.getElementById('cust2-cafe-rating');
+      const prepEl = document.getElementById('cust2-cafe-prep');
+      const locEl = document.getElementById('cust2-cafe-location');
+      const bannerCard = document.getElementById('cafe-banner-card-c2');
+      const statusPill = document.getElementById('detail-store-status-pill-c2');
+
+      if (titleEl) {
+        titleEl.innerHTML = `${merchant.name} <span title="Verified Baao Partner" style="font-size: 0.85rem; color: #2563eb;">☑️</span>`;
+        titleEl.style.color = merchant.accentColor;
+      }
+      if (taglineEl) taglineEl.innerText = merchant.tagline;
+      if (avatarEl) {
+        avatarEl.innerText = merchant.avatarIcon || '☕';
+        avatarEl.style.background = `${merchant.accentColor}12`;
+        avatarEl.style.borderColor = `${merchant.accentColor}30`;
+      }
+      if (ratingEl) ratingEl.innerText = merchant.rating || '⭐ 4.8 (200)';
+      if (prepEl) prepEl.innerText = merchant.prepTime || '⏱️ 15–20 mins';
+      if (locEl) locEl.innerText = `📍 ${merchant.location}`;
+      if (bannerCard) bannerCard.style.borderLeftColor = merchant.accentColor;
+      if (statusPill) statusPill.innerText = (merchant.id === 'ljk') ? 'Ice Depot Direct' : 'Verified Partner';
+
+      ['extraction', 'butfirst', 'ljk'].forEach(key => {
+        const btn = document.getElementById(`cafe-btn-${key}-c2`);
+        if (btn) {
+          if (key === selectedCustomer2Cafe) {
+            btn.classList.add('active');
+            if (key === 'butfirst') {
+              btn.classList.add('active-butfirst');
+              btn.classList.remove('active-ljk');
+            } else if (key === 'ljk') {
+              btn.classList.add('active-ljk');
+              btn.classList.remove('active-butfirst');
+            } else {
+              btn.classList.remove('active-butfirst', 'active-ljk');
+            }
+          } else {
+            btn.classList.remove('active', 'active-butfirst', 'active-ljk');
+          }
+        }
+      });
+
+      let posCalculatorHtml = '';
+      if (selectedCustomer2Cafe === 'ljk') {
+        const rate = currentLjkKg2 >= 5 ? 9.00 : 10.00;
+        const total = currentLjkKg2 * rate;
+        posCalculatorHtml = `
+          <div class="mobile-card" style="border: 2px solid #0284c7; background: linear-gradient(180deg, #f0f9ff 0%, #ffffff 100%); margin-bottom: 1rem; padding: 1rem; border-radius: 18px; box-shadow: 0 4px 14px rgba(2,132,199,0.12);">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.75rem;">
+              <div style="font-weight: 800; font-size: 0.95rem; color: #0369a1; display:flex; align-items:center; gap:0.35rem;">
+                <span>🧊</span> Ice Direct POS Calculator
+              </div>
+              <span id="ljk-tier-badge-c2" class="status-pill ${currentLjkKg2 >= 5 ? 'pill-completed' : 'pill-transit'}">
+                ${currentLjkKg2 >= 5 ? 'Wholesale (≥5kg @ ₱9/kg)' : 'Retail (<5kg @ ₱10/kg)'}
+              </span>
+            </div>
+
+            <div style="display:flex; gap:0.4rem; margin-bottom: 0.75rem; flex-wrap: wrap;">
+              <button type="button" class="btn btn-sm btn-secondary" style="flex:1; font-size:0.75rem; padding:0.35rem 0.4rem; font-weight:700; border-color:#bae6fd; color:#0369a1;" onclick="setLjkKgPresetC2(4)">4 kg (Retail)</button>
+              <button type="button" class="btn btn-sm btn-secondary" style="flex:1; font-size:0.75rem; padding:0.35rem 0.4rem; font-weight:700; border-color:#bae6fd; color:#0369a1;" onclick="setLjkKgPresetC2(5)">5 kg (Wholesale)</button>
+              <button type="button" class="btn btn-sm btn-secondary" style="flex:1; font-size:0.75rem; padding:0.35rem 0.4rem; font-weight:700; border-color:#bae6fd; color:#0369a1;" onclick="setLjkKgPresetC2(10)">10 kg</button>
+              <button type="button" class="btn btn-sm btn-secondary" style="flex:1; font-size:0.75rem; padding:0.35rem 0.4rem; font-weight:700; border-color:#bae6fd; color:#0369a1;" onclick="setLjkKgPresetC2(20)">20 kg (Sack)</button>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 0.75rem;">
+              <label class="form-label" style="color: #0369a1; display:flex; justify-content:space-between;">
+                <span>Ice Quantity (kg)</span>
+                <span style="font-weight:600; text-transform:none; font-size:0.75rem; color:#64748b;">Step: 1 kg</span>
+              </label>
+              <input type="number" id="ljk-custom-kg-c2" class="form-input" min="1" max="500" value="${currentLjkKg2}" oninput="updateLjkCalcC2(this.value)" style="font-size:1.15rem; font-weight:800; color:#0369a1; border-color:#7dd3fc;">
+            </div>
+
+            <div style="background:#ffffff; border:1px solid #bae6fd; border-radius:14px; padding:0.75rem 0.95rem; margin-bottom:0.85rem;">
+              <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:0.4rem; border-bottom:1px dashed #e2e8f0; font-size:0.82rem;">
+                <span style="color:var(--text-muted); font-weight:600;">Price / kg</span>
+                <strong id="ljk-rate-display-c2" style="color:#0369a1; font-weight:800; font-size:0.95rem;">₱${rate.toFixed(2)}</strong>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; padding-top:0.5rem;">
+                <span style="font-weight:700; font-size:0.86rem; color:var(--text-main);">Amount to pay</span>
+                <strong id="ljk-amount-display-c2" style="font-size:1.4rem; font-weight:900; color:#0284c7; letter-spacing:-0.02em;">₱${total.toFixed(2)}</strong>
+              </div>
+            </div>
+
+            <div>
+              <button type="button" id="btn-add-ljk-ice-c2" class="btn btn-sm btn-block" style="background:linear-gradient(135deg, #0284c7 0%, #0369a1 100%); color:#ffffff; font-weight:800; padding:0.7rem; font-size:0.9rem; box-shadow: 0 4px 12px rgba(2,132,199,0.25);" onclick="addLjkKgToCartC2('ljk_ice_cubes')">
+                + Add ${currentLjkKg2}kg Ice Cubes (₱${total.toFixed(2)})
+              </button>
+            </div>
+          </div>
+        `;
+      }
+
+      grid.innerHTML = posCalculatorHtml + merchant.menu.map(item => {
+        const inCartQty = cart2[item.id] || 0;
+        const displayPrice = item.isPricePerKg
+          ? `₱10.00/kg <span style="font-size:0.75rem; font-weight:600; color:var(--text-muted);">(≥5kg: ₱9.00/kg)</span>`
+          : `₱${item.price.toFixed(2)}`;
+        const qtyLabel = item.isPricePerKg ? `${inCartQty}kg` : inCartQty;
+
+        return `
+        <div class="menu-item-row" style="opacity: ${item.available ? 1 : 0.6}">
+          <div class="menu-item-thumb" style="background: ${merchant.accentColor}10; border-color: ${merchant.accentColor}28;">
+            ${item.icon || '☕'}
+          </div>
+          <div class="menu-item-info">
+            <span class="item-cat-pill">${item.category || 'Specialty'}</span>
+            <div class="menu-item-name">${item.name}</div>
+            <div class="menu-item-desc">${item.desc}</div>
+            <div class="menu-item-price" style="color: ${merchant.accentColor};">${displayPrice}</div>
+          </div>
+          <div class="menu-item-action">
+            ${!item.available
+              ? `<span class="sold-out-badge">SOLD OUT</span>`
+              : (inCartQty > 0
+                ? `<div class="item-qty-stepper">
+                    <button class="qty-btn" onclick="decrementCartC2('${item.id}')" title="Decrease">−</button>
+                    <span class="qty-display" style="padding:0 0.25rem; min-width:32px;">${qtyLabel}</span>
+                    <button class="qty-btn" onclick="addToCartC2('${item.id}', 1)" title="Increase">+</button>
+                   </div>`
+                : `<button class="menu-add-btn" style="background: linear-gradient(135deg, ${merchant.accentColor} 0%, ${merchant.accentColor}dd 100%); box-shadow: 0 2px 8px ${merchant.accentColor}40;" onclick="addToCartC2('${item.id}', ${item.isPricePerKg ? 5 : 1})">+ Add</button>`
+              )
+            }
+          </div>
+        </div>
+      `;
+      }).join('');
+    }
+
+    function addToCartC2(itemId, qtyToAdd = 1) {
+      const item = findMenuItem(itemId);
+      if (!item) return;
+
+      const existingIds = Object.keys(cart2);
+      if (existingIds.length > 0) {
+        const firstExisting = findMenuItem(existingIds[0]);
+        if (firstExisting && firstExisting.merchantKey !== item.merchantKey) {
+          if (!confirm(`Your cart has items from ${firstExisting.merchantName}. Clear cart to order from ${item.merchantName}?`)) {
+            return;
+          }
+          cart2 = {};
+        }
+      }
+
+      const step = (typeof qtyToAdd === 'number' && !isNaN(qtyToAdd) && qtyToAdd > 0) ? qtyToAdd : 1;
+      cart2[itemId] = (cart2[itemId] || 0) + step;
+      playChime(659.25, 880);
+
+      const floatingBar = document.getElementById('floating-cart-c2');
+      if (floatingBar) {
+        floatingBar.classList.remove('bump');
+        void floatingBar.offsetWidth;
+        floatingBar.classList.add('bump');
+      }
+
+      const toastIcon = item.icon || (item.merchantKey === 'ljk' ? '🧊' : '☕');
+      showToast(`Added ${item.isPricePerKg ? `${cart2[itemId]}kg ` : ''}${item.name} to Cust B cart`, toastIcon);
+      renderMenuC2();
+      if (document.getElementById('checkout-sheet-modal-c2').classList.contains('active')) {
+        renderCheckoutCartItemsC2();
+      }
+      updateCartSummaryC2();
+    }
+
+    function decrementCartC2(itemId) {
+      if (!cart2[itemId]) return;
+      cart2[itemId] -= 1;
+      if (cart2[itemId] <= 0) {
+        delete cart2[itemId];
+      }
+      playChime(523.25, 392);
+      renderMenuC2();
+      if (document.getElementById('checkout-sheet-modal-c2').classList.contains('active')) {
+        renderCheckoutCartItemsC2();
+      }
+      updateCartSummaryC2();
+    }
+
+    function removeFromCartC2(itemId) {
+      if (cart2[itemId]) {
+        delete cart2[itemId];
+        playChime(523.25, 392);
+        renderMenuC2();
+        if (document.getElementById('checkout-sheet-modal-c2').classList.contains('active')) {
+          renderCheckoutCartItemsC2();
+        }
+        updateCartSummaryC2();
+      }
+    }
+
+    function openCheckoutSheetC2() {
+      const activeMerchant = MERCHANTS[selectedCustomer2Cafe] || MERCHANTS.butfirst;
+      document.getElementById('checkout-store-name-c2').innerText = activeMerchant.name;
+      document.getElementById('checkout-store-icon-c2').innerText = activeMerchant.avatarIcon || '☕';
+      renderCheckoutCartItemsC2();
+      document.getElementById('checkout-sheet-modal-c2').classList.add('active');
+    }
+
+    function closeCheckoutSheetC2() {
+      document.getElementById('checkout-sheet-modal-c2').classList.remove('active');
+    }
+
+    function handleCheckoutSheetOverlayC2(e) {
+      if (e.target.id === 'checkout-sheet-modal-c2') {
+        closeCheckoutSheetC2();
+      }
+    }
+
+    function renderCheckoutCartItemsC2() {
+      const container = document.getElementById('checkout-items-list-c2');
+      if (!container) return;
+      const entries = Object.entries(cart2);
+      if (entries.length === 0) {
+        container.innerHTML = `
+          <div style="text-align:center; padding:1.5rem 0; color:var(--text-muted);">
+            <div style="font-size:1.8rem; margin-bottom:0.35rem;">🛒</div>
+            <p style="font-size:0.86rem; font-weight:700; color:var(--text-main);">Your cart is empty.</p>
+            <p style="font-size:0.75rem; margin-top:0.25rem;">Add drinks or ice from the menu to continue.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = entries.map(([id, qty]) => {
+        const item = findMenuItem(id);
+        if (!item) return '';
+        const lineRate = getItemPrice(item, qty);
+        const lineTotal = getItemLineTotal(item, qty);
+        const metaText = item.isPricePerKg
+          ? `${qty} kg • ₱${lineRate.toFixed(2)}/kg (${qty >= 5 ? 'Wholesale Tier' : 'Retail Tier'})`
+          : `₱${item.price.toFixed(2)} each`;
+        const qtyDisplay = item.isPricePerKg ? `${qty}kg` : qty;
+
+        return `
+          <div class="checkout-item-row">
+            <div class="checkout-item-thumb">${item.icon || '☕'}</div>
+            <div style="flex:1; min-width:0;">
+              <div class="checkout-item-title">${item.name}</div>
+              <div class="checkout-item-meta">${metaText} • <strong style="color:var(--text-main);">₱${lineTotal.toFixed(2)}</strong></div>
+            </div>
+            <div style="display:flex; align-items:center; gap:0.4rem; flex-shrink:0;">
+              <div class="item-qty-stepper">
+                <button class="qty-btn" onclick="decrementCartC2('${item.id}')" title="Decrease">−</button>
+                <span class="qty-display" style="padding:0 0.25rem; min-width:32px;">${qtyDisplay}</span>
+                <button class="qty-btn" onclick="addToCartC2('${item.id}', 1)" title="Increase">+</button>
+              </div>
+              <button onclick="removeFromCartC2('${item.id}')" style="background:none; border:none; cursor:pointer; font-size:0.88rem; color:#dc2626; padding:0.35rem 0.45rem; border-radius:8px; line-height:1;" title="Remove item">
+                ✕
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function updateFoodDeliveryFareC2() {
+      const brgyEl = document.getElementById('cust2-food-barangay');
+      const brgy = brgyEl ? brgyEl.value : 'San Nicolas';
+      let fare = 70.00;
+      if (brgy === 'Poblacion') fare = 50.00;
+      else if (brgy === 'Antipolo') fare = 100.00;
+
+      const feeEl = document.getElementById('cust2-food-delivery-fee');
+      if (feeEl) feeEl.innerText = `₱${fare.toFixed(2)}`;
+      updateCartSummaryC2();
+    }
+
+    function updateCartSummaryC2() {
+      let subtotal = 0;
+      let count = 0;
+      let storeName = MERCHANTS[selectedCustomer2Cafe] ? MERCHANTS[selectedCustomer2Cafe].name : 'Partner Store';
+
+      for (const [id, qty] of Object.entries(cart2)) {
+        const item = findMenuItem(id);
+        if (item) {
+          subtotal += getItemLineTotal(item, qty);
+          count += qty;
+          storeName = item.merchantName;
+        }
+      }
+
+      const brgyEl = document.getElementById('cust2-food-barangay');
+      const brgy = brgyEl ? brgyEl.value : 'San Nicolas';
+      let fare = (brgy === 'Poblacion') ? 50.00 : (brgy === 'Antipolo' ? 100.00 : 70.00);
+      const total = subtotal > 0 ? (subtotal + fare) : 0;
+
+      const itemCountLabel = count > 0 ? `${count} ${count > 1 ? 'Units/KG' : 'Unit'} in Cart (${storeName})` : '0 Items in Cart';
+      const cartItemCountEl = document.getElementById('cart-item-count-c2');
+      if (cartItemCountEl) cartItemCountEl.innerText = itemCountLabel;
+
+      const subtotalEl = document.getElementById('cust2-food-subtotal');
+      const feeEl = document.getElementById('cust2-food-delivery-fee');
+      const totalEl = document.getElementById('cust2-food-total');
+      const ctaTotal = document.getElementById('cart-sheet-cta-total-c2');
+
+      if (subtotalEl) subtotalEl.innerText = `₱${subtotal.toFixed(2)}`;
+      if (feeEl) feeEl.innerText = `₱${fare.toFixed(2)}`;
+      if (totalEl) totalEl.innerText = `₱${total.toFixed(2)}`;
+      if (ctaTotal) ctaTotal.innerText = `₱${total.toFixed(2)}`;
+
+      const emptyPrompt = document.getElementById('footer-cart-empty-prompt-c2');
+      const activePrompt = document.getElementById('footer-cart-active-prompt-c2');
+      const footerSummary = document.getElementById('footer-cart-summary-text-c2');
+      if (emptyPrompt && activePrompt && footerSummary) {
+        if (count > 0) {
+          emptyPrompt.style.display = 'none';
+          activePrompt.style.display = 'block';
+          footerSummary.innerText = `${count} unit${count > 1 ? 's' : ''} • ₱${total.toFixed(2)} (${storeName})`;
+        } else {
+          emptyPrompt.style.display = 'block';
+          activePrompt.style.display = 'none';
+        }
+      }
+
+      const floatingBar = document.getElementById('floating-cart-c2');
+      const foodSec = document.getElementById('cust2-food-section');
+      const isFoodTab = foodSec && foodSec.style.display !== 'none';
+      if (floatingBar) {
+        if (count > 0 && isFoodTab) {
+          floatingBar.classList.add('visible');
+          const qtyEl = document.getElementById('floating-cart-qty-c2');
+          const valEl = document.getElementById('floating-cart-val-c2');
+          const storeEl = document.getElementById('floating-cart-store-c2');
+          if (qtyEl) qtyEl.innerText = count;
+          if (valEl) valEl.innerText = `₱${total.toFixed(2)}`;
+          if (storeEl) storeEl.innerText = storeName;
+        } else {
+          floatingBar.classList.remove('visible');
+        }
+      }
+    }
+
+    function placeMerchantOrderC2() {
+      const activeMerchant = MERCHANTS[selectedCustomer2Cafe] || MERCHANTS.butfirst;
+      let itemsList = [];
+      let subtotal = 0;
+      let orderMerchant = activeMerchant;
+
+      for (const [id, qty] of Object.entries(cart2)) {
+        const item = findMenuItem(id);
+        if (item) {
+          if (item.isPricePerKg) {
+            const rate = getItemPrice(item, qty);
+            const lineTotal = getItemLineTotal(item, qty);
+            itemsList.push(`${qty}kg ${item.name} (@₱${rate.toFixed(2)}/kg - ${qty >= 5 ? 'Wholesale' : 'Retail'})`);
+            subtotal += lineTotal;
+          } else {
+            itemsList.push(`${qty}x ${item.name}`);
+            subtotal += item.price * qty;
+          }
+          orderMerchant = MERCHANTS[item.merchantKey] || activeMerchant;
+        }
+      }
+
+      if (itemsList.length === 0) {
+        if (selectedCustomer2Cafe === 'ljk') {
+          itemsList = ['10kg Ice Cubes (@₱9.00/kg - Wholesale)'];
+          subtotal = 90.00;
+        } else if (selectedCustomer2Cafe === 'extraction') {
+          itemsList = ['1x Spanish Latte (Iced)', '1x Toasted Pastry Box (4pcs)'];
+          subtotal = 215.00;
+        } else {
+          itemsList = ['1x Vietnamese Drip Cold Brew'];
+          subtotal = 85.00;
+        }
+      }
+
+      const brgy = document.getElementById('cust2-food-barangay').value;
+      const purok = document.getElementById('cust2-food-purok').value;
+      const landmark = document.getElementById('cust2-food-landmark').value;
+      const payment = document.getElementById('cust2-food-payment').value;
+
+      let deliveryFee = (brgy === 'Poblacion') ? 50.00 : (brgy === 'Antipolo' ? 100.00 : 70.00);
+      let driverPayout = (brgy === 'Poblacion') ? 38.00 : (brgy === 'Antipolo' ? 80.00 : 55.00);
+      let platformMargin = deliveryFee - driverPayout;
+
+      const orderId = 'BD-' + Math.floor(1000 + Math.random() * 9000);
+      const newOrder = {
+        id: orderId,
+        customerId: 'cust2',
+        customerName: 'Juan',
+        type: 'MERCHANT_FOOD',
+        status: 'ORDER_PLACED',
+        merchantId: orderMerchant.id,
+        merchantName: orderMerchant.name,
+        items: itemsList.join(', '),
+        subtotal: subtotal,
+        deliveryFee: deliveryFee,
+        driverPayout: driverPayout,
+        platformMargin: platformMargin,
+        totalAmount: subtotal + deliveryFee,
+        paymentMethod: payment,
+        dropoff: `${brgy}, ${purok} (${landmark})`,
+        pickup: orderMerchant.pickupLocation,
+        assignedRider: null,
+        prepTimer: (orderMerchant.id === 'ljk') ? 5 : 15,
+        createdAt: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      };
+
+      state.orders.unshift(newOrder);
+      cart2 = {};
+      saveState();
+
+      closeCheckoutSheetC2();
+      playChime(659.25, 880);
+      const toastIcon = (orderMerchant.id === 'ljk') ? '🧊' : '🍳';
+      showToast(`Order ${orderId} placed for Customer B (Juan)!`, toastIcon);
+
+      pulsePhone('phone-shell-merchant');
+      pulsePhone('phone-shell-admin');
+
+      renderMenuC2();
+      switchCustomerTabC2('orders');
+      renderOrders();
+    }
+
+    function updatePadalaFareC2() {
+      const dropoff = document.getElementById('padala-dropoff-brgy-c2').value;
+      let fare = 70.00;
+      let vehicle = '🛵 Standard Motorcycle (Cross-Barangay)';
+      if (dropoff === 'Poblacion') {
+        fare = 50.00;
+        vehicle = '🛵 Town Center Courier';
+      } else if (dropoff === 'Antipolo') {
+        fare = 100.00;
+        vehicle = '🛵 Outer Zone Long Distance';
+      }
+      const labelEl = document.getElementById('padala-vehicle-label-c2');
+      const fareEl = document.getElementById('padala-fare-display-c2');
+      if (labelEl) labelEl.innerText = vehicle;
+      if (fareEl) fareEl.innerText = `₱${fare.toFixed(2)}`;
+    }
+
+    function placePadalaOrderC2() {
+      const pickupBrgy = document.getElementById('padala-pickup-brgy-c2').value;
+      const pickupLandmark = document.getElementById('padala-pickup-landmark-c2').value;
+      const dropoffBrgy = document.getElementById('padala-dropoff-brgy-c2').value;
+      const dropoffLandmark = document.getElementById('padala-dropoff-landmark-c2').value;
+      const itemDesc = document.getElementById('padala-item-desc-c2').value || 'Package';
+
+      let fare = (dropoffBrgy === 'Poblacion') ? 50.00 : (dropoffBrgy === 'Antipolo' ? 100.00 : 70.00);
+      let driverPayout = (dropoffBrgy === 'Poblacion') ? 38.00 : (dropoffBrgy === 'Antipolo' ? 80.00 : 55.00);
+      let platformMargin = fare - driverPayout;
+
+      const orderId = 'BD-' + Math.floor(1000 + Math.random() * 9000);
+      const newOrder = {
+        id: orderId,
+        customerId: 'cust2',
+        customerName: 'Juan',
+        type: 'PADALA',
+        status: 'SEARCHING_FOR_RIDER',
+        items: itemDesc,
+        subtotal: 0.00,
+        deliveryFee: fare,
+        driverPayout: driverPayout,
+        platformMargin: platformMargin,
+        totalAmount: fare,
+        paymentMethod: 'COD',
+        pickup: `${pickupBrgy} (${pickupLandmark})`,
+        dropoff: `${dropoffBrgy} (${dropoffLandmark})`,
+        assignedRider: null,
+        createdAt: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      };
+
+      state.orders.unshift(newOrder);
+      saveState();
+
+      playChime(523.25, 783.99);
+      showToast(`Padala ${orderId} booked for Customer B!`, '📦');
+      pulsePhone('phone-shell-rider');
+      pulsePhone('phone-shell-admin');
+      switchCustomerTabC2('orders');
+      renderOrders();
+    }
+
+    function switchCustomerTabC2(tab) {
+      const foodSec = document.getElementById('cust2-food-section');
+      const padalaSec = document.getElementById('cust2-padala-section');
+      const ordersSec = document.getElementById('cust2-orders-section');
+      if (foodSec) foodSec.style.display = (tab === 'food') ? 'block' : 'none';
+      if (padalaSec) padalaSec.style.display = (tab === 'padala') ? 'block' : 'none';
+      if (ordersSec) ordersSec.style.display = (tab === 'orders') ? 'block' : 'none';
+
+      const navFood = document.getElementById('nav2-btn-food');
+      const navPadala = document.getElementById('nav2-btn-padala');
+      const navOrders = document.getElementById('nav2-btn-orders');
+
+      if (navFood) navFood.classList.toggle('active', tab === 'food');
+      if (navPadala) navPadala.classList.toggle('active', tab === 'padala');
+      if (navOrders) navOrders.classList.toggle('active', tab === 'orders');
+
+      updateCartSummaryC2();
+    }
+
+    // =========================================================================
     // 5. MERCHANT KITCHEN WORKFLOW
     // =========================================================================
     function switchKitchenTab(tab) {
@@ -3925,6 +5194,14 @@
       renderOrders();
     }
 
+    function pulseCustomerForOrder(order) {
+      if (order && order.customerId === 'cust2') {
+        pulsePhone('phone-shell-customer2');
+      } else {
+        pulsePhone('app-shell');
+      }
+    }
+
     function merchantAcceptOrder(orderId) {
       const o = state.orders.find(x => x.id === orderId);
       if (o) {
@@ -3933,7 +5210,7 @@
         playChime(659.25, 523.25);
         const actionLabel = (o.merchantId === 'ljk') ? 'Ice bagging' : 'Cooking';
         showToast(`Order ${orderId} confirmed. ${actionLabel} started!`, (o.merchantId === 'ljk') ? '🧊' : '🔥');
-        pulsePhone('app-shell');
+        pulseCustomerForOrder(o);
         pulsePhone('phone-shell-admin');
         switchKitchenTab('preparing');
         renderOrders();
@@ -3947,6 +5224,7 @@
         saveState();
         playChime(783.99, 1046.50);
         showToast(`Store finished ${orderId}! Rider alert dispatched.`, '🛵');
+        pulseCustomerForOrder(o);
         pulsePhone('phone-shell-rider');
         pulsePhone('phone-shell-admin');
         switchKitchenTab('dispatched');
@@ -3973,6 +5251,7 @@
         if (target) {
           target.available = !target.available;
           renderMenu();
+          renderMenuC2();
           renderStockToggles();
           showToast(`${target.name} is now ${target.available ? 'IN STOCK' : 'SOLD OUT'}`, '📋');
         }
@@ -4025,7 +5304,7 @@
 
         playChime(880, 1174.66);
         showToast(`Accepted Job ${orderId}! Proceed to pickup.`, '🏍️');
-        pulsePhone('app-shell');
+        pulseCustomerForOrder(o);
         pulsePhone('phone-shell-admin');
         renderOrders();
       }
@@ -4038,7 +5317,7 @@
         saveState();
         playChime(783.99, 987.77);
         showToast(`Pickup confirmed. Head to customer dropoff!`, '🚀');
-        pulsePhone('app-shell');
+        pulseCustomerForOrder(o);
         pulsePhone('phone-shell-admin');
         renderOrders();
       }
@@ -4074,7 +5353,7 @@
 
         playChime(523.25, 1046.50, 0.1);
         showToast(`Delivery completed! Platform margin of ₱${o.platformMargin.toFixed(2)} deducted.`, '✅');
-        pulsePhone('app-shell');
+        pulseCustomerForOrder(o);
         pulsePhone('phone-shell-admin');
         renderOrders();
       }
@@ -4099,7 +5378,7 @@
         o.status = 'RIDER_ASSIGNED';
         saveState();
         showToast(`Assigned ${riderName} to ${orderId}`, '👨‍💼');
-        pulsePhone('app-shell');
+        pulseCustomerForOrder(o);
         pulsePhone('phone-shell-rider');
         renderOrders();
       }
@@ -4151,40 +5430,39 @@ Tumawag kay Dispatcher Kuya Mark: 0917-555-0199`;
     }
 
     // =========================================================================
-    // 8. MASTER RENDER ENGINE
+    // 8. MASTER RENDER ENGINE (Simultaneous 5-Phone Multi-Customer Support)
     // =========================================================================
     function renderOrders() {
-      // 1. Customer Tracker View
-      const activeOrder = state.orders.find(o => o.status !== 'DELIVERED' && o.status !== 'CANCELLED');
+      // 1A. Customer A Tracker View (Maria - Poblacion)
+      const activeOrderA = state.orders.find(o => o.customerId !== 'cust2' && o.status !== 'DELIVERED' && o.status !== 'CANCELLED');
       const custTrackerBox = document.getElementById('cust-active-order-box');
       const custEmptyBox = document.getElementById('cust-empty-order');
       const custBadge = document.getElementById('cust-order-status-badge');
       const navActiveDot = document.getElementById('nav-active-dot');
 
-      if (activeOrder) {
+      if (activeOrderA) {
         custTrackerBox.style.display = 'block';
         custEmptyBox.style.display = 'none';
-        navActiveDot.style.display = 'block';
+        if (navActiveDot) navActiveDot.style.display = 'block';
 
-        custBadge.innerText = activeOrder.status.replace(/_/g, ' ');
-        const orderTypeLabel = activeOrder.type === 'MERCHANT_FOOD' ? `${activeOrder.merchantName || 'Partner Cafe'} Order` : 'Padala Courier';
-        document.getElementById('cust-tracker-desc').innerText = `${orderTypeLabel} (${activeOrder.id})`;
-        document.getElementById('cust-tracker-items').innerText = activeOrder.items;
-        document.getElementById('cust-tracker-dropoff').innerText = activeOrder.dropoff;
-        document.getElementById('cust-tracker-total').innerText = `₱${activeOrder.totalAmount.toFixed(2)}`;
+        custBadge.innerText = activeOrderA.status.replace(/_/g, ' ');
+        const orderTypeLabel = activeOrderA.type === 'MERCHANT_FOOD' ? `${activeOrderA.merchantName || 'Partner Cafe'} Order` : 'Padala Courier';
+        document.getElementById('cust-tracker-desc').innerText = `${orderTypeLabel} (${activeOrderA.id})`;
+        document.getElementById('cust-tracker-items').innerText = activeOrderA.items;
+        document.getElementById('cust-tracker-dropoff').innerText = activeOrderA.dropoff;
+        document.getElementById('cust-tracker-total').innerText = `₱${activeOrderA.totalAmount.toFixed(2)}`;
 
-        if (activeOrder.assignedRider) {
-          document.getElementById('cust-tracker-rider').innerText = activeOrder.assignedRider;
+        if (activeOrderA.assignedRider) {
+          document.getElementById('cust-tracker-rider').innerText = activeOrderA.assignedRider;
         } else {
           document.getElementById('cust-tracker-rider').innerText = 'Searching for available rider...';
         }
 
-        const steps = ['ORDER_PLACED', 'PREPARING', 'RIDER_ASSIGNED', 'IN_TRANSIT', 'DELIVERED'];
         let activeIdx = 1;
-        if (activeOrder.status === 'PREPARING' || activeOrder.status === 'READY_FOR_PICKUP') activeIdx = 2;
-        if (activeOrder.status === 'RIDER_ASSIGNED') activeIdx = 3;
-        if (activeOrder.status === 'IN_TRANSIT') activeIdx = 4;
-        if (activeOrder.status === 'DELIVERED') activeIdx = 5;
+        if (activeOrderA.status === 'PREPARING' || activeOrderA.status === 'READY_FOR_PICKUP') activeIdx = 2;
+        if (activeOrderA.status === 'RIDER_ASSIGNED') activeIdx = 3;
+        if (activeOrderA.status === 'IN_TRANSIT') activeIdx = 4;
+        if (activeOrderA.status === 'DELIVERED') activeIdx = 5;
 
         for (let i = 1; i <= 5; i++) {
           const node = document.getElementById(`step-${i}`);
@@ -4194,13 +5472,71 @@ Tumawag kay Dispatcher Kuya Mark: 0917-555-0199`;
             if (i === activeIdx) node.classList.add('active');
           }
         }
-        document.getElementById('stepper-bar').style.width = `${((activeIdx - 1) / 4) * 100}%`;
+        const stepperBar = document.getElementById('stepper-bar');
+        if (stepperBar) stepperBar.style.width = `${((activeIdx - 1) / 4) * 100}%`;
       } else {
         custTrackerBox.style.display = 'none';
         custEmptyBox.style.display = 'block';
-        navActiveDot.style.display = 'none';
+        if (navActiveDot) navActiveDot.style.display = 'none';
         custBadge.innerText = 'NO ACTIVE ORDER';
       }
+
+      // 1B. Customer B Tracker View (Juan - San Nicolas)
+      const activeOrderB = state.orders.find(o => o.customerId === 'cust2' && o.status !== 'DELIVERED' && o.status !== 'CANCELLED');
+      const cust2TrackerBox = document.getElementById('cust2-active-order-box');
+      const cust2EmptyBox = document.getElementById('cust2-empty-order');
+      const cust2Badge = document.getElementById('cust2-order-status-badge');
+      const nav2ActiveDot = document.getElementById('nav2-active-dot');
+
+      if (activeOrderB) {
+        if (cust2TrackerBox) cust2TrackerBox.style.display = 'block';
+        if (cust2EmptyBox) cust2EmptyBox.style.display = 'none';
+        if (nav2ActiveDot) nav2ActiveDot.style.display = 'block';
+        if (cust2Badge) cust2Badge.innerText = activeOrderB.status.replace(/_/g, ' ');
+
+        const orderTypeLabel = activeOrderB.type === 'MERCHANT_FOOD' ? `${activeOrderB.merchantName || 'Partner Cafe'} Order` : 'Padala Courier';
+        const descEl = document.getElementById('cust2-tracker-desc');
+        const itemsEl = document.getElementById('cust2-tracker-items');
+        const dropoffEl = document.getElementById('cust2-tracker-dropoff');
+        const totalEl = document.getElementById('cust2-tracker-total');
+        const riderEl = document.getElementById('cust2-tracker-rider');
+
+        if (descEl) descEl.innerText = `${orderTypeLabel} (${activeOrderB.id})`;
+        if (itemsEl) itemsEl.innerText = activeOrderB.items;
+        if (dropoffEl) dropoffEl.innerText = activeOrderB.dropoff;
+        if (totalEl) totalEl.innerText = `₱${activeOrderB.totalAmount.toFixed(2)}`;
+        if (riderEl) riderEl.innerText = activeOrderB.assignedRider || 'Searching for available rider...';
+
+        let activeIdx2 = 1;
+        if (activeOrderB.status === 'PREPARING' || activeOrderB.status === 'READY_FOR_PICKUP') activeIdx2 = 2;
+        if (activeOrderB.status === 'RIDER_ASSIGNED') activeIdx2 = 3;
+        if (activeOrderB.status === 'IN_TRANSIT') activeIdx2 = 4;
+        if (activeOrderB.status === 'DELIVERED') activeIdx2 = 5;
+
+        for (let i = 1; i <= 5; i++) {
+          const node = document.getElementById(`step2-${i}`);
+          if (node) {
+            node.classList.remove('active', 'done');
+            if (i < activeIdx2) node.classList.add('done');
+            if (i === activeIdx2) node.classList.add('active');
+          }
+        }
+        const stepperBar2 = document.getElementById('stepper-bar-c2');
+        if (stepperBar2) stepperBar2.style.width = `${((activeIdx2 - 1) / 4) * 100}%`;
+      } else {
+        if (cust2TrackerBox) cust2TrackerBox.style.display = 'none';
+        if (cust2EmptyBox) cust2EmptyBox.style.display = 'block';
+        if (nav2ActiveDot) nav2ActiveDot.style.display = 'none';
+        if (cust2Badge) cust2Badge.innerText = 'NO ACTIVE ORDER';
+      }
+
+      // Customer Persona Tag Helper
+      const getCustomerTagHtml = (o) => {
+        if (o.customerId === 'cust2') {
+          return `<span style="font-size:0.68rem; font-weight:800; color:#4338ca; background:#e0e7ff; border:1px solid #c7d2fe; padding:0.12rem 0.45rem; border-radius:6px; display:inline-flex; align-items:center; gap:0.2rem;">👤 Juan (Cust B)</span>`;
+        }
+        return `<span style="font-size:0.68rem; font-weight:800; color:#0e7490; background:#cffafe; border:1px solid #a5f3fc; padding:0.12rem 0.45rem; border-radius:6px; display:inline-flex; align-items:center; gap:0.2rem;">👤 Maria (Cust A)</span>`;
+      };
 
       // 2. Merchant Kanban
       const incomingList = document.getElementById('merchant-incoming-list');
@@ -4259,7 +5595,10 @@ Tumawag kay Dispatcher Kuya Mark: 0917-555-0199`;
         <div class="order-ticket">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.35rem;">
             <span class="ticket-id">${o.id}</span>
-            ${getMerchantTagHtml(o)}
+            <div style="display:flex; gap:0.25rem; align-items:center;">
+              ${getCustomerTagHtml(o)}
+              ${getMerchantTagHtml(o)}
+            </div>
           </div>
           <div style="font-size:0.75rem; color:var(--text-muted); font-weight:600;">Placed: ${o.createdAt}</div>
           <div class="ticket-items">${o.items}</div>
@@ -4276,7 +5615,8 @@ Tumawag kay Dispatcher Kuya Mark: 0917-555-0199`;
             <span class="ticket-id">${o.id}</span>
             <span class="status-pill ${(o.merchantId === 'ljk') ? 'pill-transit' : 'pill-preparing'}">${(o.merchantId === 'ljk') ? 'Bagging Ice (~5m)' : 'Cooking (~10m)'}</span>
           </div>
-          <div style="margin-bottom:0.3rem;">
+          <div style="margin-bottom:0.3rem; display:flex; gap:0.25rem; align-items:center;">
+            ${getCustomerTagHtml(o)}
             ${getMerchantTagHtml(o)}
           </div>
           <div class="ticket-items">${o.items}</div>
@@ -4293,7 +5633,8 @@ Tumawag kay Dispatcher Kuya Mark: 0917-555-0199`;
             <span class="ticket-id">${o.id}</span>
             <span class="status-pill pill-transit">${o.status.replace(/_/g, ' ')}</span>
           </div>
-          <div style="margin-bottom:0.3rem;">
+          <div style="margin-bottom:0.3rem; display:flex; gap:0.25rem; align-items:center;">
+            ${getCustomerTagHtml(o)}
             ${getMerchantTagHtml(o)}
           </div>
           <div class="ticket-items">${o.items}</div>
@@ -4319,9 +5660,10 @@ Tumawag kay Dispatcher Kuya Mark: 0917-555-0199`;
         availJobs.map(o => `
           <div class="order-ticket">
             <div style="display:flex; justify-content:space-between; align-items:center;">
-              <div>
+              <div style="display:flex; align-items:center; gap:0.35rem;">
                 <span class="ticket-id">${o.id}</span>
-                <span class="status-pill ${o.type === 'B2B_BATCH' ? 'pill-ready' : 'pill-transit'}" style="margin-left:0.3rem;">
+                ${getCustomerTagHtml(o)}
+                <span class="status-pill ${o.type === 'B2B_BATCH' ? 'pill-ready' : 'pill-transit'}">
                   ${o.type.replace(/_/g, ' ')}
                 </span>
               </div>
@@ -4385,9 +5727,10 @@ Tumawag kay Dispatcher Kuya Mark: 0917-555-0199`;
         return `
         <div class="order-ticket">
           <div style="display:flex; justify-content:space-between; align-items:center;">
-            <div>
+            <div style="display:flex; align-items:center; gap:0.35rem;">
               <span class="ticket-id">${o.id}</span>
-              <span class="status-pill pill-pending" style="margin-left:0.3rem;">${o.type}</span>
+              ${getCustomerTagHtml(o)}
+              <span class="status-pill pill-pending">${o.type}</span>
             </div>
             <span class="status-pill ${o.status === 'DELIVERED' ? 'pill-completed' : 'pill-transit'}">${o.status}</span>
           </div>
@@ -4421,6 +5764,7 @@ Tumawag kay Dispatcher Kuya Mark: 0917-555-0199`;
 
       updateBadges();
       updateCartSummary();
+      updateCartSummaryC2();
     }
 
     function updateBadges() {
@@ -4487,17 +5831,26 @@ Tumawag kay Dispatcher Kuya Mark: 0917-555-0199`;
           }
         };
         cart = {};
+        cart2 = {};
         selectedCustomerCafe = 'extraction';
         customerFoodSubView = 'home';
         customerCategoryFilter = 'all';
         customerSearchQuery = '';
+
+        selectedCustomer2Cafe = 'butfirst';
+        customer2FoodSubView = 'home';
+        customer2CategoryFilter = 'all';
+        customer2SearchQuery = '';
+
         merchantKitchenFilter = 'all';
         selectedStockCafe = 'extraction';
         saveState();
         showToast('Simulation reset successfully', '🔄');
         switchRole('customer');
         switchCustomerTab('food');
+        switchCustomerTabC2('food');
         backToMerchantsHome();
+        backToMerchantsHomeC2();
         renderStockToggles();
         renderOrders();
       }
