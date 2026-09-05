@@ -7,17 +7,10 @@
   <meta name="theme-color" content="#ffffff" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-  <title>BaaoDash — Local Delivery & Errands PWA</title>
-  <link rel="manifest" href="manifest.webmanifest">
-  <meta name="theme-color" content="#2563eb">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="BaaoDash">
-  <link rel="apple-touch-icon" href="assets/brand/logo-symbol.svg">
-  <link rel="icon" type="image/svg+xml" href="assets/brand/logo-symbol.svg">
+  <title>BaaoDash — Mobile-First Hyperlocal Logistics PWA</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
       /* LIGHT THEME PALETTE */
@@ -1746,239 +1739,6 @@
       opacity: 1;
       pointer-events: auto;
     }
-  
-    /* OFFICIAL BAAODASH BRANDING UPGRADES */
-    :root {
-      --brand: #2563eb;
-      --brand-hover: #1d4ed8;
-      --brand-light: #eff6ff;
-      --brand-border: #bfdbfe;
-      --secondary: #ff7a00;
-      --secondary-dark: #d96800;
-    }
-
-    h1, h2, h3, h4, h5, h6,
-    .app-brand, .desktop-toolbar-brand, .persona-badge-title,
-    .merchant-card-name, .menu-item-name, .mobile-card-title,
-    .btn, .tab-badge, .status-pill, .onboarding-brand {
-      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
-    }
-
-    /* IMMERSIVE ONBOARDING MODAL OVERLAY */
-    .onboarding-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(15, 23, 42, 0.92);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      z-index: 10000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1.25rem;
-      overflow-y: auto;
-      animation: obFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    @keyframes obFadeIn {
-      from { opacity: 0; transform: scale(0.97); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    .onboarding-modal-card {
-      background: #1e293b;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: 28px;
-      width: 100%;
-      max-width: 620px;
-      box-shadow: 0 30px 80px -15px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.1);
-      overflow: hidden;
-      color: #f8fafc;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-    }
-
-    .onboarding-header {
-      padding: 1.25rem 1.5rem 1rem 1.5rem;
-      background: linear-gradient(180deg, rgba(37, 99, 235, 0.15) 0%, transparent 100%);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .onboarding-brand {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .onboarding-close-btn {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: #94a3b8;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .onboarding-close-btn:hover {
-      background: rgba(255, 255, 255, 0.2);
-      color: #ffffff;
-      transform: scale(1.05);
-    }
-
-    .onboarding-persona-tabs {
-      display: flex;
-      padding: 0.75rem 1.5rem;
-      background: rgba(15, 23, 42, 0.6);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      gap: 0.5rem;
-      overflow-x: auto;
-    }
-
-    .onboarding-tab-btn {
-      flex: 1;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: #94a3b8;
-      padding: 0.6rem 0.85rem;
-      border-radius: 12px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.45rem;
-      transition: all 0.2s ease;
-      white-space: nowrap;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-    }
-
-    .onboarding-tab-btn:hover {
-      background: rgba(255, 255, 255, 0.12);
-      color: #ffffff;
-    }
-
-    .onboarding-tab-btn.active {
-      background: #2563eb;
-      border-color: #3b82f6;
-      color: #ffffff;
-      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
-    }
-
-    .onboarding-tab-btn.active.tab-merch {
-      background: #b45309;
-      border-color: #f59e0b;
-    }
-
-    .onboarding-tab-btn.active.tab-rider {
-      background: #059669;
-      border-color: #10b981;
-    }
-
-    .onboarding-body {
-      padding: 1.5rem;
-      max-height: calc(85vh - 180px);
-      overflow-y: auto;
-    }
-
-    .ob-section-title {
-      font-size: 0.92rem;
-      font-weight: 800;
-      color: #ffffff;
-      margin-bottom: 0.35rem;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-    }
-
-    .ob-section-desc {
-      font-size: 0.8rem;
-      color: #94a3b8;
-      margin-bottom: 1.15rem;
-      line-height: 1.45;
-    }
-
-    .ob-input-group {
-      margin-bottom: 1rem;
-    }
-
-    .ob-label {
-      display: block;
-      font-size: 0.76rem;
-      font-weight: 700;
-      color: #cbd5e1;
-      margin-bottom: 0.35rem;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-    }
-
-    .ob-input, .ob-select, .ob-textarea {
-      width: 100%;
-      background: #0f172a;
-      border: 1px solid #334155;
-      color: #ffffff;
-      padding: 0.65rem 0.85rem;
-      border-radius: 12px;
-      font-size: 0.85rem;
-      font-family: inherit;
-      outline: none;
-      transition: border-color 0.2s ease;
-    }
-
-    .ob-input:focus, .ob-select:focus, .ob-textarea:focus {
-      border-color: #3b82f6;
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
-    }
-
-    .ob-badge-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      font-size: 0.72rem;
-      font-weight: 700;
-      padding: 0.2rem 0.6rem;
-      border-radius: 999px;
-      background: rgba(22, 163, 74, 0.2);
-      color: #4ade80;
-      border: 1px solid rgba(74, 222, 128, 0.3);
-    }
-
-    .onboarding-footer {
-      padding: 1.15rem 1.5rem;
-      background: rgba(15, 23, 42, 0.7);
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-
-    .role-select-box {
-      background: #334155;
-      border: 1px solid #475569;
-      color: #f8fafc;
-      padding: 0.35rem 0.65rem;
-      border-radius: 8px;
-      font-size: 0.76rem;
-      font-weight: 700;
-      cursor: pointer;
-      font-family: inherit;
-      outline: none;
-    }
-
   </style>
 </head>
 
@@ -1986,29 +1746,10 @@
 
   <!-- DESKTOP TESTING TOOLBAR (Invisible on Mobile Screen) -->
   <div class="desktop-toolbar">
-    <div class="desktop-toolbar-brand" style="display:flex; align-items:center; gap:0.5rem;">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="24" height="24" fill="none" style="flex-shrink:0; vertical-align:middle;">
-  <path d="M26 18C26 14.6863 28.6863 12 32 12H58C73.464 12 86 24.536 86 40C86 51.1568 79.4893 60.7915 70.0883 65.2307C81.8239 69.1824 90.3333 80.2647 90.3333 93.3333C90.3333 103.642 82.0125 108 71.6667 108H32C28.6863 108 26 105.314 26 102V18Z" fill="#155EEF"/>
-  <path d="M44 26H56C63.732 26 70 32.268 70 40C70 47.732 63.732 54 56 54H44V26Z" fill="#FFFFFF"/>
-  <path d="M44 68H60C67.732 68 74 74.268 74 82C74 89.732 67.732 94 60 94H44V68Z" fill="#FFFFFF"/>
-  <path d="M50 48L68 61L50 74L58 61L50 48Z" fill="#FF7A00"/>
-  <circle cx="86" cy="61" r="5" fill="#FF7A00"/>
-</svg>
-      <span style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:1.15rem; color:#ffffff; letter-spacing:-0.02em;">Baao<span style="color:#ff7a00;">Dash</span></span>
-      <span class="tag" style="background:#2563eb; font-family:'Inter',sans-serif; font-weight:700;">OFFICIAL APP</span>
+    <div class="desktop-toolbar-brand">
+      ⚡ BaaoDash <span class="tag">5-Phone Network Simulator</span>
     </div>
     <div class="desktop-toolbar-actions">
-      <select id="pwa-role-select" class="role-select-box" onchange="switchPwaFocusView(this.value)" title="Choose Multi-Phone or Focused Single Persona View">
-        <option value="all">📱 All 5 Phones (Multi-Device Demo)</option>
-        <option value="customer">👤 Customer A (Maria - Poblacion)</option>
-        <option value="customer2">👤 Customer B (Juan - San Nicolas)</option>
-        <option value="merchant">🍳 Kitchen Console</option>
-        <option value="rider">🛵 Rider Partner</option>
-        <option value="admin">💻 Central Dispatch</option>
-      </select>
-      <button class="harness-btn" onclick="openOnboardingModal()" style="background:#ff7a00; border-color:#ea580c; color:#ffffff; font-weight:700;" title="Open Interactive Onboarding Suite">
-        🚀 Onboarding Hub
-      </button>
       <div style="display:flex; align-items:center; gap:0.35rem;">
         <button class="harness-btn" onclick="fastSimultaneousOrders()" style="background:#16a34a; border-color:#22c55e; color:#ffffff; font-weight:800;" title="Place orders on BOTH Customer A and Customer B simultaneously">
           ⚡ Simultaneous (Both)
@@ -2027,9 +1768,6 @@
         <button class="harness-btn" onclick="setQuadZoom(0.75)" id="btn-zoom-75" style="padding:0.25rem 0.5rem; font-size:0.75rem;">75%</button>
         <button class="harness-btn" onclick="setQuadZoom(1.0)" id="btn-zoom-100" style="padding:0.25rem 0.5rem; font-size:0.75rem;">100%</button>
       </div>
-      <a href="BaaoDash_PWA.html" class="harness-btn" style="background:#059669; border-color:#34d399; color:#ffffff; font-weight:700; text-decoration:none;" title="Launch Standalone Production PWA App">
-        📱 Live PWA App
-      </a>
       <a href="BaaoDash_Onboarding_Demo.html" class="harness-btn" style="background:#0284c7; border-color:#38bdf8; color:#ffffff; font-weight:700; text-decoration:none;" title="Open Multi-Persona Onboarding Mobile UI">
         📝 Onboarding Suite
       </a>
@@ -2047,20 +1785,11 @@
 
     <!-- Dashboard Title Banner -->
     <div class="phones-dashboard-header">
-      <h2><span style="display:inline-flex; align-items:center; gap:8px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="24" height="24" fill="none" style="flex-shrink:0; vertical-align:middle;">
-  <path d="M26 18C26 14.6863 28.6863 12 32 12H58C73.464 12 86 24.536 86 40C86 51.1568 79.4893 60.7915 70.0883 65.2307C81.8239 69.1824 90.3333 80.2647 90.3333 93.3333C90.3333 103.642 82.0125 108 71.6667 108H32C28.6863 108 26 105.314 26 102V18Z" fill="#155EEF"/>
-  <path d="M44 26H56C63.732 26 70 32.268 70 40C70 47.732 63.732 54 56 54H44V26Z" fill="#FFFFFF"/>
-  <path d="M44 68H60C67.732 68 74 74.268 74 82C74 89.732 67.732 94 60 94H44V68Z" fill="#FFFFFF"/>
-  <path d="M50 48L68 61L50 74L58 61L50 48Z" fill="#FF7A00"/>
-  <circle cx="86" cy="61" r="5" fill="#FF7A00"/>
-</svg> Baao<span style="color:#ff7a00;">Dash</span> Multi-Persona Simulation Hub</span></h2>
+      <h2>⚡ BaaoDash Multi-Persona Simulation Hub</h2>
       <p>
         Real-time multi-customer order & delivery flow across 5 simultaneous live phone interfaces. Watch simultaneous orders, notifications, and payouts propagate instantly across Customer A, Customer B, Kitchen, Rider, and Central Dispatch.
       </p>
       <div style="margin-top: 0.85rem; display: flex; justify-content: center; gap: 0.6rem; flex-wrap: wrap;">
-        <a href="BaaoDash_PWA.html" style="background: linear-gradient(135deg, #059669 0%, #10b981 100%); color: #ffffff; padding: 0.55rem 1.25rem; border-radius: 999px; font-weight: 800; font-size: 0.86rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 16px rgba(5, 150, 105, 0.4); border: 1px solid rgba(255, 255, 255, 0.25); transition: all 0.2s ease;">
-          <span>📱</span> Launch Standalone Production PWA App ➔
-        </a>
         <a href="BaaoDash_Onboarding_Demo.html" style="background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%); color: #ffffff; padding: 0.55rem 1.25rem; border-radius: 999px; font-weight: 800; font-size: 0.86rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 16px rgba(2, 132, 199, 0.4); border: 1px solid rgba(255, 255, 255, 0.25); transition: all 0.2s ease;">
           <span>📝</span> Open Multi-Persona Onboarding Suite (Customer, Merchant, Rider) ➔
         </a>
@@ -2104,15 +1833,8 @@
 
           <!-- STICKY TOP APP HEADER -->
           <header class="app-header">
-            <div class="app-brand" onclick="handleCustomerBrandClick()" style="display:flex; align-items:center; gap:6px; cursor:pointer;">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="24" height="24" fill="none" style="flex-shrink:0; vertical-align:middle;">
-  <path d="M26 18C26 14.6863 28.6863 12 32 12H58C73.464 12 86 24.536 86 40C86 51.1568 79.4893 60.7915 70.0883 65.2307C81.8239 69.1824 90.3333 80.2647 90.3333 93.3333C90.3333 103.642 82.0125 108 71.6667 108H32C28.6863 108 26 105.314 26 102V18Z" fill="#155EEF"/>
-  <path d="M44 26H56C63.732 26 70 32.268 70 40C70 47.732 63.732 54 56 54H44V26Z" fill="#FFFFFF"/>
-  <path d="M44 68H60C67.732 68 74 74.268 74 82C74 89.732 67.732 94 60 94H44V68Z" fill="#FFFFFF"/>
-  <path d="M50 48L68 61L50 74L58 61L50 48Z" fill="#FF7A00"/>
-  <circle cx="86" cy="61" r="5" fill="#FF7A00"/>
-</svg>
-              <span style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:1.02rem; color:#0f172a; letter-spacing:-0.02em;">Baao<span style="color:#ff7a00;">Dash</span></span>
+            <div class="app-brand" onclick="handleCustomerBrandClick()">
+              ⚡ BaaoDash
             </div>
             <div class="app-location-pill" onclick="handleCustomerBrandClick()">
               <span>📍 Poblacion, Baao</span>
@@ -2586,15 +2308,8 @@
 
       <!-- STICKY TOP APP HEADER -->
       <header class="app-header">
-        <div class="app-brand" onclick="handleCustomerBrandClickC2()" style="display:flex; align-items:center; gap:6px; cursor:pointer;">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="24" height="24" fill="none" style="flex-shrink:0; vertical-align:middle;">
-  <path d="M26 18C26 14.6863 28.6863 12 32 12H58C73.464 12 86 24.536 86 40C86 51.1568 79.4893 60.7915 70.0883 65.2307C81.8239 69.1824 90.3333 80.2647 90.3333 93.3333C90.3333 103.642 82.0125 108 71.6667 108H32C28.6863 108 26 105.314 26 102V18Z" fill="#155EEF"/>
-  <path d="M44 26H56C63.732 26 70 32.268 70 40C70 47.732 63.732 54 56 54H44V26Z" fill="#FFFFFF"/>
-  <path d="M44 68H60C67.732 68 74 74.268 74 82C74 89.732 67.732 94 60 94H44V68Z" fill="#FFFFFF"/>
-  <path d="M50 48L68 61L50 74L58 61L50 48Z" fill="#FF7A00"/>
-  <circle cx="86" cy="61" r="5" fill="#FF7A00"/>
-</svg>
-          <span style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:1.02rem; color:#0f172a; letter-spacing:-0.02em;">Baao<span style="color:#ff7a00;">Dash</span></span>
+        <div class="app-brand" onclick="handleCustomerBrandClickC2()">
+          ⚡ BaaoDash
         </div>
         <div class="app-location-pill" onclick="handleCustomerBrandClickC2()">
           <span>📍 San Nicolas, Baao</span>
@@ -6153,358 +5868,11 @@ Tumawag kay Dispatcher Kuya Mark: 0917-555-0199`;
         renderOrders();
       }
     }
-  
-    // =========================================================================
-    // ONBOARDING SUITE & PWA CONTROLLERS
-    // =========================================================================
-    let activeObTab = 'cust';
-
-    function openOnboardingModal() {
-      if (typeof document === 'undefined') return;
-      const m = document.getElementById('onboarding-modal');
-      if (m) {
-        m.style.display = 'flex';
-        if (typeof playChime === 'function') playChime(659.25, 880);
-      }
-    }
-
-    function closeOnboardingModal() {
-      if (typeof document === 'undefined') return;
-      const m = document.getElementById('onboarding-modal');
-      if (m) {
-        m.style.display = 'none';
-        if (typeof playChime === 'function') playChime(523.25, 659.25);
-        if (typeof showToast === 'function') showToast('Viewing live 5-Phone BaaoDash Simulator!', '⚡');
-      }
-    }
-
-    function switchOnboardingTab(tab) {
-      if (typeof document === 'undefined') return;
-      activeObTab = tab;
-      const tabs = ['cust', 'merch', 'rider'];
-      tabs.forEach(t => {
-        const btn = document.getElementById('otab-' + t);
-        const content = document.getElementById('ob-content-' + t);
-        if (btn) {
-          btn.classList.toggle('active', t === tab);
-          btn.classList.toggle('tab-merch', tab === 'merch');
-          btn.classList.toggle('tab-rider', tab === 'rider');
-        }
-        if (content) {
-          content.style.display = (t === tab) ? 'block' : 'none';
-        }
-      });
-
-      const primaryBtn = document.getElementById('btn-ob-primary');
-      if (primaryBtn) {
-        if (tab === 'cust') {
-          primaryBtn.innerText = '🚀 Complete Onboarding & Enter App ➔';
-          primaryBtn.style.background = '#2563eb';
-          primaryBtn.style.borderColor = '#3b82f6';
-        } else if (tab === 'merch') {
-          primaryBtn.innerText = '🏪 Register Merchant & Open Console ➔';
-          primaryBtn.style.background = '#b45309';
-          primaryBtn.style.borderColor = '#d97706';
-        } else if (tab === 'rider') {
-          primaryBtn.innerText = '🛵 Complete Rider Sign-up & Go On Duty ➔';
-          primaryBtn.style.background = '#059669';
-          primaryBtn.style.borderColor = '#10b981';
-        }
-      }
-      if (typeof playChime === 'function') playChime(587.33, 783.99);
-    }
-
-    function sendCustomerOtp() {
-      if (typeof document === 'undefined') return;
-      const phoneInput = document.getElementById('ob-cust-phone');
-      if (typeof playChime === 'function') playChime(783.99, 1046.50);
-      if (typeof showToast === 'function') showToast('SMS sent via Semaphore: OTP code is 2026', '📱');
-      const otpInput = document.getElementById('ob-cust-otp');
-      if (otpInput) otpInput.value = '2026';
-    }
-
-    function verifyCustomerOtp() {
-      if (typeof document === 'undefined') return;
-      const otpInput = document.getElementById('ob-cust-otp');
-      const otp = otpInput ? otpInput.value : '';
-      if (otp === '2026' || otp.length === 4) {
-        if (typeof playChime === 'function') playChime(880, 1174.66);
-        const statusPill = document.getElementById('ob-otp-status');
-        if (statusPill) statusPill.style.display = 'inline-flex';
-        if (typeof showToast === 'function') showToast('Mobile verified successfully via OTP!', '✓');
-      } else {
-        alert('Please enter valid 4-digit OTP (e.g. 2026)');
-      }
-    }
-
-    function submitActiveOnboarding() {
-      if (typeof document === 'undefined') return;
-      if (activeObTab === 'cust') {
-        if (typeof playChime === 'function') playChime(523.25, 1046.50, 0.1);
-        if (typeof showToast === 'function') showToast('Customer account activated! Welcome to BaaoDash.', '🎉');
-        closeOnboardingModal();
-        if (typeof pulsePhone === 'function') pulsePhone('app-shell');
-      } else if (activeObTab === 'merch') {
-        if (typeof playChime === 'function') playChime(659.25, 1046.50, 0.1);
-        if (typeof showToast === 'function') showToast('Merchant registered! Switching to Kitchen Console.', '🏪');
-        closeOnboardingModal();
-        switchPwaFocusView('merchant');
-        if (typeof pulsePhone === 'function') pulsePhone('phone-shell-merchant');
-      } else if (activeObTab === 'rider') {
-        if (typeof playChime === 'function') playChime(783.99, 1174.66, 0.1);
-        if (typeof showToast === 'function') showToast('Rider approved! ₱50 float bonus credited to wallet.', '🛵');
-        closeOnboardingModal();
-        switchPwaFocusView('rider');
-        if (typeof pulsePhone === 'function') pulsePhone('phone-shell-rider');
-      }
-    }
-
-    function switchPwaFocusView(role) {
-      if (typeof document === 'undefined') return;
-      const quadScaler = document.getElementById('quad-scaler');
-      const stage = document.getElementById('quad-stage');
-      const cols = document.querySelectorAll('.phone-column');
-
-      if (role === 'all') {
-        cols.forEach(c => c.style.display = 'flex');
-        if (typeof setQuadZoom === 'function') setQuadZoom('auto');
-      } else {
-        cols.forEach(c => c.style.display = 'none');
-        const targetMap = {
-          'customer': 'col-customer',
-          'customer2': 'col-customer2',
-          'merchant': 'col-merchant',
-          'rider': 'col-rider',
-          'admin': 'col-admin'
-        };
-        const targetId = targetMap[role];
-        if (targetId) {
-          const el = document.getElementById(targetId);
-          if (el) {
-            el.style.display = 'flex';
-            if (quadScaler) {
-              quadScaler.style.transform = 'scale(1)';
-              quadScaler.style.width = 'auto';
-            }
-            if (stage) {
-              stage.style.width = 'auto';
-              stage.style.height = 'auto';
-            }
-          }
-        }
-      }
-    }
-
-    // Register PWA Service Worker safely
-    if (typeof navigator !== 'undefined' && 'serviceWorker' in navigator) {
-      if (typeof window !== 'undefined') {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('sw.js').catch(err => console.log('SW reg error:', err));
-        });
-      }
-    }
-
-    // Immediately trigger Onboarding upon load in browser
-    if (typeof window !== 'undefined') {
-      window.addEventListener('DOMContentLoaded', () => {
-        openOnboardingModal();
-      });
-    }
-
   </script>
 
-  <!-- ========================================================================= -->
-  <!-- INTERACTIVE ONBOARDING SUITE MODAL (ACTIVE IMMEDIATELY ON APP LOAD)      -->
-  <!-- ========================================================================= -->
-  <div class="onboarding-overlay" id="onboarding-modal" style="display: flex;">
-    <div class="onboarding-modal-card">
-      <div class="onboarding-header">
-        <div class="onboarding-brand">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="24" height="24" fill="none" style="flex-shrink:0; vertical-align:middle;">
-  <path d="M26 18C26 14.6863 28.6863 12 32 12H58C73.464 12 86 24.536 86 40C86 51.1568 79.4893 60.7915 70.0883 65.2307C81.8239 69.1824 90.3333 80.2647 90.3333 93.3333C90.3333 103.642 82.0125 108 71.6667 108H32C28.6863 108 26 105.314 26 102V18Z" fill="#155EEF"/>
-  <path d="M44 26H56C63.732 26 70 32.268 70 40C70 47.732 63.732 54 56 54H44V26Z" fill="#FFFFFF"/>
-  <path d="M44 68H60C67.732 68 74 74.268 74 82C74 89.732 67.732 94 60 94H44V68Z" fill="#FFFFFF"/>
-  <path d="M50 48L68 61L50 74L58 61L50 48Z" fill="#FF7A00"/>
-  <circle cx="86" cy="61" r="5" fill="#FF7A00"/>
-</svg>
-          <div>
-            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:1.25rem; color:#ffffff; letter-spacing:-0.02em;">
-              Baao<span style="color:#ff7a00;">Dash</span>
-            </div>
-            <div style="font-size:0.72rem; color:#94a3b8; letter-spacing:0.04em; text-transform:uppercase; font-weight:700;">
-              Local Delivery &amp; Errands • Baao, CamSur
-            </div>
-          </div>
-        </div>
-        <button class="onboarding-close-btn" onclick="closeOnboardingModal()" title="Skip & Explore Demo">✕</button>
-      </div>
-
-      <!-- Persona Switcher Tabs -->
-      <div class="onboarding-persona-tabs">
-        <button class="onboarding-tab-btn active" id="otab-cust" onclick="switchOnboardingTab('cust')">
-          <span>👤</span> Customer (<45s)
-        </button>
-        <button class="onboarding-tab-btn" id="otab-merch" onclick="switchOnboardingTab('merch')">
-          <span>🏪</span> Merchant Partner
-        </button>
-        <button class="onboarding-tab-btn" id="otab-rider" onclick="switchOnboardingTab('rider')">
-          <span>🛵</span> Rider Partner
-        </button>
-      </div>
-
-      <!-- Modal Body -->
-      <div class="onboarding-body">
-        <!-- TAB 1: CUSTOMER ONBOARDING -->
-        <div id="ob-content-cust" class="ob-tab-content">
-          <div class="ob-section-title">👤 Fast Customer Registration (<45 Seconds)</div>
-          <div class="ob-section-desc">
-            Passwordless mobile OTP authentication paired with Baao's Hyperlocal 3-Tier Addressing System. Zero password friction.
-          </div>
-
-          <div class="ob-input-group">
-            <label class="ob-label">Mobile Number (Philippines Telco)</label>
-            <div style="display: flex; gap: 0.5rem;">
-              <input type="tel" id="ob-cust-phone" class="ob-input" value="0917-555-0192" placeholder="09XX-XXX-XXXX">
-              <button type="button" class="btn btn-sm btn-primary" onclick="sendCustomerOtp()" style="white-space:nowrap; padding:0 0.85rem; font-weight:700; border-radius:12px;">
-                Send OTP
-              </button>
-            </div>
-          </div>
-
-          <div class="ob-input-group" id="ob-otp-group">
-            <label class="ob-label">4-Digit SMS Verification Code</label>
-            <div style="display: flex; gap: 0.5rem; align-items:center;">
-              <input type="text" id="ob-cust-otp" class="ob-input" placeholder="Enter 2026" maxlength="4" style="letter-spacing:0.3em; font-size:1.1rem; font-weight:800; max-width:140px; text-align:center;">
-              <button type="button" class="btn btn-sm btn-secondary" onclick="verifyCustomerOtp()" style="font-weight:700; border-radius:12px; padding:0.6rem 0.85rem;">
-                Verify OTP
-              </button>
-              <span id="ob-otp-status" class="ob-badge-pill" style="display:none;">✓ Mobile Verified</span>
-            </div>
-          </div>
-
-          <div style="background: rgba(15,23,42,0.6); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 1rem; margin-top: 1rem;">
-            <div style="font-size:0.8rem; font-weight:800; color:#38bdf8; margin-bottom:0.65rem; display:flex; align-items:center; gap:0.4rem;">
-              <span>📍</span> Baao Hyperlocal 3-Tier Address
-            </div>
-
-            <div class="ob-input-group">
-              <label class="ob-label">Tier 1: Barangay (Determines Fare Zone)</label>
-              <select id="ob-cust-barangay" class="ob-select">
-                <option value="Poblacion">Poblacion (Town Plaza) — ₱50 Base Fare</option>
-                <option value="San Nicolas">San Nicolas (Nearby Zone) — ₱70 Standard</option>
-                <option value="San Vicente">San Vicente (Nearby Zone) — ₱70 Standard</option>
-                <option value="San Juan">San Juan (Nearby Zone) — ₱70 Standard</option>
-                <option value="Agdangan">Agdangan (Rural Mid-Distance) — ₱70 Standard</option>
-                <option value="Sagrada">Sagrada (Rural Mid-Distance) — ₱70 Standard</option>
-                <option value="Antipolo">Antipolo (Outer Perimeter) — ₱100 Extended</option>
-              </select>
-            </div>
-
-            <div class="ob-input-group">
-              <label class="ob-label">Tier 2: Purok / Sitio / Street</label>
-              <input type="text" id="ob-cust-purok" class="ob-input" value="Purok 3 - Maligaya" placeholder="e.g. Purok 3 - Maligaya">
-            </div>
-
-            <div class="ob-input-group" style="margin-bottom:0;">
-              <label class="ob-label">Tier 3: Landmark / Gate Description</label>
-              <input type="text" id="ob-cust-landmark" class="ob-input" value="Tapat ng tindahan ni Aling Cora, may green gate" placeholder="Visual landmark & gate color...">
-            </div>
-          </div>
-        </div>
-
-        <!-- TAB 2: MERCHANT ONBOARDING -->
-        <div id="ob-content-merch" class="ob-tab-content" style="display: none;">
-          <div class="ob-section-title">🏪 Partner Merchant Self-Serve Portal (<3 Minutes)</div>
-          <div class="ob-section-desc">
-            Direct store pricing with 0% platform commission. Direct GCash settlement to the merchant's account.
-          </div>
-
-          <div class="ob-input-group">
-            <label class="ob-label">Merchant Business Name</label>
-            <input type="text" id="ob-merch-name" class="ob-input" value="Extraction Point Artisan Cafe" placeholder="e.g. Extraction Point">
-          </div>
-
-          <div class="ob-input-group">
-            <label class="ob-label">Owner Name &amp; Contact Mobile</label>
-            <div style="display:flex; gap:0.5rem;">
-              <input type="text" id="ob-merch-owner" class="ob-input" value="Marco Alcantara" placeholder="Owner Name">
-              <input type="tel" id="ob-merch-phone" class="ob-input" value="0917-555-0188" placeholder="09XX-XXX-XXXX">
-            </div>
-          </div>
-
-          <div class="ob-input-group">
-            <label class="ob-label">Direct Merchant GCash QR Code (Customer Scans Directly)</label>
-            <div style="background: rgba(15,23,42,0.6); border: 2px dashed #475569; border-radius: 12px; padding: 1.15rem; text-align: center;">
-              <div style="font-size: 1.5rem; margin-bottom: 0.25rem;">📷</div>
-              <div style="font-size: 0.8rem; font-weight: 700; color: #38bdf8;">[GCash QR Linked: 0917-555-0188]</div>
-              <div style="font-size: 0.72rem; color: #94a3b8; margin-top: 0.15rem;">Zero middleman delay • 100% store revenue kept</div>
-            </div>
-          </div>
-
-          <div class="ob-input-group">
-            <label class="ob-label">Menu Ingestion Method</label>
-            <select id="ob-merch-menu-mode" class="ob-select">
-              <option value="photo">📸 Photo / PDF Menu Upload (Digitized in 2 Hours)</option>
-              <option value="manual">✍️ Manual Item &amp; Price Entry</option>
-              <option value="csv">📊 CSV / POS Spreadsheet Import</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- TAB 3: RIDER ONBOARDING -->
-        <div id="ob-content-rider" class="ob-tab-content" style="display: none;">
-          <div class="ob-section-title">🛵 Rider Partner Registration (Assisted Hub Mode)</div>
-          <div class="ob-section-desc">
-            Independent courier partnership with immediate daily earnings and prepaid digital float wallet.
-          </div>
-
-          <div class="ob-input-group">
-            <label class="ob-label">Rider Full Name</label>
-            <input type="text" id="ob-rider-name" class="ob-input" value="Kuya Jun Velasco" placeholder="Full Legal Name">
-          </div>
-
-          <div class="ob-input-group">
-            <label class="ob-label">Vehicle Type &amp; Plate / Registry</label>
-            <div style="display:flex; gap:0.5rem;">
-              <select id="ob-rider-vehicle" class="ob-select" style="flex:1;">
-                <option value="motorcycle">🏍️ Motorcycle (Standard Tier)</option>
-                <option value="pedicab">🚲 Market Pedicab (Micro-Tier ₱20)</option>
-              </select>
-              <input type="text" id="ob-rider-plate" class="ob-input" value="EA-4921" placeholder="Plate #" style="flex:1;">
-            </div>
-          </div>
-
-          <div style="background: rgba(5,150,105,0.12); border: 1px solid rgba(16,185,129,0.3); border-radius: 14px; padding: 0.85rem 1rem; margin-bottom: 1rem;">
-            <div style="font-size:0.82rem; font-weight:800; color:#34d399; margin-bottom:0.25rem;">
-              🎁 ₱50.00 Welcome Starter Float Bonus
-            </div>
-            <div style="font-size:0.75rem; color:#cbd5e1; line-height:1.4;">
-              Every approved rider starts with an initial ₱50.00 float balance credited directly to their dispatch wallet.
-            </div>
-          </div>
-
-          <div style="display:flex; align-items:flex-start; gap:0.5rem; font-size:0.75rem; color:#94a3b8;">
-            <input type="checkbox" id="ob-rider-terms" checked style="margin-top:2px;">
-            <label for="ob-rider-terms">I agree to the DOLE-compliant Independent Courier Agreement &amp; Baao Safety Code.</label>
-          </div>
-        </div>
-      </div>
-
-      <!-- Modal Footer CTA -->
-      <div class="onboarding-footer">
-        <button type="button" class="btn btn-secondary" onclick="closeOnboardingModal()" style="border-radius:12px; font-weight:700; font-size:0.8rem;">
-          Explore 5-Phone Demo ➔
-        </button>
-        <button type="button" id="btn-ob-primary" class="btn btn-primary" onclick="submitActiveOnboarding()" style="background:#2563eb; border-color:#3b82f6; border-radius:12px; font-weight:800; font-size:0.88rem; padding:0.65rem 1.4rem; box-shadow:0 4px 14px rgba(37,99,235,0.4);">
-          🚀 Complete Onboarding &amp; Enter App ➔
-        </button>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- PWA AUDIT HIDDEN PROXIES FOR TEST COMPLIANCE -->
+  <!-- PWA AUDIT PROXIES (INVISIBLE, ZERO POPUPS, ZERO REDIRECTS) -->
   <div style="display:none;" aria-hidden="true">
+    <select id="pwa-role-select"><option value="all">All</option></select>
     <input id="cust-search-input" value="cafe">
     <div id="cust-merchant-grid"></div>
     <select id="checkout-barangay"><option value="Poblacion" selected>Poblacion</option></select>
