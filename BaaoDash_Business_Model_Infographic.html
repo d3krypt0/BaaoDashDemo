@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BaaoDash — How It Works (Business Model Visual Guide)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface-card: #ffffff;
+      --surface-hover: #f1f5f9;
+      --border: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --text-main: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+      
+      --brand-primary: #2563eb;
+      --brand-glow: rgba(37, 99, 235, 0.12);
+      
+      --customer-color: #0891b2;
+      --customer-bg: #ecfeff;
+      --customer-border: #a5f3fc;
+      
+      --merchant-color: #d97706;
+      --merchant-bg: #fffbeb;
+      --merchant-border: #fde68a;
+      
+      --rider-color: #059669;
+      --rider-bg: #ecfdf5;
+      --rider-border: #a7f3d0;
+      
+      --baao-color: #7c3aed;
+      --baao-bg: #f5f3ff;
+      --baao-border: #ddd6fe;
+
+      --b2b-color: #be185d;
+      --b2b-bg: #fdf2f8;
+      --b2b-border: #fbcfe8;
+
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 2.5rem 1.5rem;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .badge-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 1rem;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 9999px;
+      color: #2563eb;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    h1 {
+      font-size: 2.75rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+      color: #0f172a;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 720px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    .one-liner-banner {
+      margin-top: 1.75rem;
+      padding: 1.15rem 1.5rem;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-left: 4px solid #2563eb;
+      border-radius: 12px;
+      font-size: 1rem;
+      color: var(--text-body);
+      display: inline-block;
+      text-align: left;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Section Styling */
+    section {
+      margin-bottom: 4rem;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.65rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+      color: var(--text-main);
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+
+    /* Grid layout */
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.75rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+      gap: 2rem;
+    }
+
+    /* Cards */
+    .card {
+      background-color: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: #cbd5e1;
+    }
+
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .actor-customer .card-icon { background: var(--customer-bg); color: var(--customer-color); }
+    .actor-customer h3 { color: var(--customer-color); }
+    
+    .actor-merchant .card-icon { background: var(--merchant-bg); color: var(--merchant-color); }
+    .actor-merchant h3 { color: var(--merchant-color); }
+
+    .actor-rider .card-icon { background: var(--rider-bg); color: var(--rider-color); }
+    .actor-rider h3 { color: var(--rider-color); }
+
+    .actor-baao .card-icon { background: var(--baao-bg); color: var(--baao-color); }
+    .actor-baao h3 { color: var(--baao-color); }
+
+    .card-list {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px dashed var(--border);
+      list-style: none;
+    }
+
+    .card-list li {
+      font-size: 0.88rem;
+      color: var(--text-body);
+      margin-bottom: 0.45rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card-list li::before {
+      content: "✓";
+      color: #059669;
+      font-weight: bold;
+    }
+
+    /* Workflow Steps Container */
+    .flow-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .flow-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.75rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .flow-tag {
+      font-size: 0.75rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .steps-row {
+      display: flex;
+      align-items: stretch;
+      gap: 1rem;
+      overflow-x: auto;
+      padding-bottom: 0.75rem;
+    }
+
+    .step-box {
+      flex: 1;
+      min-width: 190px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .step-number {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #2563eb;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+      display: inline-block;
+      letter-spacing: 0.05em;
+    }
+
+    .step-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+      color: var(--text-main);
+    }
+
+    .step-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      flex-grow: 1;
+    }
+
+    .arrow-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #94a3b8;
+      font-size: 1.5rem;
+    }
+
+    /* Money breakdown */
+    .money-container {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .fee-split-bar {
+      display: flex;
+      height: 48px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 1.5rem 0 2rem 0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .split-rider {
+      background: #059669;
+      width: 78.5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 0.95rem;
+      padding: 0 1rem;
+    }
+
+    .split-baao {
+      background: #7c3aed;
+      width: 21.5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 0.95rem;
+      padding: 0 0.5rem;
+    }
+
+    .money-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .money-stat {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+
+    .money-stat-num {
+      font-size: 1.85rem;
+      font-weight: 800;
+      margin: 0.25rem 0;
+      letter-spacing: -0.02em;
+    }
+
+    /* Special features */
+    .callout-box {
+      background: linear-gradient(135deg, #fdf2f8 0%, #f5f3ff 100%);
+      border: 1px solid #fbcfe8;
+      border-radius: 16px;
+      padding: 1.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .callout-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #be185d;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Roadmap pills */
+    .roadmap-track {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .roadmap-item {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .roadmap-phase {
+      min-width: 105px;
+      font-weight: 800;
+      font-size: 0.85rem;
+      color: #2563eb;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .roadmap-content h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+      color: var(--text-main);
+    }
+
+    .roadmap-content p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 768px) {
+      body { padding: 1.25rem 0.75rem; }
+      h1 { font-size: 2rem; }
+      .steps-row { flex-direction: column; }
+      .arrow-divider { transform: rotate(90deg); margin: 0.5rem 0; }
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="badge-tag">📍 Hyperlocal Logistics Ecosystem</div>
+      <h1>BaaoDash Business Model</h1>
+      <p class="subtitle">A visual, plain-English guide showing how BaaoDash connects customers, merchants, and riders into a sustainable local delivery network.</p>
+      
+      <div class="one-liner-banner">
+        💡 <strong>Core Philosophy:</strong> "BaaoDash is not just an app that happens to have riders. It is a <em>local delivery network</em> that uses simple software to organize the riders and businesses that already exist in town."
+      </div>
+
+      <div style="margin-top: 2rem; text-align: center;">
+        <img src="BaaoDash_Poster_Concept.jpg" alt="BaaoDash Marketing Poster Concept" style="max-width: 480px; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--border); box-shadow: var(--shadow-lg);" />
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.75rem;">🎨 Official BaaoDash Community Vision & Campaign Concept Poster</p>
+      </div>
+    </header>
+
+    <!-- SECTION 1: THE 4 KEY PLAYERS -->
+    <section>
+      <div class="section-title">
+        <span>👥</span> 1. The Four Key Players
+      </div>
+      <p class="section-desc">Who participates in BaaoDash, what they give, and what they get in return.</p>
+
+      <div class="grid-4">
+        <!-- Customer -->
+        <div class="card actor-customer">
+          <div class="card-icon">🛍️</div>
+          <h3>1. Customer</h3>
+          <p>Local resident, student, family, or professional in Baao.</p>
+          <ul class="card-list">
+            <li><strong>Wants:</strong> Easy food, medicine, groceries, or sending a quick package.</li>
+            <li><strong>Pay:</strong> Item cost + flat local delivery fee.</li>
+            <li><strong>Benefit:</strong> No more desperately texting riders one by one.</li>
+          </ul>
+        </div>
+
+        <!-- Merchant -->
+        <div class="card actor-merchant">
+          <div class="card-icon">☕</div>
+          <h3>2. Merchant</h3>
+          <p>Local cafes, bakeries, pharmacies, groceries, & hardware stores.</p>
+          <ul class="card-list">
+            <li><strong>Wants:</strong> More sales across town without hiring in-house riders.</li>
+            <li><strong>Action:</strong> Accepts order, packs items, hands to rider.</li>
+            <li><strong>Benefit:</strong> Instant delivery capability at zero fixed monthly cost.</li>
+          </ul>
+        </div>
+
+        <!-- Rider -->
+        <div class="card actor-rider">
+          <div class="card-icon">🛵</div>
+          <h3>3. Rider</h3>
+          <p>Motorcycle riders + traditional habal-habal & pedicab drivers.</p>
+          <ul class="card-list">
+            <li><strong>Wants:</strong> Steady daily income and more delivery jobs.</li>
+            <li><strong>Action:</strong> Picks up package/food and drops it off safely.</li>
+            <li><strong>Benefit:</strong> Retains 75%+ of delivery fee; flexible hours.</li>
+          </ul>
+        </div>
+
+        <!-- BaaoDash Platform -->
+        <div class="card actor-baao">
+          <div class="card-icon">⚡</div>
+          <h3>4. BaaoDash</h3>
+          <p>The local orchestrator (Web platform + local dispatch team).</p>
+          <ul class="card-list">
+            <li><strong>Role:</strong> Matches orders, guarantees pricing, handles customer support.</li>
+            <li><strong>Revenue:</strong> Retains ₱15 to ₱20 margin per delivery.</li>
+            <li><strong>Moat:</strong> Knows local streets, barangays, & community trust.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: HOW MONEY FLOWS -->
+    <section>
+      <div class="section-title">
+        <span>💰</span> 2. Empirical Unit Economics (Two Distinct Delivery Tiers)
+      </div>
+      <p class="section-desc">Informed by live data from <strong>LJK Consumer Goods Trading</strong> (August 2026: 74 deliveries @ ₱18.92 actual pedicab cost), BaaoDash uses two vehicle tiers so delivery fees never crush low-cost goods.</p>
+
+      <div class="money-container" style="margin-bottom: 1.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+          <h3 style="font-size: 1.3rem; color: #047857;">Tier 1: Pedicab Micro-Delivery (Commodities, Ice, Rice)</h3>
+          <span style="background: #ecfdf5; color: #059669; font-size: 0.78rem; font-weight: 700; padding: 0.25rem 0.75rem; border-radius: 999px; border:1px solid #a7f3d0;">Poblacion / <1 km Trips</span>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.3rem;">Protects merchants selling low-ticket items (e.g. ₱85 ice bag) using human-powered local drivers.</p>
+
+        <div class="fee-split-bar" style="margin: 1rem 0;">
+          <div class="split-rider" style="width: 81.8%; background: #059669; color: #ffffff;">🚲 Pedicab Driver: ₱18.00 (81.8%)</div>
+          <div class="split-baao" style="width: 18.2%; background: #7c3aed; color: #ffffff;">⚡ ₱4.00</div>
+        </div>
+
+        <div class="money-details">
+          <div class="money-stat">
+            <span style="color: var(--customer-color); font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">CUSTOMER PAYS</span>
+            <div class="money-stat-num" style="color: #0f172a;">₱22</div>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">Affordable for small grocery & ice runs</p>
+          </div>
+          <div class="money-stat">
+            <span style="color: var(--rider-color); font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">PEDICAB TAKEOUT</span>
+            <div class="money-stat-num" style="color: #059669;">₱18</div>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">Preserves standard local ₱15–₱20 rate</p>
+          </div>
+          <div class="money-stat">
+            <span style="color: var(--baao-color); font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">BAAODASH FEE</span>
+            <div class="money-stat-num" style="color: #7c3aed;">₱4</div>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">Micro-dispatch fee on high daily volume</p>
+          </div>
+          <div class="money-stat">
+            <span style="color: var(--merchant-color); font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">ICE MERCHANT MARGIN</span>
+            <div class="money-stat-num" style="color: #d97706;">PROTECTED</div>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">Preserves 43.9% net profit on bulk ice</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="money-container">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+          <h3 style="font-size: 1.3rem; color: #2563eb;">Tier 2: Motorcycle Standard Delivery (Cafe, Food & Cross-Barangay)</h3>
+          <span style="background: #eff6ff; color: #2563eb; font-size: 0.78rem; font-weight: 700; padding: 0.25rem 0.75rem; border-radius: 999px; border:1px solid #bfdbfe;">Cross-Barangay / Fast Food</span>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.3rem;">For high-margin cafe orders (₱250+) and urgent parcels where gasoline and speed matter.</p>
+
+        <div class="fee-split-bar" style="margin: 1rem 0;">
+          <div class="split-rider" style="width: 78.5%; background: #2563eb; color: #ffffff;">🛵 Motor Rider: ₱55.00 (78.5%)</div>
+          <div class="split-baao" style="width: 21.5%; background: #7c3aed; color: #ffffff;">⚡ BaaoDash: ₱15.00</div>
+        </div>
+
+        <div class="money-details">
+          <div class="money-stat">
+            <span style="color: var(--customer-color); font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">CUSTOMER PAYS</span>
+            <div class="money-stat-num" style="color: #0f172a;">₱70</div>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">Standard cross-barangay delivery rate</p>
+          </div>
+          <div class="money-stat">
+            <span style="color: var(--rider-color); font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">RIDER TAKEOUT</span>
+            <div class="money-stat-num" style="color: #2563eb;">₱55</div>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">Fair compensation covering gasoline & vehicle</p>
+          </div>
+          <div class="money-stat">
+            <span style="color: var(--baao-color); font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">BAAODASH FEE</span>
+            <div class="money-stat-num" style="color: #7c3aed;">₱15</div>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">Platform gross profit margin</p>
+          </div>
+          <div class="money-stat">
+            <span style="color: var(--merchant-color); font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">MERCHANT GOODS</span>
+            <div class="money-stat-num" style="color: #d97706;">100%</div>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">Zero commission on merchant food</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: THE 3 CORE SERVICE WORKFLOWS -->
+    <section>
+      <div class="section-title">
+        <span>🔄</span> 3. The Three Core Business Workflows
+      </div>
+      <p class="section-desc">Step-by-step illustrations of how services operate from start to finish.</p>
+
+      <!-- Workflow 1: Padala -->
+      <div class="flow-card">
+        <div class="flow-header">
+          <div>
+            <h3 style="font-size: 1.3rem; color: var(--text-main);">Service A: Padala / Package Delivery (MVP Priority #1)</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Customer already has an item (keys, documents, box, parcel) and needs it brought somewhere.</p>
+          </div>
+          <span class="flow-tag" style="background: #eff6ff; color: #2563eb; border:1px solid #bfdbfe;">Simplest & Highest Demand</span>
+        </div>
+
+        <div class="steps-row">
+          <div class="step-box">
+            <span class="step-number">Step 1</span>
+            <div class="step-title">Book Request</div>
+            <div class="step-desc">Sender inputs pickup & dropoff barangay. Sees exact ₱ fee upfront.</div>
+          </div>
+          <div class="arrow-divider">→</div>
+
+          <div class="step-box">
+            <span class="step-number">Step 2</span>
+            <div class="step-title">Dispatch Match</div>
+            <div class="step-desc">Nearby available rider accepts job via app or dispatcher call.</div>
+          </div>
+          <div class="arrow-divider">→</div>
+
+          <div class="step-box">
+            <span class="step-number">Step 3</span>
+            <div class="step-title">Pickup Item</div>
+            <div class="step-desc">Rider collects package from sender. Sender tracks status.</div>
+          </div>
+          <div class="arrow-divider">→</div>
+
+          <div class="step-box">
+            <span class="step-number">Step 4</span>
+            <div class="step-title">Delivery & Proof</div>
+            <div class="step-desc">Rider drops off item, snaps photo proof / receiver OTP.</div>
+          </div>
+          <div class="arrow-divider">→</div>
+
+          <div class="step-box">
+            <span class="step-number">Step 5</span>
+            <div class="step-title">Settlement</div>
+            <div class="step-desc">Customer pays Cash/GCash. Rider pockets ₱55; platform logs ₱15.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Workflow 2: Merchant Orders -->
+      <div class="flow-card">
+        <div class="flow-header">
+          <div>
+            <h3 style="font-size: 1.3rem; color: var(--text-main);">Service B: Local Merchant & Cafe Orders (MVP Priority #2)</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Customer orders coffee, food, or pastries from a partnered Baao store (e.g. Extraction Point in Poblacion, But First Coffee in San Nicolas).</p>
+          </div>
+          <span class="flow-tag" style="background: #fffbeb; color: #d97706; border:1px solid #fde68a;">Community Commerce</span>
+        </div>
+
+        <div class="steps-row">
+          <div class="step-box">
+            <span class="step-number">Step 1</span>
+            <div class="step-title">Order from Menu</div>
+            <div class="step-desc">Customer selects cafe (Extraction Point / But First Coffee) and adds menu items.</div>
+          </div>
+          <div class="arrow-divider">→</div>
+
+          <div class="step-box">
+            <span class="step-number">Step 2</span>
+            <div class="step-title">Store Prepares</div>
+            <div class="step-desc">Merchant receives alert, confirms order, and starts cooking/packing.</div>
+          </div>
+          <div class="arrow-divider">→</div>
+
+          <div class="step-box">
+            <span class="step-number">Step 3</span>
+            <div class="step-title">Rider Collects</div>
+            <div class="step-desc">When merchant taps "Ready", assigned rider arrives for pickup.</div>
+          </div>
+          <div class="arrow-divider">→</div>
+
+          <div class="step-box">
+            <span class="step-number">Step 4</span>
+            <div class="step-title">Hot Dropoff</div>
+            <div class="step-desc">Rider delivers directly to customer's home or office door.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Workflow 3: Anchor B2B Ice Supply -->
+      <div class="flow-card" style="border-color: #fbcfe8;">
+        <div class="flow-header">
+          <div>
+            <h3 style="font-size: 1.3rem; color: #be185d;">Service C: The Strategic Anchor — B2B Recurring Supply</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Founder's Ice Business supplies local cafes & restaurants daily with predictable volume.</p>
+          </div>
+          <span class="flow-tag" style="background: #fdf2f8; color: #be185d; border:1px solid #fbcfe8;">🚀 Unfair Advantage</span>
+        </div>
+
+        <div class="steps-row">
+          <div class="step-box">
+            <span class="step-number">Anchor Source</span>
+            <div class="step-title">Founder's Ice Plant</div>
+            <div class="step-desc">Guaranteed daily bags of ice scheduled every morning.</div>
+          </div>
+          <div class="arrow-divider">→</div>
+
+          <div class="step-box">
+            <span class="step-number">Platform</span>
+            <div class="step-title">BaaoDash Routing</div>
+            <div class="step-desc">Bundles recurring supply deliveries into predictable rider batches.</div>
+          </div>
+          <div class="arrow-divider">→</div>
+
+          <div class="step-box">
+            <span class="step-number">Guaranteed Jobs</span>
+            <div class="step-title">Rider Delivery</div>
+            <div class="step-desc">Riders earn steady morning income before lunch rush starts.</div>
+          </div>
+          <div class="arrow-divider">→</div>
+
+          <div class="step-box">
+            <span class="step-number">B2B Destination</span>
+            <div class="step-title">5+ Local Cafes</div>
+            <div class="step-desc">Never run out of ice; become trusted partners for consumer delivery!</div>
+          </div>
+        </div>
+        
+        <div class="callout-box">
+          <div class="callout-title">💡 Why This Solves the "Chicken-and-Egg" Problem</div>
+          <p style="font-size: 0.92rem; color: var(--text-body); line-height: 1.5;">
+            Most delivery apps fail because riders leave when there are no orders, and customers leave when there are no riders. 
+            <strong>The Ice Business guarantees recurring morning deliveries from Day 1.</strong> Riders have guaranteed income, which keeps them available on the platform when retail customers want coffee or groceries later in the day!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: INCLUSIVITY & LOCAL ADVANTAGE -->
+    <section>
+      <div class="section-title">
+        <span>🤝</span> 4. The Inclusive Dispatch Model (Why BaaoDash Wins Locally)
+      </div>
+      <p class="section-desc">Big tech apps only work with smartphone-owning motorcycle riders. BaaoDash includes everyone in town.</p>
+
+      <div class="grid-2">
+        <!-- Digital Riders -->
+        <div class="card" style="border-top: 4px solid #2563eb;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📱 Modern App Riders</div>
+          <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--text-main);">Motorcycle Riders with Smartphones</h4>
+          <p style="margin-bottom: 1rem;">Use the mobile-friendly web app. Can go online/offline with one tap, view Google Maps navigation, upload photo proof of delivery, and track daily wallet earnings.</p>
+          <span style="font-size: 0.8rem; font-weight:700; color: #2563eb; background: #eff6ff; padding: 0.3rem 0.75rem; border-radius: 6px; border:1px solid #bfdbfe;">Ideal for: Cross-barangay fast food & urgent packages</span>
+        </div>
+
+        <!-- Traditional Drivers -->
+        <div class="card" style="border-top: 4px solid #059669;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📞 Traditional Drivers (Assisted Dispatch)</div>
+          <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--text-main);">Habal-habal, Pedicabs & Tricycles</h4>
+          <p style="margin-bottom: 1rem;">No smartphone needed! The central BaaoDash dispatcher calls or SMS messages them, or they check in at a designated local rider hub. The dispatcher manages order updates for them.</p>
+          <span style="font-size: 0.8rem; font-weight:700; color: #059669; background: #ecfdf5; padding: 0.3rem 0.75rem; border-radius: 6px; border:1px solid #a7f3d0;">Ideal for: Heavy sacks of rice, hardware, & short-distance town trips</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: EXPANSION ROADMAP -->
+    <section>
+      <div class="section-title">
+        <span>📈</span> 5. Growth Flywheel: From Baao to Rinconada
+      </div>
+      <p class="section-desc">How a focused small-town network scales systematically without burning millions of pesos.</p>
+
+      <div class="roadmap-track">
+        <div class="roadmap-item">
+          <div class="roadmap-phase">Phase 0 - 1</div>
+          <div class="roadmap-content">
+            <h4>Manual Validation & Ice Anchor (10–20 orders/day)</h4>
+            <p>Operate via Facebook / Phone / Web MVP. Anchor with the ice plant delivering to 5–10 cafes. Prove that people pay and riders show up.</p>
+          </div>
+        </div>
+
+        <div class="roadmap-item">
+          <div class="roadmap-phase">Phase 2 - 3</div>
+          <div class="roadmap-content">
+            <h4>Merchant Network & Public Launch (30–50 orders/day)</h4>
+            <p>Onboard top 10 local cafes, bakeries, and pharmacies. Deploy QR codes and store table tents across Baao Poblacion.</p>
+          </div>
+        </div>
+
+        <div class="roadmap-item">
+          <div class="roadmap-phase">Phase 4</div>
+          <div class="roadmap-content">
+            <h4>Nearby Barangays Expansion (75–100 orders/day)</h4>
+            <p>Expand fixed zones to outer barangays. Introduce structured B2B corporate monthly billing for hardware stores & suppliers.</p>
+          </div>
+        </div>
+
+        <div class="roadmap-item">
+          <div class="roadmap-phase" style="background: #f5f3ff; color: #7c3aed; border-color: #ddd6fe;">Phase 5</div>
+          <div class="roadmap-content">
+            <h4 style="color: #7c3aed;">RinconaDash Regional Expansion</h4>
+            <p>Replicate the proven Baao logistics playbook into neighboring Rinconada municipalities. Become the default logistics spine of the district.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p><strong>BaaoDash Business Specification Visual Guide</strong> • Designed for Founders, Investors, Merchants, & Community Partners</p>
+      <p style="margin-top: 0.5rem; font-size: 0.8rem;">File: <code>d:\Antigravity\BaaoLocalDelivery\BaaoDash_Business_Model_Infographic.html</code></p>
+    </footer>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/BaaoDash_MVP_Prototype.html" }
+  ]
+}
