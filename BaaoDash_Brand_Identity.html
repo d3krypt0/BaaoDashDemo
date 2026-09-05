@@ -1,0 +1,1751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BaaoDash — Comprehensive Brand Identity & Design System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #155EEF;
+      --primary-dark: #0040C1;
+      --primary-light: #EAF2FF;
+      --secondary: #FF7A00;
+      --secondary-dark: #D96800;
+      --secondary-light: #FFF2E5;
+      --navy: #0B1F3A;
+      --navy-light: #1E3A5F;
+      --gray-surface: #F5F7FA;
+      --gray-border: #E2E8F0;
+      --gray-text: #202124;
+      --gray-muted: #64748B;
+      --white: #FFFFFF;
+      --success: #16A34A;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 8px 24px -4px rgba(11, 31, 58, 0.08);
+      --shadow-lg: 0 20px 40px -10px rgba(11, 31, 58, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--gray-surface);
+      color: var(--gray-text);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* TOP GLOBAL BAR */
+    .brand-topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(11, 31, 58, 0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      color: #FFFFFF;
+    }
+
+    .brand-topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .brand-topbar-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .brand-badge-pill {
+      background: #155EEF;
+      color: #FFFFFF;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .brand-topbar-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      overflow-x: auto;
+    }
+
+    .nav-anchor-btn {
+      color: #94A3B8;
+      text-decoration: none;
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 0.35rem 0.65rem;
+      border-radius: 6px;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .nav-anchor-btn:hover {
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-action-btn {
+      background: #FF7A00;
+      color: #FFFFFF;
+      text-decoration: none;
+      font-size: 0.76rem;
+      font-weight: 800;
+      padding: 0.35rem 0.85rem;
+      border-radius: 8px;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      white-space: nowrap;
+      box-shadow: 0 2px 8px rgba(255, 122, 0, 0.3);
+    }
+
+    .nav-action-btn:hover {
+      background: #D96800;
+      transform: translateY(-1px);
+    }
+
+    /* HERO SHOWCASE HEADER */
+    .brand-hero {
+      background: radial-gradient(circle at 50% 0%, #1E3A5F 0%, #0B1F3A 100%);
+      color: #FFFFFF;
+      padding: 4rem 1.5rem 3.5rem 1.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-transit-ribbon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0.12;
+      pointer-events: none;
+      background-image: radial-gradient(#155EEF 1.5px, transparent 1.5px);
+      background-size: 24px 24px;
+    }
+
+    .hero-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: rgba(21, 94, 239, 0.25);
+      border: 1px solid rgba(21, 94, 239, 0.45);
+      padding: 0.3rem 0.9rem;
+      border-radius: 999px;
+      color: #93C5FD;
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 3.2rem;
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -0.035em;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-title span.accent {
+      color: #FF7A00;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: #CBD5E1;
+      max-width: 720px;
+      margin: 0 auto 2rem auto;
+      line-height: 1.6;
+    }
+
+    .hero-tagline-quote {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: #38BDF8;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 0.75rem 1.5rem;
+      border-radius: 12px;
+      display: inline-block;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    /* MAIN CONTAINER */
+    .brand-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 6rem 1.5rem;
+    }
+
+    /* SECTION HEADERS */
+    .section-header {
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 1rem;
+      border-bottom: 2px solid var(--gray-border);
+      padding-bottom: 1rem;
+    }
+
+    .section-title-box {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .section-num {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.76rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .section-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.85rem;
+      font-weight: 900;
+      color: var(--navy);
+      letter-spacing: -0.025em;
+    }
+
+    .section-desc {
+      font-size: 0.88rem;
+      color: var(--gray-muted);
+      max-width: 700px;
+    }
+
+    /* CARDS & GRIDS */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.75rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 980px) {
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    }
+
+    .showcase-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--gray-border);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.2s ease;
+    }
+
+    .showcase-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .card-canvas {
+      min-height: 240px;
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .canvas-white { background: #FFFFFF; }
+    .canvas-dark  { background: #0B1F3A; }
+    .canvas-gray  { background: #F8FAFC; }
+    .canvas-grid  {
+      background-color: #FFFFFF;
+      background-image: linear-gradient(#E2E8F0 1px, transparent 1px), linear-gradient(90deg, #E2E8F0 1px, transparent 1px);
+      background-size: 16px 16px;
+    }
+
+    .card-footer {
+      padding: 1rem 1.25rem;
+      border-top: 1px solid var(--gray-border);
+      background: #FFFFFF;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+
+    .card-title {
+      font-weight: 800;
+      color: var(--navy);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .card-meta {
+      color: var(--gray-muted);
+      font-weight: 600;
+    }
+
+    /* COPY BUTTON */
+    .btn-copy-code {
+      background: var(--gray-surface);
+      border: 1px solid var(--gray-border);
+      padding: 0.35rem 0.65rem;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--navy);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: all 0.15s ease;
+      font-family: inherit;
+    }
+
+    .btn-copy-code:hover {
+      background: var(--primary-light);
+      border-color: #BFDBFE;
+      color: var(--primary);
+    }
+
+    /* COLOR SWATCH CARD */
+    .color-swatch-box {
+      height: 110px;
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 0.85rem;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);
+      position: relative;
+    }
+
+    .color-info-table {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      font-size: 0.74rem;
+    }
+
+    .color-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .color-label {
+      color: var(--gray-muted);
+      font-weight: 600;
+    }
+
+    .color-val {
+      font-weight: 800;
+      font-family: monospace;
+      color: var(--navy);
+    }
+
+    /* ICON CARD */
+    .icon-card {
+      background: #FFFFFF;
+      border: 1px solid var(--gray-border);
+      border-radius: 12px;
+      padding: 1.25rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.65rem;
+      transition: all 0.15s ease;
+    }
+
+    .icon-card:hover {
+      border-color: var(--primary);
+      box-shadow: 0 6px 16px rgba(21, 94, 239, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .icon-symbol-render {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+    }
+
+    .icon-name-tag {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--navy);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* MOCKUP 8: 3D BUSINESS CARD */
+    .biz-card-stage {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 1.5rem;
+    }
+
+    .biz-card {
+      width: 340px;
+      height: 195px;
+      border-radius: 14px;
+      padding: 1.25rem 1.5rem;
+      position: relative;
+      box-shadow: 0 16px 36px -8px rgba(11, 31, 58, 0.25);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease;
+    }
+
+    .biz-card:hover {
+      transform: translateY(-4px) rotateX(4deg);
+    }
+
+    .biz-card-front {
+      background: linear-gradient(135deg, #0B1F3A 0%, #152B4E 100%);
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .biz-card-back {
+      background: #FFFFFF;
+      color: var(--navy);
+      border: 1px solid var(--gray-border);
+    }
+
+    /* MOCKUP 9 & 10: APPAREL & VEST */
+    .apparel-mock-canvas {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #F1F5F9;
+      padding: 2.5rem 1.5rem;
+      border-radius: 14px;
+    }
+
+    /* MOCKUP 11: MOTORCYCLE THERMAL BOX */
+    .thermal-box-mock {
+      width: 280px;
+      height: 250px;
+      background: #0B1F3A;
+      border-radius: 16px;
+      border: 4px solid #1E3A5F;
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.4);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1.25rem;
+      color: #FFFFFF;
+    }
+
+    .thermal-box-lid {
+      position: absolute;
+      top: -8px;
+      left: 10px;
+      right: 10px;
+      height: 14px;
+      background: #FF7A00;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(255, 122, 0, 0.4);
+    }
+
+    .thermal-box-straps {
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      top: 0;
+      bottom: 0;
+      pointer-events: none;
+    }
+
+    .strap-band {
+      width: 12px;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      border-left: 1px dashed rgba(255, 255, 255, 0.3);
+      border-right: 1px dashed rgba(255, 255, 255, 0.3);
+    }
+
+    /* MOCKUP 13: KRAFT BAG */
+    .kraft-bag-mock {
+      width: 220px;
+      height: 280px;
+      background: #C4A482;
+      border-radius: 8px 8px 4px 4px;
+      box-shadow: 0 16px 32px rgba(0,0,0,0.18);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      border-bottom: 4px solid #A08060;
+    }
+
+    .kraft-bag-handle {
+      width: 70px;
+      height: 40px;
+      border: 6px solid #8C6D4F;
+      border-bottom: none;
+      border-radius: 35px 35px 0 0;
+      position: absolute;
+      top: -36px;
+    }
+
+    .kraft-bag-tape {
+      position: absolute;
+      top: 15px;
+      width: 90%;
+      background: #FF7A00;
+      color: #FFFFFF;
+      font-size: 0.58rem;
+      font-weight: 800;
+      text-align: center;
+      padding: 0.2rem 0;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    /* MOCKUP 18: PROJECTING STOREFRONT SIGN */
+    .store-sign-mock {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: #0B1F3A;
+      border: 8px solid #334155;
+      box-shadow: 0 0 30px rgba(21, 94, 239, 0.35), 0 12px 28px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      position: relative;
+    }
+
+    .store-sign-bracket {
+      position: absolute;
+      left: -28px;
+      width: 28px;
+      height: 40px;
+      background: #1E293B;
+      border-radius: 4px 0 0 4px;
+    }
+
+    /* MOCKUP 19: THERMAL RECEIPT SLIP */
+    .receipt-slip {
+      width: 260px;
+      background: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+      padding: 1.25rem 1rem;
+      font-family: 'Inter', monospace, sans-serif;
+      font-size: 0.72rem;
+      color: #0F172A;
+      position: relative;
+    }
+
+    .receipt-slip::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: radial-gradient(circle, transparent, transparent 50%, #FFFFFF 50%, #FFFFFF 100%);
+      background-size: 12px 12px;
+    }
+
+    /* REGIONAL EXPANSION LIVE SIMULATOR */
+    .regional-simulator-box {
+      background: linear-gradient(135deg, #0B1F3A 0%, #152B4E 100%);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      color: #FFFFFF;
+      margin-top: 2rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .reg-sim-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .reg-sim-select {
+      background: #1E3A5F;
+      color: #FFFFFF;
+      border: 1.5px solid #38BDF8;
+      padding: 0.65rem 1.25rem;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      outline: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .reg-sim-display {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 2.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+    }
+
+    /* TOAST NOTIFICATION */
+    .copy-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #0B1F3A;
+      color: #FFFFFF;
+      padding: 0.75rem 1.25rem;
+      border-radius: 10px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.3);
+      font-size: 0.82rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .copy-toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP GLOBAL APP BAR -->
+  <header class="brand-topbar">
+    <div class="brand-topbar-left">
+      <div class="brand-topbar-title">
+        <span>⚡ BaaoDash</span>
+        <span class="brand-badge-pill">Brand Identity &amp; System</span>
+      </div>
+    </div>
+
+    <nav class="brand-topbar-nav">
+      <a href="#section-logos" class="nav-anchor-btn">Logos</a>
+      <a href="#section-colors" class="nav-anchor-btn">Colors</a>
+      <a href="#section-typography" class="nav-anchor-btn">Typography</a>
+      <a href="#section-icons" class="nav-anchor-btn">Iconography</a>
+      <a href="#section-mockups" class="nav-anchor-btn">20 Master Mockups</a>
+      <a href="#section-regional" class="nav-anchor-btn">Regional Architecture</a>
+      <a href="BaaoDash_MVP_Prototype.html" target="_blank" class="nav-action-btn">
+        <span>🚀</span> 5-Phone Prototype
+      </a>
+      <a href="BaaoDash_Onboarding_Demo.html" target="_blank" class="nav-action-btn" style="background:#0284C7;">
+        <span>📝</span> Onboarding Demo
+      </a>
+    </nav>
+  </header>
+
+  <!-- HERO PRESENTATION HEADER -->
+  <section class="brand-hero">
+    <div class="hero-transit-ribbon"></div>
+    <div class="hero-inner">
+      <div class="hero-eyebrow">
+        <span>📍</span> Municipality of Baao, Camarines Sur • Rinconada District
+      </div>
+      <h1 class="hero-title">
+        Local + Speed + <span class="accent">Connection</span>
+      </h1>
+      <p class="hero-subtitle">
+        A community-focused, modern brand identity designed for hyperlocal delivery mobility, local merchant commerce, and seamless regional expansion across Camarines Sur.
+      </p>
+      <div class="hero-tagline-quote">
+        “Your Trusted Local Delivery Partner.”
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTAINER -->
+  <main class="brand-container">
+
+    <!-- ===================================================================== -->
+    <!-- SECTION 1: LOGO SYSTEM & VARIATIONS                                   -->
+    <!-- ===================================================================== -->
+    <section id="section-logos" style="margin-bottom: 5rem;">
+      <div class="section-header">
+        <div class="section-title-box">
+          <span class="section-num">Section 01</span>
+          <h2 class="section-title">Logo System &amp; Variations</h2>
+          <p class="section-desc">
+            Constructed from the letter "B", a location waypoint pin, and a dynamic speed arrow. Seven authoritative versions engineered for flawless scalability across digital screens, thermal slips, and vehicle boxes.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <!-- 1. Primary Logo on White -->
+        <div class="showcase-card">
+          <div class="card-canvas canvas-white">
+            <svg viewBox="0 0 480 110" width="380" height="87" fill="none">
+              <use href="assets/brand/logo-primary.svg#logo-symbol"/>
+              <use href="assets/brand/logo-primary.svg#wordmark"/>
+            </svg>
+          </div>
+          <div class="card-footer">
+            <div>
+              <div class="card-title">01. Primary Horizontal Logo</div>
+              <div class="card-meta">Full Color on White Background</div>
+            </div>
+            <button class="btn-copy-code" onclick="copySvgAsset('assets/brand/logo-primary.svg')">Copy SVG</button>
+          </div>
+        </div>
+
+        <!-- 2. Reverse Logo on Dark -->
+        <div class="showcase-card">
+          <div class="card-canvas canvas-dark">
+            <svg viewBox="0 0 480 110" width="380" height="87" fill="none">
+              <use href="assets/brand/logo-reverse.svg#logo-symbol-rev"/>
+              <use href="assets/brand/logo-reverse.svg#wordmark-rev"/>
+            </svg>
+          </div>
+          <div class="card-footer">
+            <div>
+              <div class="card-title">02. Reverse Logo on Dark Navy</div>
+              <div class="card-meta">White &amp; Orange for Dark Surfaces (#0B1F3A)</div>
+            </div>
+            <button class="btn-copy-code" onclick="copySvgAsset('assets/brand/logo-reverse.svg')">Copy SVG</button>
+          </div>
+        </div>
+
+        <!-- 3. Stacked Logo -->
+        <div class="showcase-card">
+          <div class="card-canvas canvas-gray">
+            <svg viewBox="0 0 280 260" width="180" height="167" fill="none">
+              <use href="assets/brand/logo-stacked.svg#stacked-symbol"/>
+              <use href="assets/brand/logo-stacked.svg#stacked-wordmark"/>
+            </svg>
+          </div>
+          <div class="card-footer">
+            <div>
+              <div class="card-title">03. Stacked / Vertical Lockup</div>
+              <div class="card-meta">Centered for Apparel, Bags &amp; Box Backs</div>
+            </div>
+            <button class="btn-copy-code" onclick="copySvgAsset('assets/brand/logo-stacked.svg')">Copy SVG</button>
+          </div>
+        </div>
+
+        <!-- 4. Standalone Symbol & Scalability -->
+        <div class="showcase-card">
+          <div class="card-canvas canvas-grid" style="gap: 1.5rem;">
+            <div style="display:flex; flex-direction:column; align-items:center; gap:0.35rem;">
+              <svg viewBox="0 0 120 120" width="80" height="80">
+                <image href="assets/brand/logo-symbol.svg" width="120" height="120"/>
+              </svg>
+              <span style="font-size:0.68rem; font-weight:800; color:var(--gray-muted);">80px Master</span>
+            </div>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:0.35rem;">
+              <svg viewBox="0 0 120 120" width="48" height="48">
+                <image href="assets/brand/logo-symbol.svg" width="120" height="120"/>
+              </svg>
+              <span style="font-size:0.68rem; font-weight:800; color:var(--gray-muted);">48px App</span>
+            </div>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:0.35rem;">
+              <svg viewBox="0 0 120 120" width="24" height="24">
+                <image href="assets/brand/logo-symbol.svg" width="120" height="120"/>
+              </svg>
+              <span style="font-size:0.68rem; font-weight:800; color:var(--gray-muted);">24px Favicon</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div>
+              <div class="card-title">04. Standalone Symbol Scalability</div>
+              <div class="card-meta">Recognizable from 24px Favicon to Billboard</div>
+            </div>
+            <button class="btn-copy-code" onclick="copySvgAsset('assets/brand/logo-symbol.svg')">Copy SVG</button>
+          </div>
+        </div>
+
+        <!-- 5. Wordmark Only -->
+        <div class="showcase-card">
+          <div class="card-canvas canvas-white">
+            <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 3.2rem; font-weight: 900; letter-spacing: -0.03em;">
+              <span style="color: #0B1F3A;">BAAO</span><span style="color: #FF7A00;">DASH</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div>
+              <div class="card-title">05. Wordmark Only</div>
+              <div class="card-meta">Pure Typographic Execution</div>
+            </div>
+            <span class="card-meta">Display Font</span>
+          </div>
+        </div>
+
+        <!-- 6. Monochrome Black -->
+        <div class="showcase-card">
+          <div class="card-canvas canvas-white">
+            <svg viewBox="0 0 480 110" width="380" height="87" fill="none">
+              <use href="assets/brand/logo-monochrome.svg#logo-symbol-mono"/>
+              <use href="assets/brand/logo-monochrome.svg#wordmark-mono"/>
+            </svg>
+          </div>
+          <div class="card-footer">
+            <div>
+              <div class="card-title">06. Monochrome Version</div>
+              <div class="card-meta">100% K Black for Thermal Slips &amp; Laser Engraving</div>
+            </div>
+            <button class="btn-copy-code" onclick="copySvgAsset('assets/brand/logo-monochrome.svg')">Copy SVG</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- SECTION 2: COLOR PALETTE & PROPORTIONAL SYSTEM                        -->
+    <!-- ===================================================================== -->
+    <section id="section-colors" style="margin-bottom: 5rem;">
+      <div class="section-header">
+        <div class="section-title-box">
+          <span class="section-num">Section 02</span>
+          <h2 class="section-title">Color Palette Architecture</h2>
+          <p class="section-desc">
+            Governed by the 60-30-10 rule: 60% clean whites and tech blue base, 30% deep navy contrast, and 10% kinetic orange reserved exclusively for delivery status, waypoints, and call-to-action triggers.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <!-- Deep Blue -->
+        <div class="showcase-card" style="padding: 1.25rem;">
+          <div class="color-swatch-box" style="background: #155EEF;"></div>
+          <div class="color-info-table">
+            <div class="color-row">
+              <span class="color-label">Name</span>
+              <strong style="color:var(--navy);">Deep Blue (Primary)</strong>
+            </div>
+            <div class="color-row">
+              <span class="color-label">Hex</span>
+              <span class="color-val" id="hex-blue">#155EEF</span>
+            </div>
+            <div class="color-row">
+              <span class="color-label">RGB</span>
+              <span class="color-val">21, 94, 239</span>
+            </div>
+            <div class="color-row">
+              <span class="color-label">Role</span>
+              <span class="color-val">Trust &amp; Technology</span>
+            </div>
+          </div>
+          <button class="btn-copy-code" style="margin-top: 0.85rem; width: 100%; justify-content: center;" onclick="copyHex('#155EEF')">
+            Copy Hex (#155EEF)
+          </button>
+        </div>
+
+        <!-- Bright Orange -->
+        <div class="showcase-card" style="padding: 1.25rem;">
+          <div class="color-swatch-box" style="background: #FF7A00;"></div>
+          <div class="color-info-table">
+            <div class="color-row">
+              <span class="color-label">Name</span>
+              <strong style="color:var(--navy);">Bright Orange (Accent)</strong>
+            </div>
+            <div class="color-row">
+              <span class="color-label">Hex</span>
+              <span class="color-val" id="hex-orange">#FF7A00</span>
+            </div>
+            <div class="color-row">
+              <span class="color-label">RGB</span>
+              <span class="color-val">255, 122, 0</span>
+            </div>
+            <div class="color-row">
+              <span class="color-label">Role</span>
+              <span class="color-val">Speed, Action &amp; Waypoint</span>
+            </div>
+          </div>
+          <button class="btn-copy-code" style="margin-top: 0.85rem; width: 100%; justify-content: center;" onclick="copyHex('#FF7A00')">
+            Copy Hex (#FF7A00)
+          </button>
+        </div>
+
+        <!-- Dark Navy -->
+        <div class="showcase-card" style="padding: 1.25rem;">
+          <div class="color-swatch-box" style="background: #0B1F3A;"></div>
+          <div class="color-info-table">
+            <div class="color-row">
+              <span class="color-label">Name</span>
+              <strong style="color:var(--navy);">Dark Navy (Structure)</strong>
+            </div>
+            <div class="color-row">
+              <span class="color-label">Hex</span>
+              <span class="color-val" id="hex-navy">#0B1F3A</span>
+            </div>
+            <div class="color-row">
+              <span class="color-label">RGB</span>
+              <span class="color-val">11, 31, 58</span>
+            </div>
+            <div class="color-row">
+              <span class="color-label">Role</span>
+              <span class="color-val">High Contrast &amp; Night Surfacing</span>
+            </div>
+          </div>
+          <button class="btn-copy-code" style="margin-top: 0.85rem; width: 100%; justify-content: center;" onclick="copyHex('#0B1F3A')">
+            Copy Hex (#0B1F3A)
+          </button>
+        </div>
+
+        <!-- Light Blue Tint -->
+        <div class="showcase-card" style="padding: 1.25rem;">
+          <div class="color-swatch-box" style="background: #EAF2FF;"></div>
+          <div class="color-info-table">
+            <div class="color-row">
+              <span class="color-label">Name</span>
+              <strong style="color:var(--navy);">Light Blue (Soft Tint)</strong>
+            </div>
+            <div class="color-row">
+              <span class="color-label">Hex</span>
+              <span class="color-val">#EAF2FF</span>
+            </div>
+            <div class="color-row">
+              <span class="color-label">Role</span>
+              <span class="color-val">Subtle Pill Backgrounds</span>
+            </div>
+          </div>
+          <button class="btn-copy-code" style="margin-top: 0.85rem; width: 100%; justify-content: center;" onclick="copyHex('#EAF2FF')">
+            Copy Hex (#EAF2FF)
+          </button>
+        </div>
+
+        <!-- Light Gray Surface -->
+        <div class="showcase-card" style="padding: 1.25rem;">
+          <div class="color-swatch-box" style="background: #F5F7FA;"></div>
+          <div class="color-info-table">
+            <div class="color-row">
+              <span class="color-label">Name</span>
+              <strong style="color:var(--navy);">Light Gray (Surface Base)</strong>
+            </div>
+            <div class="color-row">
+              <span class="color-label">Hex</span>
+              <span class="color-val">#F5F7FA</span>
+            </div>
+            <div class="color-row">
+              <span class="color-label">Role</span>
+              <span class="color-val">App Canvas &amp; Neutral Grid</span>
+            </div>
+          </div>
+          <button class="btn-copy-code" style="margin-top: 0.85rem; width: 100%; justify-content: center;" onclick="copyHex('#F5F7FA')">
+            Copy Hex (#F5F7FA)
+          </button>
+        </div>
+
+        <!-- Dark Gray Text -->
+        <div class="showcase-card" style="padding: 1.25rem;">
+          <div class="color-swatch-box" style="background: #202124;"></div>
+          <div class="color-info-table">
+            <div class="color-row">
+              <span class="color-label">Name</span>
+              <strong style="color:var(--navy);">Dark Gray (Text Primary)</strong>
+            </div>
+            <div class="color-row">
+              <span class="color-label">Hex</span>
+              <span class="color-val">#202124</span>
+            </div>
+            <div class="color-row">
+              <span class="color-label">Role</span>
+              <span class="color-val">WCAG AAA Body Copy</span>
+            </div>
+          </div>
+          <button class="btn-copy-code" style="margin-top: 0.85rem; width: 100%; justify-content: center;" onclick="copyHex('#202124')">
+            Copy Hex (#202124)
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- SECTION 3: TYPOGRAPHIC SPECIMEN & HIERARCHY                           -->
+    <!-- ===================================================================== -->
+    <section id="section-typography" style="margin-bottom: 5rem;">
+      <div class="section-header">
+        <div class="section-title-box">
+          <span class="section-num">Section 03</span>
+          <h2 class="section-title">Typographic Hierarchy &amp; Specimen</h2>
+          <p class="section-desc">
+            Primary display typeface: <strong>Plus Jakarta Sans</strong>. Body and micro-label typeface: <strong>Inter</strong>. Engineered for extreme outdoor sunlight legibility on smartphone screens and thermal slips.
+          </p>
+        </div>
+      </div>
+
+      <div class="showcase-card" style="padding: 2rem;">
+        <div style="display: flex; flex-direction: column; gap: 1.75rem;">
+          <div>
+            <span style="font-size:0.72rem; font-weight:800; color:var(--primary); text-transform:uppercase;">Display Hero — 48px / 900 Black</span>
+            <div style="font-family:'Plus Jakarta Sans', sans-serif; font-size: 2.8rem; font-weight:900; color:var(--navy); line-height:1.15; letter-spacing:-0.03em;">
+              Mabilis. Maaasahan. Lokal na Bilis.
+            </div>
+          </div>
+
+          <div style="border-top: 1px dashed var(--gray-border); padding-top: 1.25rem;">
+            <span style="font-size:0.72rem; font-weight:800; color:var(--primary); text-transform:uppercase;">Heading 1 — 32px / 800 ExtraBold</span>
+            <div style="font-family:'Plus Jakarta Sans', sans-serif; font-size: 2rem; font-weight:800; color:var(--navy); line-height:1.2; letter-spacing:-0.02em;">
+              Delivering to 30 Barangays in Baao, Camarines Sur
+            </div>
+          </div>
+
+          <div style="border-top: 1px dashed var(--gray-border); padding-top: 1.25rem;">
+            <span style="font-size:0.72rem; font-weight:800; color:var(--primary); text-transform:uppercase;">Heading 2 &amp; Numbers — 24px / 700 Bold</span>
+            <div style="font-family:'Plus Jakarta Sans', sans-serif; font-size: 1.5rem; font-weight:700; color:var(--navy);">
+              Base Fare: ₱50.00 • Standard Fare: ₱70.00 • Outer Fare: ₱100.00
+            </div>
+          </div>
+
+          <div style="border-top: 1px dashed var(--gray-border); padding-top: 1.25rem;">
+            <span style="font-size:0.72rem; font-weight:800; color:var(--primary); text-transform:uppercase;">Body Regular &amp; SemiBold — 15px / 400 &amp; 600</span>
+            <p style="font-size: 0.95rem; color: #334155; line-height: 1.6; max-width: 850px;">
+              Ang BaaoDash ay ang opisyal na hyperlocal delivery platform ng Baao. Diretso ang presyo ng pagkain mula sa inyong mga paboritong cafe at tindahan (0% markup), at flat ang delivery rate base sa inyong barangay. Maaasahang serbisyo mula Poblacion hanggang sa mga liblib na purok.
+            </p>
+          </div>
+
+          <div style="border-top: 1px dashed var(--gray-border); padding-top: 1.25rem; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+            <span style="font-size:0.72rem; font-weight:800; color:var(--primary); text-transform:uppercase;">Button / CTA Tokens:</span>
+            <button style="background:#155EEF; color:#FFFFFF; border:none; padding:0.65rem 1.25rem; border-radius:10px; font-family:'Plus Jakarta Sans', sans-serif; font-weight:800; font-size:0.85rem; cursor:pointer;">
+              Order Now ➔
+            </button>
+            <button style="background:#FF7A00; color:#FFFFFF; border:none; padding:0.65rem 1.25rem; border-radius:10px; font-family:'Plus Jakarta Sans', sans-serif; font-weight:800; font-size:0.85rem; cursor:pointer;">
+              Book Courier Padala ➔
+            </button>
+            <button style="background:#F1F5F9; color:#0B1F3A; border:1px solid #CBD5E1; padding:0.65rem 1.25rem; border-radius:10px; font-family:'Plus Jakarta Sans', sans-serif; font-weight:800; font-size:0.85rem; cursor:pointer;">
+              Store Menu Directory
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- SECTION 4: 21-VECTOR BRAND ICONOGRAPHY SYSTEM                         -->
+    <!-- ===================================================================== -->
+    <section id="section-icons" style="margin-bottom: 5rem;">
+      <div class="section-header">
+        <div class="section-title-box">
+          <span class="section-num">Section 04</span>
+          <h2 class="section-title">21-Vector Brand Iconography System</h2>
+          <p class="section-desc">
+            All 21 icons engineered on a precise 24×24px grid with 2px rounded strokes and integrated Bright Orange kinetic focal nodes. Unified, scalable, and responsive.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid-4" style="grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));">
+        <!-- 1. Delivery -->
+        <div class="icon-card">
+          <div class="icon-symbol-render">
+            <svg viewBox="0 0 24 24" width="32" height="32"><use href="assets/brand/icons-sprite.svg#icon-delivery"/></svg>
+          </div>
+          <span class="icon-name-tag">Delivery</span>
+        </div>
+
+        <!-- 2. Motorcycle -->
+        <div class="icon-card">
+          <div class="icon-symbol-render">
+            <svg viewBox="0 0 24 24" width="32" height="32"><use href="assets/brand/icons-sprite.svg#icon-motorcycle"/></svg>
+          </div>
+          <span class="icon-name-tag">Motorcycle</span>
+        </div>
+
+        <!-- 3. Package -->
+        <div class="icon-card">
+          <div class="icon-symbol-render">
+            <svg viewBox="0 0 24 24" width="32" height="32"><use href="assets/brand/icons-sprite.svg#icon-package"/></svg>
+          </div>
+          <span class="icon-name-tag">Package</span>
+        </div>
+
+        <!-- 4. Food -->
+        <div class="icon-card">
+          <div class="icon-symbol-render">
+            <svg viewBox="0 0 24 24" width="32" height="32"><use href="assets/brand/icons-sprite.svg#icon-food"/></svg>
+          </div>
+          <span class="icon-name-tag">Food</span>
+        </div>
+
+        <!-- 5. Grocery -->
+        <div class="icon-card">
+          <div class="icon-symbol-render">
+            <svg viewBox="0 0 24 24" width="32" height="32"><use href="assets/brand/icons-sprite.svg#icon-grocery"/></svg>
+          </div>
+          <span class="icon-name-tag">Grocery</span>
+        </div>
+
+        <!-- 6. Medicine -->
+        <div class="icon-card">
+          <div class="icon-symbol-render">
+            <svg viewBox="0 0 24 24" width="32" height="32"><use href="assets/brand/icons-sprite.svg#icon-medicine"/></svg>
+          </div>
+          <span class="icon-name-tag">Medicine</span>
+        </div>
+
+        <!-- 7. Documents -->
+        <div class="icon-card">
+          <div class="icon-symbol-render">
+            <svg viewBox="0 0 24 24" width="32" height="32"><use href="assets/brand/icons-sprite.svg#icon-documents"/></svg>
+          </div>
+          <span class="icon-name-tag">Documents</span>
+        </div>
+
+        <!-- 8. Location -->
+        <div class="icon-card">
+          <div class="icon-symbol-render">
+            <svg viewBox="0 0 24 24" width="32" height="32"><use href="assets/brand/icons-sprite.svg#icon-location"/></svg>
+          </div>
+          <span class="icon-name-tag">Location</span>
+        </div>
+
+        <!-- 9. Tracking -->
+        <div class="icon-card">
+          <div class="icon-symbol-render">
+            <svg viewBox="0 0 24 24" width="32" height="32"><use href="assets/brand/icons-sprite.svg#icon-tracking"/></svg>
+          </div>
+          <span class="icon-name-tag">Tracking</span>
+        </div>
+
+        <!-- 10. Payment -->
+        <div class="icon-card">
+          <div class="icon-symbol-render">
+            <svg viewBox="0 0 24 24" width="32" height="32"><use href="assets/brand/icons-sprite.svg#icon-payment"/></svg>
+          </div>
+          <span class="icon-name-tag">Payment</span>
+        </div>
+
+        <!-- 11. Customer -->
+        <div class="icon-card">
+          <div class="icon-symbol-render">
+            <svg viewBox="0 0 24 24" width="32" height="32"><use href="assets/brand/icons-sprite.svg#icon-customer"/></svg>
+          </div>
+          <span class="icon-name-tag">Customer</span>
+        </div>
+
+        <!-- 12. Rider -->
+        <div class="icon-card">
+          <div class="icon-symbol-render">
+            <svg viewBox="0 0 24 24" width="32" height="32"><use href="assets/brand/icons-sprite.svg#icon-rider"/></svg>
+          </div>
+          <span class="icon-name-tag">Rider</span>
+        </div>
+
+        <!-- 13. Store -->
+        <div class="icon-card">
+          <div class="icon-symbol-render">
+            <svg viewBox="0 0 24 24" width="32" height="32"><use href="assets/brand/icons-sprite.svg#icon-store"/></svg>
+          </div>
+          <span class="icon-name-tag">Store</span>
+        </div>
+
+        <!-- 14. Order -->
+        <div class="icon-card">
+          <div class="icon-symbol-render">
+            <svg viewBox="0 0 24 24" width="32" height="32"><use href="assets/brand/icons-sprite.svg#icon-order"/></svg>
+          </div>
+          <span class="icon-name-tag">Order</span>
+        </div>
+
+        <!-- 15. Pickup -->
+        <div class="icon-card">
+          <div class="icon-symbol-render">
+            <svg viewBox="0 0 24 24" width="32" height="32"><use href="assets/brand/icons-sprite.svg#icon-pickup"/></svg>
+          </div>
+          <span class="icon-name-tag">Pickup</span>
+        </div>
+
+        <!-- 16. Drop-off -->
+        <div class="icon-card">
+          <div class="icon-symbol-render">
+            <svg viewBox="0 0 24 24" width="32" height="32"><use href="assets/brand/icons-sprite.svg#icon-dropoff"/></svg>
+          </div>
+          <span class="icon-name-tag">Drop-off</span>
+        </div>
+
+        <!-- 17. Support -->
+        <div class="icon-card">
+          <div class="icon-symbol-render">
+            <svg viewBox="0 0 24 24" width="32" height="32"><use href="assets/brand/icons-sprite.svg#icon-support"/></svg>
+          </div>
+          <span class="icon-name-tag">Support</span>
+        </div>
+
+        <!-- 18. Phone -->
+        <div class="icon-card">
+          <div class="icon-symbol-render">
+            <svg viewBox="0 0 24 24" width="32" height="32"><use href="assets/brand/icons-sprite.svg#icon-phone"/></svg>
+          </div>
+          <span class="icon-name-tag">Phone</span>
+        </div>
+
+        <!-- 19. Clock -->
+        <div class="icon-card">
+          <div class="icon-symbol-render">
+            <svg viewBox="0 0 24 24" width="32" height="32"><use href="assets/brand/icons-sprite.svg#icon-clock"/></svg>
+          </div>
+          <span class="icon-name-tag">Clock</span>
+        </div>
+
+        <!-- 20. Map -->
+        <div class="icon-card">
+          <div class="icon-symbol-render">
+            <svg viewBox="0 0 24 24" width="32" height="32"><use href="assets/brand/icons-sprite.svg#icon-map"/></svg>
+          </div>
+          <span class="icon-name-tag">Map</span>
+        </div>
+
+        <!-- 21. Route -->
+        <div class="icon-card">
+          <div class="icon-symbol-render">
+            <svg viewBox="0 0 24 24" width="32" height="32"><use href="assets/brand/icons-sprite.svg#icon-route"/></svg>
+          </div>
+          <span class="icon-name-tag">Route</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- SECTION 5: 20 MASTER BRAND IDENTITY MOCKUPS                           -->
+    <!-- ===================================================================== -->
+    <section id="section-mockups" style="margin-bottom: 5rem;">
+      <div class="section-header">
+        <div class="section-title-box">
+          <span class="section-num">Section 05</span>
+          <h2 class="section-title">20 Master Brand Identity Presentation Mockups</h2>
+          <p class="section-desc">
+            Complete physical, digital, vehicular, packaging, and commercial applications of the BaaoDash brand identity system.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+
+        <!-- MOCKUP 08: BUSINESS CARD -->
+        <div class="showcase-card">
+          <div class="card-canvas canvas-gray">
+            <div class="biz-card-stage">
+              <!-- Front -->
+              <div class="biz-card biz-card-front">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <span style="font-size:0.65rem; font-weight:800; letter-spacing:0.1em; color:#38BDF8;">BAAODASH LOGISTICS</span>
+                  <div style="width:10px; height:10px; border-radius:50%; background:#FF7A00;"></div>
+                </div>
+                <div style="text-align:center;">
+                  <svg viewBox="0 0 480 110" width="220" height="50">
+                    <use href="assets/brand/logo-reverse.svg#logo-symbol-rev"/>
+                    <use href="assets/brand/logo-reverse.svg#wordmark-rev"/>
+                  </svg>
+                </div>
+                <div style="font-size:0.68rem; color:#94A3B8; text-align:right;">
+                  baaodashdemo.vercel.app
+                </div>
+              </div>
+
+              <!-- Back -->
+              <div class="biz-card biz-card-back">
+                <div>
+                  <div style="font-weight:900; font-size:0.95rem; color:#0B1F3A; font-family:'Plus Jakarta Sans';">JOEMAR M.</div>
+                  <div style="font-size:0.7rem; font-weight:700; color:#155EEF;">Founder &amp; Managing Director</div>
+                </div>
+                <div style="font-size:0.68rem; color:#64748B; display:flex; flex-direction:column; gap:0.2rem;">
+                  <div>📞 +63 9XX XXX XXXX</div>
+                  <div>📍 Baao, Camarines Sur, Philippines</div>
+                  <div>✉️ hello@baaodash.ph</div>
+                </div>
+                <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px dashed #E2E8F0; padding-top:0.4rem;">
+                  <span style="font-size:0.62rem; font-weight:700; color:#FF7A00;">LOKAL NA SERBISYO</span>
+                  <span style="font-size:0.62rem; font-weight:800; color:#0B1F3A;">RINCONADA NETWORK</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div>
+              <div class="card-title">08. Executive Business Card</div>
+              <div class="card-meta">350gsm Soft-Touch with Spot UV Embossed Finish</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MOCKUP 09 & 10: RIDER UNIFORM & HI-VIS VEST -->
+        <div class="showcase-card">
+          <div class="card-canvas canvas-gray">
+            <div style="display:flex; gap:1.5rem; align-items:center; flex-wrap:wrap; justify-content:center;">
+              <!-- Dri-Fit Shirt Mock -->
+              <div style="width:140px; height:180px; background:#155EEF; border-radius:18px 18px 8px 8px; position:relative; box-shadow:0 12px 24px rgba(21,94,239,0.3); display:flex; flex-direction:column; align-items:center; padding:0.8rem 0.5rem; color:#FFFFFF;">
+                <div style="width:44px; height:16px; background:#0B1F3A; border-radius:0 0 10px 10px; border-bottom:2px solid #FF7A00;"></div>
+                <div style="margin-top:1.5rem; background:rgba(255,255,255,0.15); padding:0.25rem 0.5rem; border-radius:6px; font-size:0.65rem; font-weight:800;">
+                  ⚡ BAAODASH
+                </div>
+                <div style="position:absolute; bottom:12px; font-size:0.58rem; color:#BFDBFE; font-weight:700;">
+                  OFFICIAL COURIER
+                </div>
+              </div>
+
+              <!-- Hi-Vis Vest Mock -->
+              <div style="width:140px; height:180px; background:#FF7A00; border-radius:18px 18px 8px 8px; position:relative; box-shadow:0 12px 24px rgba(255,122,0,0.3); display:flex; flex-direction:column; align-items:center; padding:0.8rem 0.5rem; color:#FFFFFF;">
+                <div style="width:44px; height:18px; background:#0B1F3A; border-radius:0 0 10px 10px;"></div>
+                <!-- 3M Silver Bands -->
+                <div style="width:100%; height:12px; background:#E2E8F0; margin-top:1rem; box-shadow:0 0 8px #FFFFFF;"></div>
+                <div style="width:100%; height:12px; background:#E2E8F0; margin-top:0.75rem; box-shadow:0 0 8px #FFFFFF;"></div>
+                <div style="margin-top:0.6rem; font-size:0.65rem; font-weight:900; color:#0B1F3A; letter-spacing:0.04em;">
+                  BAAODASH
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div>
+              <div class="card-title">09 &amp; 10. Rider Performance Polo &amp; Hi-Vis Vest</div>
+              <div class="card-meta">Royal Blue Dri-Fit &amp; 3M Silver Reflective Road Safety Vest</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MOCKUP 11: MOTORCYCLE DELIVERY BOX -->
+        <div class="showcase-card">
+          <div class="card-canvas canvas-gray">
+            <div class="thermal-box-mock">
+              <div class="thermal-box-lid"></div>
+              <div class="thermal-box-straps">
+                <div class="strap-band"></div>
+                <div class="strap-band"></div>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; z-index:2;">
+                <span style="font-size:0.6rem; font-weight:800; color:#38BDF8;">55L INSULATED</span>
+                <span style="background:#FF7A00; font-size:0.55rem; padding:0.15rem 0.4rem; border-radius:4px; font-weight:800;">FOOD &amp; PARCEL</span>
+              </div>
+              <div style="text-align:center; z-index:2;">
+                <div style="font-family:'Plus Jakarta Sans'; font-size:1.85rem; font-weight:900; letter-spacing:-0.03em;">
+                  <span style="color:#FFFFFF;">BAAO</span><span style="color:#FF7A00;">DASH</span>
+                </div>
+                <div style="font-size:0.65rem; color:#94A3B8; font-weight:700; letter-spacing:0.15em;">
+                  DELIVERING LOCAL FAST
+                </div>
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:0.58rem; color:#64748B; z-index:2; border-top:1px dashed #334155; padding-top:0.4rem;">
+                <span>REFLECTIVE DECALS</span>
+                <span style="color:#4ADE80;">DOT COMPLIANT</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div>
+              <div class="card-title">11. 55L Thermal Motorcycle Delivery Box</div>
+              <div class="card-meta">Heavy-duty Insulated Fiberglass with Waterproof Vinyl Wrap</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MOCKUP 13 & 14: PACKAGING SYSTEM -->
+        <div class="showcase-card">
+          <div class="card-canvas canvas-gray" style="gap: 2rem;">
+            <!-- Kraft Bag -->
+            <div class="kraft-bag-mock">
+              <div class="kraft-bag-handle"></div>
+              <div class="kraft-bag-tape">Verified Fresh • Sealed</div>
+              <div style="margin-top:2rem; text-align:center;">
+                <div style="font-family:'Plus Jakarta Sans'; font-weight:900; font-size:1.2rem; color:#0B1F3A;">
+                  BAAO<span style="color:#FF7A00;">DASH</span>
+                </div>
+                <div style="font-size:0.55rem; font-weight:800; color:#5D4037; letter-spacing:0.1em; margin-top:0.2rem;">
+                  100% RECYCLED KRAFT
+                </div>
+              </div>
+            </div>
+
+            <!-- Parcel Courier Box -->
+            <div style="width:160px; height:140px; background:#D2B48C; border-radius:8px; border:2px solid #8B4513; box-shadow:0 12px 24px rgba(0,0,0,0.15); display:flex; flex-direction:column; justify-content:space-between; padding:0.75rem; position:relative;">
+              <div style="background:#155EEF; color:#FFFFFF; font-size:0.55rem; font-weight:800; padding:0.15rem 0.4rem; border-radius:4px; width:fit-content;">
+                PADALA PARCEL
+              </div>
+              <div style="border:1px dashed #8B4513; padding:0.35rem; font-size:0.55rem; text-align:center; font-weight:700;">
+                BD-TRK-84920
+                <div style="font-size:0.5rem; color:#555;">POBLACION ➔ SAN NICOLAS</div>
+              </div>
+              <div style="font-size:0.52rem; font-weight:800; color:#8B4513; text-align:right;">
+                ZERO PLASTIC POLICY
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div>
+              <div class="card-title">13 &amp; 14. Eco Food Kraft Bag &amp; Courier Parcel</div>
+              <div class="card-meta">Strict Zero Plastic Policy • Tamper-Evident Paper Seals</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MOCKUP 18: PROJECTING STOREFRONT SIGNAGE -->
+        <div class="showcase-card">
+          <div class="card-canvas canvas-gray">
+            <div class="store-sign-mock">
+              <div class="store-sign-bracket"></div>
+              <div style="font-size:2rem; margin-bottom:0.2rem;">⚡</div>
+              <div style="font-family:'Plus Jakarta Sans'; font-size:1.15rem; font-weight:900; letter-spacing:-0.02em;">
+                BAAO<span style="color:#FF7A00;">DASH</span>
+              </div>
+              <div style="font-size:0.58rem; color:#38BDF8; font-weight:800; letter-spacing:0.1em; margin-top:0.2rem;">
+                PARTNER MERCHANT
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div>
+              <div class="card-title">18. Storefront Projecting Lightbox Signage</div>
+              <div class="card-meta">Double-Sided Illuminated Acrylic Sign for Partner Cafes</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MOCKUP 19: THERMAL DELIVERY RECEIPT SLIP -->
+        <div class="showcase-card">
+          <div class="card-canvas canvas-gray">
+            <div class="receipt-slip">
+              <div style="text-align:center; border-bottom:1px dashed #94A3B8; padding-bottom:0.5rem; margin-bottom:0.5rem;">
+                <div style="font-weight:900; font-size:1rem; color:#0B1F3A; font-family:'Plus Jakarta Sans';">BAAODASH DELIVERY</div>
+                <div style="font-size:0.62rem; color:#64748B;">Lokal na Serbisyo • Baao, Cam. Sur</div>
+                <div style="font-size:0.62rem; color:#64748B;">Order: #BD-5216 • Poblacion Zone</div>
+              </div>
+
+              <div style="display:flex; flex-direction:column; gap:0.25rem; border-bottom:1px dashed #94A3B8; padding-bottom:0.5rem; margin-bottom:0.5rem;">
+                <div style="display:flex; justify-content:space-between;">
+                  <span>1x Iced Spanish Latte</span>
+                  <strong>₱120.00</strong>
+                </div>
+                <div style="display:flex; justify-content:space-between;">
+                  <span>1x Butter Croissant</span>
+                  <strong>₱85.00</strong>
+                </div>
+                <div style="display:flex; justify-content:space-between; color:#155EEF;">
+                  <span>Delivery Fare (Poblacion)</span>
+                  <strong>₱50.00</strong>
+                </div>
+              </div>
+
+              <div style="display:flex; justify-content:space-between; font-weight:900; font-size:0.85rem; margin-bottom:0.5rem;">
+                <span>TOTAL AMOUNT (COD)</span>
+                <span style="color:#0B1F3A;">₱255.00</span>
+              </div>
+
+              <div style="background:#F8FAFC; padding:0.35rem; border-radius:4px; font-size:0.58rem; color:#64748B; text-align:center;">
+                Direct Store Pricing • 0% Food Markup<br>
+                Rider: Kuya Jun (MC-9812-CS)
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div>
+              <div class="card-title">19. Official 80mm Thermal Delivery Receipt</div>
+              <div class="card-meta">Zero Prohibited Terms • Direct Price &amp; Fare Breakdown</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- SECTION 6: REGIONAL BRAND EXTENSION ARCHITECTURE                      -->
+    <!-- ===================================================================== -->
+    <section id="section-regional" style="margin-bottom: 4rem;">
+      <div class="section-header">
+        <div class="section-title-box">
+          <span class="section-num">Section 06</span>
+          <h2 class="section-title">Regional Expansion Brand Architecture: [LOCATION] + DASH</h2>
+          <p class="section-desc">
+            A modular naming framework where the parent identity effortlessly adapts across all 5th District Rinconada municipalities (including <strong>RinconaDash</strong>, <strong>NabuaDash</strong>, <strong>IrigaDash</strong>, <strong>BulaDash</strong>, BatoDash, and BuhiDash) while maintaining unified driver fleets, shared app infrastructure, and cross-border brand equity.
+          </p>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE REGIONAL SWITCHER SIMULATOR -->
+      <div class="regional-simulator-box">
+        <div class="reg-sim-controls">
+          <label style="font-size: 0.95rem; font-weight: 800;">Select Regional Municipality:</label>
+          <select id="reg-select" class="reg-sim-select" onchange="updateRegionalDisplay(this.value)">
+            <option value="Baao" selected>📍 Baao ➔ BAAODASH (Pilot Hub)</option>
+            <option value="Rincona">🌐 Regional Umbrella ➔ RINCONADASH</option>
+            <option value="Nabua">📍 Nabua ➔ NABUADASH</option>
+            <option value="Iriga">📍 Iriga City ➔ IRIGADASH</option>
+            <option value="Bula">📍 Bula ➔ BULADASH</option>
+            <option value="Bato">📍 Bato ➔ BATODASH</option>
+            <option value="Buhi">📍 Buhi ➔ BUHIDASH</option>
+          </select>
+        </div>
+
+        <div class="reg-sim-display">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 1.25rem; flex-wrap: wrap;">
+            <!-- Dynamic SVG Symbol -->
+            <svg viewBox="0 0 120 120" width="76" height="76">
+              <image href="assets/brand/logo-symbol.svg" width="120" height="120"/>
+            </svg>
+
+            <!-- Dynamic Live Wordmark -->
+            <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 3.4rem; font-weight: 900; letter-spacing: -0.03em; line-height: 1;">
+              <span id="reg-loc-text" style="color: #0B1F3A;">BAAO</span><span style="color: #FF7A00;">DASH</span>
+            </div>
+          </div>
+
+          <div id="reg-tag-text" style="font-family:'Inter', sans-serif; font-size: 0.85rem; font-weight: 800; color: #64748B; letter-spacing: 0.2em; text-transform: uppercase; margin-top: 1.25rem;">
+            HYPERLOCAL DELIVERY &amp; COMMERCE PLATFORM
+          </div>
+
+          <div id="reg-desc-text" style="font-size: 0.82rem; color: #475569; max-width: 620px; margin-top: 0.75rem; line-height: 1.5;">
+            Serving all 30 barangays in the Municipality of Baao, anchored by direct store pricing and multi-modal courier fleets.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- SECTION 7: 10 STRATEGIC BRAND TAGLINES                                -->
+    <!-- ===================================================================== -->
+    <section id="section-taglines" style="margin-bottom: 4rem;">
+      <div class="section-header">
+        <div class="section-title-box">
+          <span class="section-num">Section 07</span>
+          <h2 class="section-title">10 Strategic Brand Taglines</h2>
+          <p class="section-desc">
+            Calibrated messages tailored for local pride, marketing campaigns, driver recruitment, and official merchant onboarding.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="showcase-card" style="padding: 1.25rem;">
+          <strong style="color:var(--primary); font-size:0.75rem; text-transform:uppercase;">1. Corporate &amp; Institutional</strong>
+          <div style="font-family:'Plus Jakarta Sans'; font-size:1.25rem; font-weight:800; color:var(--navy); margin:0.35rem 0;">
+            “Your Trusted Local Delivery Partner.”
+          </div>
+          <p style="font-size:0.76rem; color:var(--gray-muted);">Primary tagline for official documents, municipal partnerships, and investor decks.</p>
+        </div>
+
+        <div class="showcase-card" style="padding: 1.25rem;">
+          <strong style="color:var(--secondary); font-size:0.75rem; text-transform:uppercase;">2. Action &amp; Road Signage</strong>
+          <div style="font-family:'Plus Jakarta Sans'; font-size:1.25rem; font-weight:800; color:var(--navy); margin:0.35rem 0;">
+            “Delivering Local. Delivering Fast.”
+          </div>
+          <p style="font-size:0.76rem; color:var(--gray-muted);">High-impact headline for motorcycle thermal delivery boxes and highway tarpaulins.</p>
+        </div>
+
+        <div class="showcase-card" style="padding: 1.25rem;">
+          <strong style="color:var(--primary); font-size:0.75rem; text-transform:uppercase;">3. Community Pride</strong>
+          <div style="font-family:'Plus Jakarta Sans'; font-size:1.25rem; font-weight:800; color:var(--navy); margin:0.35rem 0;">
+            “Basta Taga-Baao, Mabilis I-Dash!”
+          </div>
+          <p style="font-size:0.76rem; color:var(--gray-muted);">Conversational social media hook celebrating local Rinconada roots and swift action.</p>
+        </div>
+
+        <div class="showcase-card" style="padding: 1.25rem;">
+          <strong style="color:var(--secondary); font-size:0.75rem; text-transform:uppercase;">4. Customer Convenience</strong>
+          <div style="font-family:'Plus Jakarta Sans'; font-size:1.25rem; font-weight:800; color:var(--navy); margin:0.35rem 0;">
+            “Mula Tindahan Hanggang Pintuan.”
+          </div>
+          <p style="font-size:0.76rem; color:var(--gray-muted);">Focuses on doorstep reliability for elderly residents, busy parents, and offices.</p>
+        </div>
+
+        <div class="showcase-card" style="padding: 1.25rem;">
+          <strong style="color:var(--primary); font-size:0.75rem; text-transform:uppercase;">5. Service Scope</strong>
+          <div style="font-family:'Plus Jakarta Sans'; font-size:1.25rem; font-weight:800; color:var(--navy); margin:0.35rem 0;">
+            “Padala at Pagkain, Hatid Agad sa Inyo.”
+          </div>
+          <p style="font-size:0.76rem; color:var(--gray-muted);">Clearly communicates dual MVP services: parcel courier and restaurant orders.</p>
+        </div>
+
+        <div class="showcase-card" style="padding: 1.25rem;">
+          <strong style="color:var(--secondary); font-size:0.75rem; text-transform:uppercase;">6. Merchant Advocacy</strong>
+          <div style="font-family:'Plus Jakarta Sans'; font-size:1.25rem; font-weight:800; color:var(--navy); margin:0.35rem 0;">
+            “Walang Patong sa Pagkain, Diretso sa Bulsa.”
+          </div>
+          <p style="font-size:0.76rem; color:var(--gray-muted);">Highlights our 0% food commission policy for partner cafes and carinderias.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="copy-toast" class="copy-toast">
+    <span>✅</span>
+    <span id="toast-msg">Copied to clipboard!</span>
+  </div>
+
+  <script>
+    /* ========================================================================= */
+    /* AUDIO SYNTHESIZER FOR TACTILE FEEDBACK                                    */
+    /* ========================================================================= */
+    let audioCtx = null;
+    function playChime(freq1 = 587.33, freq2 = 880) {
+      try {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        const now = audioCtx.currentTime;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq1, now);
+        osc.frequency.exponentialRampToValueAtTime(freq2, now + 0.1);
+        gain.gain.setValueAtTime(0.06, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.22);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start(now);
+        osc.stop(now + 0.25);
+      } catch (e) {}
+    }
+
+    /* ========================================================================= */
+    /* CLIPBOARD HELPERS & TOAST                                                 */
+    /* ========================================================================= */
+    function showToast(msg) {
+      const toast = document.getElementById('copy-toast');
+      const text = document.getElementById('toast-msg');
+      text.textContent = msg;
+      toast.classList.add('show');
+      playChime(659, 987);
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2200);
+    }
+
+    function copyHex(hex) {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(hex);
+      }
+      showToast(`Copied color swatch: ${hex}`);
+    }
+
+    function copySvgAsset(path) {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(path);
+      }
+      showToast(`Asset path copied: ${path}`);
+    }
+
+    /* ========================================================================= */
+    /* REGIONAL EXPANSION LIVE SIMULATOR                                         */
+    /* ========================================================================= */
+    const REGIONAL_CONFIG = {
+      Baao: {
+        prefix: 'BAAO',
+        tag: 'HYPERLOCAL DELIVERY & COMMERCE PLATFORM',
+        desc: 'Serving all 30 barangays in the Municipality of Baao, anchored by direct store pricing and multi-modal courier fleets.'
+      },
+      Rincona: {
+        prefix: 'RINCONA',
+        tag: 'REGIONAL LOGISTICS & COMMERCE NETWORK',
+        desc: '5th Congressional District Master Fleet covering Baao, Nabua, Iriga City, Bula, Bato, and Buhi under one unified operational standard.'
+      },
+      Nabua: {
+        prefix: 'NABUA',
+        tag: 'MUNICIPAL COURIER & FOOD EXPRESS',
+        desc: 'Connecting schools, commercial junctions, and residential barangays across the Municipality of Nabua.'
+      },
+      Iriga: {
+        prefix: 'IRIGA',
+        tag: 'URBAN LOGISTICS & ESSENTIALS DISPATCH',
+        desc: 'Connecting Iriga City center commerce, wholesale depots, and mountain foot barangays with rapid motorcycle couriers.'
+      },
+      Bula: {
+        prefix: 'BULA',
+        tag: 'AGRICULTURAL & COMMODITY TRANSIT',
+        desc: 'Connecting agricultural produce, local groceries, and coastal/rural barangays across the Municipality of Bula.'
+      },
+      Bato: {
+        prefix: 'BATO',
+        tag: 'LAKESIDE COURIER & FOOD EXPRESS',
+        desc: 'Connecting lake ports, fish trade hubs, and lakeside residential communities across the Municipality of Bato.'
+      },
+      Buhi: {
+        prefix: 'BUHI',
+        tag: 'HIGHLAND COURIER & RESORT DELIVERIES',
+        desc: 'Specialized courier service navigating highland roads, resorts, and artisan culinary kitchens across the Municipality of Buhi.'
+      }
+    };
+
+    function updateRegionalDisplay(val) {
+      const conf = REGIONAL_CONFIG[val] || REGIONAL_CONFIG.Baao;
+      document.getElementById('reg-loc-text').textContent = conf.prefix;
+      document.getElementById('reg-tag-text').textContent = conf.tag;
+      document.getElementById('reg-desc-text').textContent = conf.desc;
+      playChime(523, 784);
+    }
+  </script>
+</body>
+</html>

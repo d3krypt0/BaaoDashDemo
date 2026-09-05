@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <!-- BaaoDash 21 Consistent Vector Brand Icons (24x24 Grid, 2px Stroke, Rounded Caps) -->
+
+  <!-- 1. Delivery -->
+  <symbol id="icon-delivery" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="1" y="3" width="15" height="13" rx="2"/>
+    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+    <circle cx="5.5" cy="18.5" r="2.5" stroke="#FF7A00" fill="#FF7A00"/>
+    <circle cx="18.5" cy="18.5" r="2.5" stroke="#FF7A00" fill="#FF7A00"/>
+  </symbol>
+
+  <!-- 2. Motorcycle -->
+  <symbol id="icon-motorcycle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="5" cy="16" r="3"/>
+    <circle cx="19" cy="16" r="3"/>
+    <path d="M12 16h-2l-3-6h5l2 3h3"/>
+    <path d="M17 10l-1-4h3"/>
+    <circle cx="12" cy="7" r="1.5" fill="#FF7A00" stroke="#FF7A00"/>
+  </symbol>
+
+  <!-- 3. Package -->
+  <symbol id="icon-package" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16.5 9.4L7.55 4.24a2 2 0 0 0-2.1 0L2.5 5.95a2 2 0 0 0-1 1.73v8.64a2 2 0 0 0 1 1.73l9.45 5.45a2 2 0 0 0 2.1 0l7.45-4.29a2 2 0 0 0 1-1.73V7.68a2 2 0 0 0-1-1.73L16.5 9.4z"/>
+    <polyline points="3.29 7 12 12 20.71 7"/>
+    <line x1="12" y1="22" x2="12" y2="12"/>
+    <circle cx="12" cy="12" r="2" fill="#FF7A00" stroke="#FF7A00"/>
+  </symbol>
+
+  <!-- 4. Food -->
+  <symbol id="icon-food" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+    <line x1="6" y1="1" x2="6" y2="4"/>
+    <line x1="10" y1="1" x2="10" y2="4"/>
+    <line x1="14" y1="1" x2="14" y2="4"/>
+    <circle cx="10" cy="13" r="1.5" fill="#FF7A00" stroke="#FF7A00"/>
+  </symbol>
+
+  <!-- 5. Grocery -->
+  <symbol id="icon-grocery" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="9" cy="21" r="1"/>
+    <circle cx="20" cy="21" r="1"/>
+    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+    <path d="M12 9l2 2 4-4" stroke="#FF7A00"/>
+  </symbol>
+
+  <!-- 6. Medicine -->
+  <symbol id="icon-medicine" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="7" width="18" height="14" rx="3"/>
+    <path d="M8 7V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v3"/>
+    <line x1="12" y1="11" x2="12" y2="17" stroke="#FF7A00"/>
+    <line x1="9" y1="14" x2="15" y2="14" stroke="#FF7A00"/>
+  </symbol>
+
+  <!-- 7. Documents -->
+  <symbol id="icon-documents" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+    <polyline points="14 2 14 8 20 8"/>
+    <line x1="16" y1="13" x2="8" y2="13"/>
+    <line x1="16" y1="17" x2="8" y2="17"/>
+    <polyline points="10 9 9 9 8 9" stroke="#FF7A00"/>
+  </symbol>
+
+  <!-- 8. Location -->
+  <symbol id="icon-location" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+    <circle cx="12" cy="10" r="3" fill="#FF7A00" stroke="#FF7A00"/>
+  </symbol>
+
+  <!-- 9. Tracking -->
+  <symbol id="icon-tracking" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/>
+    <path d="M12 6v6l4 2" stroke="#FF7A00"/>
+    <circle cx="12" cy="12" r="2" fill="#FF7A00"/>
+  </symbol>
+
+  <!-- 10. Payment -->
+  <symbol id="icon-payment" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="1" y="4" width="22" height="16" rx="2"/>
+    <line x1="1" y1="10" x2="23" y2="10"/>
+    <circle cx="6" cy="15" r="1.5" fill="#FF7A00" stroke="#FF7A00"/>
+    <line x1="10" y1="15" x2="14" y2="15"/>
+  </symbol>
+
+  <!-- 11. Customer -->
+  <symbol id="icon-customer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+    <circle cx="12" cy="7" r="4"/>
+    <circle cx="12" cy="7" r="1.5" fill="#FF7A00" stroke="#FF7A00"/>
+  </symbol>
+
+  <!-- 12. Rider -->
+  <symbol id="icon-rider" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="8" r="4"/>
+    <path d="M5 20v-1a7 7 0 0 1 14 0v1"/>
+    <path d="M8 8a4 4 0 0 1 8 0" stroke="#FF7A00" stroke-width="2.5"/>
+    <line x1="10" y1="18" x2="14" y2="18" stroke="#FF7A00"/>
+  </symbol>
+
+  <!-- 13. Store -->
+  <symbol id="icon-store" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+    <polyline points="9 22 9 12 15 12 15 22"/>
+    <path d="M3 9h18" stroke="#FF7A00"/>
+  </symbol>
+
+  <!-- 14. Order -->
+  <symbol id="icon-order" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 2H6a2 2 0 0 0-2 2v16l3-1.5 3 1.5 3-1.5 3 1.5 3-1.5 3 1.5V4a2 2 0 0 0-2-2z"/>
+    <line x1="8" y1="8" x2="16" y2="8"/>
+    <line x1="8" y1="12" x2="14" y2="12"/>
+    <circle cx="16" cy="12" r="1.5" fill="#FF7A00" stroke="#FF7A00"/>
+  </symbol>
+
+  <!-- 15. Pickup -->
+  <symbol id="icon-pickup" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+    <polyline points="12 15 12 7 9 10" stroke="#FF7A00"/>
+    <polyline points="12 7 15 10" stroke="#FF7A00"/>
+  </symbol>
+
+  <!-- 16. Drop-off -->
+  <symbol id="icon-dropoff" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+    <polyline points="12 9 12 17 9 14" stroke="#FF7A00"/>
+    <polyline points="12 17 15 14" stroke="#FF7A00"/>
+  </symbol>
+
+  <!-- 17. Support -->
+  <symbol id="icon-support" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
+    <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
+    <circle cx="12" cy="12" r="1.5" fill="#FF7A00" stroke="#FF7A00"/>
+  </symbol>
+
+  <!-- 18. Phone -->
+  <symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+    <circle cx="16" cy="6" r="2" fill="#FF7A00" stroke="#FF7A00"/>
+  </symbol>
+
+  <!-- 19. Clock -->
+  <symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"/>
+    <polyline points="12 6 12 12 16 14" stroke="#FF7A00"/>
+  </symbol>
+
+  <!-- 20. Map -->
+  <symbol id="icon-map" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/>
+    <line x1="8" y1="2" x2="8" y2="18"/>
+    <line x1="16" y1="6" x2="16" y2="22"/>
+    <circle cx="12" cy="10" r="1.5" fill="#FF7A00" stroke="#FF7A00"/>
+  </symbol>
+
+  <!-- 21. Route -->
+  <symbol id="icon-route" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="6" cy="19" r="3"/>
+    <circle cx="18" cy="5" r="3" fill="#FF7A00" stroke="#FF7A00"/>
+    <path d="M12 19h4.5a3.5 3.5 0 0 0 0-7h-9a3.5 3.5 0 0 1 0-7H12"/>
+  </symbol>
+</svg>

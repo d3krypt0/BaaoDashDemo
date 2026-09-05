@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 110" width="480" height="110" fill="none">
+  <!-- BaaoDash Reverse White Logo Lockup (For Dark Backgrounds) -->
+  <g id="logo-symbol-rev" transform="translate(15, 15)">
+    <path d="M10 6C10 2.686 12.686 0 16 0H42C56.359 0 68 11.641 68 26C68 36.326 61.988 45.247 53.309 49.399C64.183 53.064 72 63.323 72 75.5C72 89.859 60.359 90 46 90H16C12.686 90 10 87.314 10 84V6Z" fill="#FFFFFF"/>
+    <path d="M26 14H40C46.627 14 52 19.373 52 26C52 32.627 46.627 38 40 38H26V14Z" fill="#0B1F3A"/>
+    <path d="M26 52H44C50.627 52 56 57.373 56 64C56 70.627 50.627 76 44 76H26V52Z" fill="#0B1F3A"/>
+    <path d="M36 38L54 48L36 58L42 48L36 38Z" fill="#FF7A00"/>
+    <circle cx="70" cy="48" r="4.5" fill="#FF7A00"/>
+  </g>
+
+  <g id="wordmark-rev" transform="translate(115, 68)">
+    <text font-family="'Plus Jakarta Sans', 'Inter', 'Outfit', sans-serif" font-size="44" font-weight="900" letter-spacing="-0.03em">
+      <tspan x="0" y="0" fill="#FFFFFF">BAAO</tspan><tspan fill="#FF7A00" dx="1">DASH</tspan>
+    </text>
+    <text x="3" y="24" font-family="'Inter', sans-serif" font-size="11.5" font-weight="700" fill="#94A3B8" letter-spacing="0.22em">
+      LOCAL DELIVERY &amp; ERRANDS
+    </text>
+  </g>
+</svg>

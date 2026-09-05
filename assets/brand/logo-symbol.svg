@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" fill="none">
+  <!-- BaaoDash Core Logo Symbol: Letter 'B' + Location Pin + Speed Vector + Route Connection -->
+  <defs>
+    <linearGradient id="bdBlueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#155EEF"/>
+      <stop offset="100%" stop-color="#0040C1"/>
+    </linearGradient>
+    <linearGradient id="bdOrangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF922E"/>
+      <stop offset="100%" stop-color="#FF7A00"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Main Structural Spine & Pin Loop (Deep Blue) -->
+  <path d="M26 18C26 14.6863 28.6863 12 32 12H58C73.464 12 86 24.536 86 40C86 51.1568 79.4893 60.7915 70.0883 65.2307C81.8239 69.1824 90.3333 80.2647 90.3333 93.3333C90.3333 103.642 82.0125 108 71.6667 108H32C28.6863 108 26 105.314 26 102V18Z" fill="#155EEF"/>
+
+  <!-- Upper Negative Pin Core (White Inner Opening) -->
+  <path d="M44 26H56C63.732 26 70 32.268 70 40C70 47.732 63.732 54 56 54H44V26Z" fill="#FFFFFF"/>
+
+  <!-- Lower Negative Route Sweeping Void -->
+  <path d="M44 68H60C67.732 68 74 74.268 74 82C74 89.732 67.732 94 60 94H44V68Z" fill="#FFFFFF"/>
+
+  <!-- Dynamic Speed Arrow & Active Delivery Waypoint (Bright Orange) -->
+  <!-- Integrates an aerodynamic forward arrow seamlessly across the center waist -->
+  <path d="M50 48L68 61L50 74L58 61L50 48Z" fill="#FF7A00"/>
+  <circle cx="86" cy="61" r="5" fill="#FF7A00"/>
+</svg>
