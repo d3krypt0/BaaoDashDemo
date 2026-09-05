@@ -21,7 +21,8 @@ This document serves as the single source of truth for the **BaaoDash** (and fut
 ```
 d:/Antigravity/BaaoLocalDelivery/
 ├── GEMINI.md                               # This authoritative project manual & rules
-├── BaaoDash_MVP_Prototype.html            # Primary Interactive 4-Phone Simulator & Production PWA
+├── BaaoDash_MVP_Prototype.html            # Primary Interactive 5-Phone Simulator & Production PWA
+├── BaaoDash_Onboarding_Demo.html           # Multi-Persona Onboarding Mobile UI Demo (Customer, Merchant, Rider)
 ├── BaaoDash_Business_Specification.md      # 1,000+ line master operational blueprint & financial model
 ├── BaaoDash_Business_Model_Infographic.html# Interactive visual infographic of business model & unit economics
 ├── BaaoDash_Poster_Concept.jpg             # High-resolution marketing & brand concept poster
@@ -30,8 +31,9 @@ d:/Antigravity/BaaoLocalDelivery/
     ├── test_ui.js                          # Compiles JS & verifies 23 critical DOM IDs
     ├── test_ljk_logic.js                   # LJK single-product & tiered wholesale/retail pricing audit
     ├── test_directory.js                   # Grab-style merchant directory & filter tests
-    ├── test_multi_phone_lifecycle.js       # 4-phone simultaneous real-time state propagation test
-    └── test_autofit.js                     # Viewport scaling & responsive auto-fit test
+    ├── test_multi_phone_lifecycle.js       # 5-phone simultaneous real-time state propagation test
+    ├── test_autofit.js                     # Viewport scaling & responsive auto-fit test
+    └── test_onboarding_audit.js            # Multi-persona onboarding verification & audit test
 ```
 
 ---
@@ -162,11 +164,14 @@ node tests/test_multi_phone_lifecycle.js
 
 # 6. Verify responsive auto-fit viewport scaling
 node tests/test_autofit.js
+
+# 7. Verify multi-persona onboarding suite & clean UI
+node tests/test_onboarding_audit.js
 ```
 
 To run the full suite in a single command:
 ```powershell
-node tests/test_production_audit.js; node tests/test_ui.js; node tests/test_ljk_logic.js; node tests/test_directory.js; node tests/test_multi_phone_lifecycle.js; node tests/test_autofit.js
+node tests/test_production_audit.js; node tests/test_ui.js; node tests/test_ljk_logic.js; node tests/test_directory.js; node tests/test_multi_phone_lifecycle.js; node tests/test_autofit.js; node tests/test_onboarding_audit.js
 ```
 
 ### Local Dev Server
