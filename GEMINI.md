@@ -23,7 +23,6 @@ d:/Antigravity/BaaoLocalDelivery/
 ├── GEMINI.md                               # This authoritative project manual & rules
 ├── BaaoDash_MVP_Prototype.html            # Primary Interactive 5-Phone Simulator & Multi-Device Harness
 ├── BaaoDash_PWA.html                      # Production Progressive Web App (PWA) for all browsers & devices
-├── app.html                               # Standalone PWA Alias & Vercel Root Route
 ├── manifest.webmanifest                   # W3C PWA Manifest with icons, theme colors & shortcuts
 ├── sw.js                                  # Service Worker (offline cache, push events, background sync)
 ├── BaaoDash_Onboarding_Demo.html           # Multi-Persona Onboarding Mobile UI Demo (Customer, Merchant, Rider)
